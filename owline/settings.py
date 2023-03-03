@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'owline',
+    'home',
+    'forum'
 ]
 
 SITE_ID = 1
