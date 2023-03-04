@@ -20,7 +20,7 @@
                                     <i class="fa-solid fa-caret-up"></i>
                                 </button>
                                 <div class="vote">{{ question.votes }}</div>
-                                <button type="button" class="down-button btn"
+                                <button type="button" class="downvote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
@@ -28,7 +28,7 @@
                             </div>
                             <div class="vr"></div>
                             <div class="col-10 card-body">
-                                <a href="#"
+                                <a href="{% url 'question' question.slug %}"
                                     class="question-link text-decoration-none">
                                     <h5 class="card-title"> {{ question.title }}
                                     </h5>

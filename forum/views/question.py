@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, View
 from ..models import Question
 
 
@@ -8,3 +8,13 @@ class QuestionList(generic.ListView):
     queryset = Question.objects.filter(archive=False).order_by('-created_on')
     template_name = 'index.html'
     paginated_by = 5
+
+
+class QuestionDetail(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Question.objects.filter(archive=False)
+        question = get_object_or_404(queryset, slug=slug)
+        answers = question.answers.filter(archive=False).order_by('votes')
+        context = {'question': question, 'answers': answers}
+        return render(request, "question.html", context)

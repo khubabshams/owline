@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="card question-detail-card">
+                <div class="card-header">
+                    Posted by {{ question.created_by }} on
+                    {{ question.created_on }}
+                </div>
+                <div class="row">
+                    <div class="col-1 text-center">
+                        <button type="button" class="upvote-button btn"
+                            data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Upvote">
+                            <i class="fa-solid fa-caret-up"></i>
+                        </button>
+                        <div class="vote">{{ question.votes }}</div>
+                        <button type="button" class="downvote-button btn"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            title="Downvote">
+                            <i class="fa-solid fa-caret-down"></i>
+                        </button>
+                    </div>
+                    <div class="vr"></div>
+                    <div class="col-10 card-body">
+                        <h5 class="card-title">{{ question.title }}</h5>
+                        <p class="card-text">{{ question.body }}</p>
+                    </div>
+                </div>
+            </div>
+            {% for answer in answers %}
+            <div class="card answer-card">
+                <div class="card-body">
+                    <p class="card-text">{{ answer.body }}</p>
+                    <br>
+                    <div class="row">
+                        <div class="col-1">
+                            <button type="button" class="helpful-button btn"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" title="Helpful">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                            </button>
+                        </div>
+                        <div class="col-1">
+                            <div class="vote">{{ answer.votes }}</div>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="unhelpful-button btn"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" title="Not Helpful">
+                                <i class="fa-solid fa-thumbs-down"></i>
+                            </button>
+                        </div>
+                        <div class="col-9">
+                            <div class="text-muted">
+                                <p>
+                                    {{ answer.created_by }}
+                                    {{ answer.created_on }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
