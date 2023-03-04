@@ -11,4 +11,4 @@ class BasePost(models.Model):
     modified_on = models.DateTimeField(auto_now=True)
     body = models.TextField()
     archive = models.BooleanField(default=False)
-    votes = models.IntegerField()
+    votes = models.IntegerField(default=0)

@@ -7,21 +7,40 @@
 
         <div class="col-12">
 
-            {% for question in questions %}
+            {% for question in question_list %}
             <div class="row">
                 <div class="col-12">
-                    <a href="#" class="question-link">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"> {{ question.title }}
-                                </h5>
-                                <p class="card-text">{{ question.body }}</p>
-                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                                <p class="card-text text-muted">Posted by {{
-                                    question.created_by }}</p>
+
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-1 text-center">
+                                <button type="button" class="upvote-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Upvote">
+                                    <i class="fa-solid fa-caret-up"></i>
+                                </button>
+                                <div class="vote">{{ question.votes }}</div>
+                                <button type="button" class="down-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Downvote">
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </button>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="col-10 card-body">
+                                <a href="#"
+                                    class="question-link text-decoration-none">
+                                    <h5 class="card-title"> {{ question.title }}
+                                    </h5>
+                                    <p class="card-text">{{ question.body }}</p>
+                                    <hr class="hr" />
+                                    <p class="card-text text-muted">Posted by
+                                        {{ question.created_by }} on
+                                        {{ question.created_on }}</p>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
