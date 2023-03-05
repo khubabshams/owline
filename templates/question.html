@@ -54,7 +54,7 @@
                     <div class="vr"></div>
                     <div class="col-10 card-body">
                         <h5 class="card-title">{{ question.title }}</h5>
-                        <p class="card-text">{{ question.body }}</p>
+                        <p class="card-text question-text mb-3">{{ question.body }}</p>
                     </div>
                 </div>
             </div>
@@ -62,12 +62,9 @@
             <!-- Posted Answers -->
             {% for answer in answers %}
             <div class="card answer-card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-10">
-                            <p class="card-text">{{ answer.body }}</p>
-                        </div>
-                        <div class="col-2">
+                <div class="offset-1 card-body">
+                    <div class="row mb-3">
+                        <div class="offset-10 col-2">
                             <ul
                                 class="answer-options list-group list-group-horizontal">
                                 <li class="list-group-item"><a href="#"
@@ -86,7 +83,13 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <p class="card-text answer-text ">{{ answer.body }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
                         <div class="col-1">
                             <button type="button" class="helpful-button btn"
                                 data-bs-toggle="tooltip"
@@ -104,7 +107,7 @@
                                 <i class="fa-solid fa-thumbs-down"></i>
                             </button>
                         </div>
-                        <div class="col-9">
+                        <div class="col-7">
                             <div class="row">
                                 <div class="col-6 text-muted">
                                     <p>
