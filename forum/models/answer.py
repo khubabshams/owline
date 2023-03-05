@@ -9,7 +9,7 @@ class Answer(BasePost):
                                          related_name='answers')
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['-votes']
 
     def __str__(self):
         return self.body
