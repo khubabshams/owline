@@ -2,11 +2,14 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div class="container">
     <div class="row">
 
         <div class="col-12">
 
+            <!-- Question Content -->
             <div class="card question-detail-card">
                 <div class="card-header">
                     Posted by {{ question.created_by }} on
@@ -33,6 +36,22 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Answer Question -->
+            <div class="col-md-4 card answer-input">
+                <div class="card-body">
+                    <form method="post">
+                        {{ answer_form | crispy }}
+
+                        {% csrf_token %}
+
+                        <button type="submit"
+                            class="btn btn-secondary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Posted Answers -->
             {% for answer in answers %}
             <div class="card answer-card">
                 <div class="card-body">
