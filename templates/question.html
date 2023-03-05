@@ -12,8 +12,30 @@
             <!-- Question Content -->
             <div class="card question-detail-card">
                 <div class="card-header">
-                    Posted by {{ question.created_by }} on
-                    {{ question.created_on }}
+                    <div class="row">
+                        <div class="col-10">
+                            Posted by {{ question.created_by }} on
+                            {{ question.created_on }}
+                        </div>
+                        <div class="col-2">
+                            <ul
+                                class="question-options list-group list-group-horizontal">
+                                <li class="list-group-item"><a href="#"
+                                        id="edit-question"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#editQuestionModal"
+                                        data-bs-id="{{ question.id }}"
+                                        data-bs-title="{{ question.title }}"
+                                        data-bs-body="{{ question.body }}">Improve</a>
+                                </li>
+                                <li class="list-group-item"><a href="#"
+                                        id="delete-question">Delete</i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="row">
                     <div class="col-1 text-center">
@@ -37,26 +59,33 @@
                 </div>
             </div>
 
-            <!-- Answer Question -->
-            <div class="col-md-4 card answer-input">
-                <div class="card-body">
-                    <form method="post">
-                        {{ answer_form | crispy }}
-
-                        {% csrf_token %}
-
-                        <button type="submit"
-                            class="btn btn-secondary">Submit</button>
-                    </form>
-                </div>
-            </div>
-
             <!-- Posted Answers -->
             {% for answer in answers %}
             <div class="card answer-card">
                 <div class="card-body">
-                    <p class="card-text">{{ answer.body }}</p>
-                    <br>
+                    <div class="row">
+                        <div class="col-10">
+                            <p class="card-text">{{ answer.body }}</p>
+                        </div>
+                        <div class="col-2">
+                            <ul
+                                class="answer-options list-group list-group-horizontal">
+                                <li class="list-group-item"><a href="#"
+                                        id="edit-answer"><i
+                                            class="fa-solid fa-pencil"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#editAnswerModal"
+                                            data-bs-id="{{ answer.id }}"
+                                            data-bs-body="{{ answer.body }}"></i></a>
+                                </li>
+                                <li class="list-group-item"><a href="#"
+                                        id="delete-answer"><i
+                                            class="fa-solid fa-trash"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-1">
                             <button type="button" class="helpful-button btn"
@@ -76,11 +105,13 @@
                             </button>
                         </div>
                         <div class="col-9">
-                            <div class="text-muted">
-                                <p>
-                                    {{ answer.created_by }}
-                                    {{ answer.created_on }}
-                                </p>
+                            <div class="row">
+                                <div class="col-6 text-muted">
+                                    <p>
+                                        {{ answer.created_by }}
+                                        {{ answer.created_on }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,9 +121,110 @@
 
             {% endfor %}
 
+            <!-- Answer Question -->
+            <div class="col-md-4 card answer-input">
+                <div class="card-header">
+                    <p>Your Answer:</p>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {{ answer_form.as_table }}
+
+                        {% csrf_token %}
+
+                        <button type="submit"
+                            class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 
 </div>
 
+<div class="modal fade" id="editAnswerModal" tabindex="-1"
+    aria-labelledby="editAnswerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editAnswerModalLabel">Edit an Answer
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="edit-answer-form">
+                    {% csrf_token %}
+
+                    {{ answer_form|crispy }}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit"
+                            class="btn btn-success">Confirm</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="editQuestionModal" tabindex="-1"
+    aria-labelledby="editQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editQuestionModalLabel">Edit a
+                    Question</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="edit-question-form">
+                    {% csrf_token %}
+
+                    {{ question_form|crispy }}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit"
+                            class="btn btn-success">Confirm</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var editAnswerModal = document.getElementById('editAnswerModal');
+    var editQuestionModal = document.getElementById('editQuestionModal');
+
+    editQuestionModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var title = button.getAttribute('data-bs-title');
+        var body = button.getAttribute('data-bs-body');
+
+        var modalTitleInput = editQuestionModal.querySelector('input[name="title"]');
+        var modalBodyInput = editQuestionModal.querySelector('textarea[name="body"]');
+
+        modalTitleInput.value = title;
+        modalBodyInput.value = body;
+    });
+
+    editAnswerModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var body = button.getAttribute('data-bs-body');
+
+        var modalBodyInput = editAnswerModal.querySelector('textarea[name="body"]');
+        modalBodyInput.value = body;
+    });
+
+</script>
 {%endblock%}

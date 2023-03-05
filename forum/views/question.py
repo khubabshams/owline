@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from ..models import Question
-from ..forms import AnswerForm
+from ..forms import AnswerForm, QuestionForm
 
 
 class QuestionList(generic.ListView):
@@ -20,7 +20,8 @@ class QuestionDetail(View):
         context = {
             'question': question,
             'answers': answers,
-            'answer_form': AnswerForm()
+            'answer_form': AnswerForm(),
+            'question_form': QuestionForm(),
         }
         return render(request, "question.html", context)
 
@@ -28,7 +29,8 @@ class QuestionDetail(View):
         queryset = Question.objects.filter(archive=False)
         question = get_object_or_404(queryset, slug=slug)
         answers = question.answers.filter(archive=False).order_by('votes')
-
+        print("-------->> post", request.POST)
+        raise
         answer_form = AnswerForm(data=request.POST)
         answer = answer_form.save(commit=False)
         answer.created_by = request.user
@@ -45,6 +47,7 @@ class QuestionDetail(View):
         context = {
             'question': question,
             'answers': answers,
-            'answer_form': AnswerForm()
+            'answer_form': AnswerForm(),
+            'question_form': QuestionForm(),
         }
         return render(request, "question.html", context)
