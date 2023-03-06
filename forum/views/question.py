@@ -5,7 +5,7 @@ from ..forms import AnswerForm, QuestionForm
 
 
 class QuestionList(generic.ListView):
-    model: Question
+    model = Question
     queryset = Question.objects.filter(archive=False).order_by('-created_on')
     template_name = 'index.html'
     paginated_by = 5
