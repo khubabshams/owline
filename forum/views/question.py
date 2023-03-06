@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DeleteView
 from django.urls import reverse
 
 from ..models import Question
@@ -22,6 +22,15 @@ class QuestionUpdate(UpdateView):
         return reverse('question', current_app='forum', kwargs={
             'slug': self.object.slug,
         })
+
+
+class QuestionDelete(DeleteView):
+    model = Question
+    template_name = 'confirm_delete.html'
+    success_url = '/'
+
+    def get_success_url(self):
+        return reverse('home', current_app='forum', kwargs={})
 
 
 class QuestionDetail(View):

@@ -20,15 +20,20 @@
                         <div class="col-2">
                             <ul
                                 class="question-options list-group list-group-horizontal">
-                                <li class="list-group-item"><a href="#"
-                                        id="edit-question"
+                                <li class="list-group-item">
+                                    <a href="#" id="edit-question"
                                         data-bs-toggle="modal"
                                         data-bs-target="#editQuestionModal"
                                         data-bs-title="{{ question.title }}"
-                                        data-bs-body="{{ question.body }}">Improve</a>
+                                        data-bs-body="{{ question.body }}">
+                                        Improve
+                                    </a>
                                 </li>
-                                <li class="list-group-item"><a href="#"
-                                        id="delete-question">Delete</i></a>
+                                <li class="list-group-item">
+                                    <a href="{% url 'question_delete' question.slug %}"
+                                        id="delete-question">
+                                        Delete
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -53,7 +58,9 @@
                     <div class="vr"></div>
                     <div class="col-10 card-body">
                         <h5 class="card-title">{{ question.title }}</h5>
-                        <p class="card-text question-text mb-3">{{ question.body }}</p>
+                        <p class="card-text question-text mb-3">
+                            {{ question.body }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -66,17 +73,20 @@
                         <div class="offset-10 col-2">
                             <ul
                                 class="answer-options list-group list-group-horizontal">
-                                <li class="list-group-item"><a href="#"
-                                        id="edit-answer"><i
-                                            class="fa-solid fa-pencil"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#editAnswerModal"
-                                            data-bs-id="{{ answer.id }}"
-                                            data-bs-body="{{ answer.body }}"></i></a>
+                                <li class="list-group-item">
+                                    <a href="#" data-bs-toggle="modal"
+                                        data-bs-target="#editAnswerModal"
+                                        data-bs-answerid="{{ answer.id }}"
+                                        data-bs-body="{{ answer.body }}"
+                                        id="edit-answer">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
                                 </li>
-                                <li class="list-group-item"><a href="#"
-                                        id="delete-answer"><i
-                                            class="fa-solid fa-trash"></i></a>
+                                <li class="list-group-item">
+                                    <a href="{% url 'answer_delete' question.slug answer.id %}"
+                                        id="answer-question">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -84,7 +94,9 @@
 
                     <div class="row mb-3">
                         <div class="col-12">
-                            <p class="card-text answer-text ">{{ answer.body }}</p>
+                            <p class="card-text answer-text ">
+                                {{ answer.body }}
+                            </p>
                         </div>
                     </div>
 
@@ -217,7 +229,7 @@
         var modalBodyInput = editQuestionModal.querySelector('textarea[name="body"]');
         var questionForm = editQuestionModal.querySelector('form');
 
-        questionForm.action = `${window.location.href}update/`
+        questionForm.action = `${window.location.href}update/`;
         modalTitleInput.value = title;
         modalBodyInput.value = body;
     });
@@ -225,8 +237,11 @@
     editAnswerModal.addEventListener('show.bs.modal', function (event) {
         var button = event.relatedTarget;
         var body = button.getAttribute('data-bs-body');
+        var answerForm = editAnswerModal.querySelector('form');
 
         var modalBodyInput = editAnswerModal.querySelector('textarea[name="body"]');
+
+        answerForm.action = `${window.location.href}${button.getAttribute('data-bs-answerid')}/update/`;
         modalBodyInput.value = body;
     });
 
