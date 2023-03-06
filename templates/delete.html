@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+
+            <!-- Question Content -->
+            <div class="card question-detail-card">
+                <div class="card-header">
+                    <h3>Delete Confirmation</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">{% csrf_token %}
+                        <p>Are you sure you want to delete "{{ object }}"?</p>
+                        <input type="submit" value="Confirm">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {%endblock%}
