@@ -24,7 +24,6 @@
                                         id="edit-question"
                                         data-bs-toggle="modal"
                                         data-bs-target="#editQuestionModal"
-                                        data-bs-id="{{ question.id }}"
                                         data-bs-title="{{ question.title }}"
                                         data-bs-body="{{ question.body }}">Improve</a>
                                 </li>
@@ -130,7 +129,7 @@
                     <p>Your Answer:</p>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" id="new-answer-form">
                         {{ answer_form.as_table }}
 
                         {% csrf_token %}
@@ -216,7 +215,9 @@
 
         var modalTitleInput = editQuestionModal.querySelector('input[name="title"]');
         var modalBodyInput = editQuestionModal.querySelector('textarea[name="body"]');
+        var questionForm = editQuestionModal.querySelector('form');
 
+        questionForm.action = `${window.location.href}update/`
         modalTitleInput.value = title;
         modalBodyInput.value = body;
     });

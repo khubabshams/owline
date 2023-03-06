@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
+from django.views.generic import UpdateView
+from django.urls import reverse
+
 from ..models import Question
 from ..forms import AnswerForm, QuestionForm
 
@@ -9,6 +12,16 @@ class QuestionList(generic.ListView):
     queryset = Question.objects.filter(archive=False).order_by('-created_on')
     template_name = 'index.html'
     paginated_by = 5
+
+
+class QuestionUpdate(UpdateView):
+    fields = ['title', 'body']
+    model = Question
+
+    def get_success_url(self):
+        return reverse('question', current_app='forum', kwargs={
+            'slug': self.object.slug,
+        })
 
 
 class QuestionDetail(View):
