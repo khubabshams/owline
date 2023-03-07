@@ -9,13 +9,14 @@
 
         <div class="col-12">
 
-            <!-- Question Content -->
-            <div class="card question-detail-card">
+            <!-- Delete Content -->
+            <div class="card delete-content-card">
                 <div class="card-header">
                     <h3>Delete Confirmation</h3>
                 </div>
                 <div class="card-body">
-                    <form method="post">{% csrf_token %}
+                    <form method="post" id="delete-form">
+                        {% csrf_token %}
                         <p>Are you sure you want to delete "{{ object }}"?</p>
                         <input type="submit" value="Confirm">
                     </form>

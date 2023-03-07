@@ -9,15 +9,19 @@
 
         <div class="col-12">
 
-            <!-- Question Content -->
-            <div class="card question-detail-card">
+            <!-- Question Create -->
+            <div class="card question-create-card">
                 <div class="card-header">
-                    <h3>Delete Confirmation</h3>
+                    <h3>Ask a Question</h3>
                 </div>
                 <div class="card-body">
-                    <form method="post">{% csrf_token %}
-                        <p>Are you sure you want to delete "{{ object }}"?</p>
-                        <input type="submit" value="Confirm">
+                    <form method="post" id="question-create-form">
+                        {% csrf_token %}
+
+                        {{ form|crispy }}
+
+                        <button type="submit"
+                            class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </div>
