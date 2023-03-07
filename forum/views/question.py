@@ -17,8 +17,6 @@ class QuestionList(generic.ListView):
 
 class QuestionCreate(LoginRequiredMixin, CreateView):
     model = Question
-    # login_url = '/index/'
-    # redirect_field_name = 'index'
     template_name = 'create.html'
     fields = ['title', 'body']
 
@@ -35,7 +33,7 @@ class QuestionCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class QuestionUpdate(UpdateView):
+class QuestionUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'body']
     template_name = 'update.html'
     model = Question
@@ -46,7 +44,7 @@ class QuestionUpdate(UpdateView):
         })
 
 
-class QuestionDelete(DeleteView):
+class QuestionDelete(LoginRequiredMixin, DeleteView):
     model = Question
     template_name = 'delete.html'
     success_url = '/'

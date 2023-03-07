@@ -8,8 +8,6 @@ from ..models import Answer, Question
 
 class AnswerCreate(LoginRequiredMixin, CreateView):
     model = Answer
-    login_url = '/index/'
-    redirect_field_name = 'index'
     template_name = 'create.html'
     fields = ['body']
 
@@ -29,7 +27,7 @@ class AnswerCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class AnswerUpdate(UpdateView):
+class AnswerUpdate(LoginRequiredMixin, UpdateView):
     fields = ['body',]
     template_name = 'update.html'
     model = Answer
@@ -46,7 +44,7 @@ class AnswerUpdate(UpdateView):
         return super().form_valid(form)
 
 
-class AnswerDelete(DeleteView):
+class AnswerDelete(LoginRequiredMixin, DeleteView):
     model = Answer
     template_name = 'delete.html'
 
