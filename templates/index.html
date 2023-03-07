@@ -20,7 +20,8 @@
                                     <i class="fa-solid fa-caret-up"></i>
                                 </button>
                                 <div class="vote">{{ question.votes }}</div>
-                                <button type="button" class="downvote-button btn"
+                                <button type="button"
+                                    class="downvote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
@@ -28,15 +29,18 @@
                             </div>
                             <div class="vr"></div>
                             <div class="col-10 card-body">
-                                <a href="{% url 'question' question.slug %}"
+                                <a href="{% url 'question_details' question.slug %}"
                                     class="question-link text-decoration-none">
                                     <h5 class="card-title"> {{ question.title }}
                                     </h5>
                                     <p class="card-text">{{ question.body }}</p>
                                     <hr class="hr" />
-                                    <p class="card-text text-muted">Posted by
+                                    <p class="card-text text-muted">
+                                        Posted by
                                         {{ question.created_by }} on
-                                        {{ question.created_on }}</p>
+                                        {{ question.created_on|date:"d M Y" }}
+                                        {{ question.created_on|time:"H:i" }}
+                                    </p>
                                 </a>
                             </div>
                         </div>
