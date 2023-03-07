@@ -17,8 +17,8 @@ class QuestionList(generic.ListView):
 
 class QuestionCreate(LoginRequiredMixin, CreateView):
     model = Question
-    login_url = '/index/'
-    redirect_field_name = 'index'
+    # login_url = '/index/'
+    # redirect_field_name = 'index'
     template_name = 'create.html'
     fields = ['title', 'body']
 

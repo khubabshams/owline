@@ -14,9 +14,9 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-10">
-                            Posted by 
+                            Posted by
                             {{ question.created_by }} on
-                            {{ question.created_on|date:"d M Y" }} 
+                            {{ question.created_on|date:"d M Y" }}
                             {{ question.created_on|time:"H:i" }}
                         </div>
                         <div class="col-2">
@@ -57,9 +57,9 @@
                     <div class="vr"></div>
                     <div class="col-10 card-body">
                         <h5 class="card-title">{{ question.title }}</h5>
-                        <p class="card-text question-text mb-3">
-                            {{ question.body }}
-                        </p>
+                        <div class="card-text question-text mb-3">                            
+                            {{ question.body.rendered|default:"<missing body>"|safe|linebreaks}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,9 +90,9 @@
 
                     <div class="row mb-3">
                         <div class="col-12">
-                            <p class="card-text answer-text ">
-                                {{ answer.body | safe | linebreaks}}
-                            </p>
+                            <div class="card-text answer-text ">
+                                {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks}}
+                            </div>
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
                                 <div class="col-6 text-muted">
                                     <p>
                                         {{ answer.created_by }}
-                                        {{ answer.created_on|date:"d M Y" }} 
+                                        {{ answer.created_on|date:"d M Y" }}
                                         {{ answer.created_on|time:"H:i" }}
                                     </p>
                                 </div>
@@ -147,6 +147,10 @@
 
                         <button type="submit"
                             class="btn btn-success">Submit</button>
+                        <small>
+                            <i class="fa-brands fa-markdown"></i>
+                            Markdown Supported
+                        </small>
                     </form>
                 </div>
             </div>

@@ -33,7 +33,9 @@
                                     class="question-link text-decoration-none">
                                     <h5 class="card-title"> {{ question.title }}
                                     </h5>
-                                    <p class="card-text">{{ question.body }}</p>
+                                    <div class="card-text">
+                                        {{ question.body.rendered|default:"<missing body>"|truncatewords:40|safe|linebreaks}}
+                                    </div>
                                     <hr class="hr" />
                                     <p class="card-text text-muted">
                                         Posted by
