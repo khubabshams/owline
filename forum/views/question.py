@@ -27,10 +27,11 @@ class QuestionCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-
         self.object.created_by = self.request.user
         self.object.modified_by = self.request.user
-        return super().form_valid(form)
+        res = super().form_valid(form)
+        self.object.vote_users.add(self.request.user)
+        return res
 
 
 class QuestionUpdate(LoginRequiredMixin, UpdateView):

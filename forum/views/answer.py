@@ -20,11 +20,12 @@ class AnswerCreate(LoginRequiredMixin, CreateView):
         self.object = form.save(commit=False)
         queryset = Question.objects.filter(archive=False)
         question = get_object_or_404(queryset, slug=self.kwargs.get("slug"))
-
         self.object.related_question = question
         self.object.created_by = self.request.user
         self.object.modified_by = self.request.user
-        return super().form_valid(form)
+        res = super().form_valid(form)
+        self.object.vote_users.add(self.request.user)
+        return res
 
 
 class AnswerUpdate(LoginRequiredMixin, UpdateView):
