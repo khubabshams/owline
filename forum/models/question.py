@@ -5,7 +5,7 @@ from autoslug import AutoSlugField
 
 class Question(BasePost):
     title = models.CharField(max_length=200, unique=True)
-    slug = AutoSlugField(populate_from='title')
+    slug = AutoSlugField(populate_from='title', unique_with='created_on')
 
     class Meta:
         ordering = ['-created_on']
