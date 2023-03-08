@@ -19,9 +19,12 @@ def action_sign_user_post_vote(user, slug, pk, increase=True):
     updated_object = get_updated_object(slug=slug, pk=pk)
     voters = updated_object.vote_users.all()
     if user.id not in voters.values_list('id', flat=True):
-        updated_object.votes += 1 if increase else -1
+        vote = 1 if increase else -1
+        updated_object.votes += vote
         updated_object.vote_users.add(user)
+        updated_object.creared_by.profile.score += vote
         updated_object.save()
+        updated_object.creared_by.profile.save()
         return True
     return False
 

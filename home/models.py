@@ -5,11 +5,15 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                related_name='profile')
     score = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.user.username
+        stars = self.score <= 0 and '-' or self.score >= 100 and '*****' \
+            or self.score >= 50 and '***' or self.score >= 10 and '**' or \
+            self.score >= 1 and '*'
+        return f"{self.user.username}\n{stars}"
 
 
 @receiver(post_save, sender=User)

@@ -40,7 +40,8 @@
                                     <hr class="hr" />
                                     <p class="card-text text-muted question-footer">
                                         Posted by
-                                        {{ question.created_by }} on
+                                        <span class="profile">{{ question.created_by.profile }}</span> 
+                                        on
                                         {{ question.created_on|date:"d M Y" }}
                                         {{ question.created_on|time:"H:i" }}
                                         <br>

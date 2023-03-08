@@ -15,7 +15,8 @@
                     <div class="row">
                         <div class="col-10">
                             Posted by
-                            {{ question.created_by }} on
+                            <span class="profile">{{ question.created_by.profile }}</span> 
+                            on
                             {{ question.created_on|date:"d M Y" }}
                             {{ question.created_on|time:"H:i" }}
                         </div>
@@ -140,7 +141,7 @@
                             <div class="row">
                                 <div class="col-6 text-muted">
                                     <p>
-                                        {{ answer.created_by }}
+                                        <span class="profile">{{ answer.created_by.profile }}</span> 
                                         {{ answer.created_on|date:"d M Y" }}
                                         {{ answer.created_on|time:"H:i" }}
                                     </p>
