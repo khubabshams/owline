@@ -22,9 +22,9 @@ def action_sign_user_post_vote(user, slug, pk, increase=True):
         vote = 1 if increase else -1
         updated_object.votes += vote
         updated_object.vote_users.add(user)
-        updated_object.creared_by.profile.score += vote
+        updated_object.created_by.profile.score += vote
         updated_object.save()
-        updated_object.creared_by.profile.save()
+        updated_object.created_by.profile.save()
         return True
     return False
 

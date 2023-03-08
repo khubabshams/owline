@@ -29,12 +29,14 @@
                                         Improve
                                     </a>
                                 </li>
+                                {% if user.is_superuser %}
                                 <li class="list-group-item">
                                     <a href="{% url 'question_delete' question.slug %}"
                                         id="delete-question">
                                         Remove
                                     </a>
                                 </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
