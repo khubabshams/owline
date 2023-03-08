@@ -31,12 +31,11 @@ def action_sign_user_post_vote(user, slug, pk, increase=True):
 
 def action_accept_answer(user, slug, pk):
     answer = get_updated_object(slug=slug, pk=pk)
-    other_accepted_answer = answer.related_question.answers.all().\
-        filter(accepted=True)
-    if not any([answer.accepted, other_accepted_answer,
-               user == answer.created_by]) and\
+    if not any([answer.accepted, answered, user == answer.created_by]) and\
             user == answer.related_question.created_by:
+        answer.related_question.answered = True
         answer.accepted = True
+        answer.related_question.save()
         answer.save()
         return True
     return False

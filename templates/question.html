@@ -83,12 +83,14 @@
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                 </li>
-                                <li class="list-group-item">
-                                    <a href="{% url 'answer_delete' question.slug answer.id %}"
-                                        id="delete-answer">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </li>
+                                {% if user.is_superuser %}
+                                    <li class="list-group-item">
+                                        <a href="{% url 'answer_delete' question.slug answer.id %}"
+                                            id="delete-answer">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -107,13 +109,13 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-1">
-                            {% if not answer.accepted %}
+                            {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
                                 <a role="button"
                                     href="{% url 'answer_accept' question.slug answer.id %}"
                                     class="accept-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom"
-                                    title="Accept as a Best Answer">
+                                    title="Accept as the Best Answer">
                                     <i class="fa-solid fa-circle-check"></i>
                             </a>
                             {% endif %}
