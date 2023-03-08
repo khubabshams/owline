@@ -49,11 +49,12 @@
                             <i class="fa-solid fa-caret-up"></i>
                         </a>
                         <div class="vote">{{ question.votes }}</div>
-                        <button type="button" class="downvote-button btn"
+                        <a role="button" href="{% url 'question_downvote' question.slug %}" 
+                            class="downvote-button btn"
                             data-bs-toggle="tooltip" data-bs-placement="bottom"
                             title="Downvote">
                             <i class="fa-solid fa-caret-down"></i>
-                        </button>
+                        </a>
                     </div>
                     <div class="vr"></div>
                     <div class="col-10 card-body">
@@ -100,7 +101,7 @@
                     <div class="row mb-3">
                         <div class="col-1">
                             <a role="button"
-                                href="{% url 'answer_upvote' answer.id %}"
+                                href="{% url 'answer_upvote' question.slug answer.id %}"
                                 class="helpful-button btn"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Helpful">
@@ -112,7 +113,7 @@
                         </div>
                         <div class="col-1">
                             <a role="button"
-                                href="{% url 'answer_downvote' answer.id %}"
+                                href="{% url 'answer_downvote' question.slug answer.id %}"
                                 class="unhelpful-button btn"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Not Helpful">

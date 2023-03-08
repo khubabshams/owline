@@ -14,18 +14,19 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-1 text-center">
-                                <button type="button" class="upvote-button btn"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top" title="Upvote">
+                                <a role="button" href="{% url 'question_upvote' question.slug %}" 
+                                    class="upvote-button btn"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Upvote">
                                     <i class="fa-solid fa-caret-up"></i>
-                                </button>
+                                </a>
                                 <div class="vote">{{ question.votes }}</div>
-                                <button type="button"
+                                <a role="button" href="{% url 'question_downvote' question.slug %}" 
                                     class="downvote-button btn"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom" title="Downvote">
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
-                                </button>
+                                </a>
                             </div>
                             <div class="vr"></div>
                             <div class="col-10 card-body">
@@ -37,11 +38,13 @@
                                         {{ question.body.rendered|default:"<missing body>"|truncatewords:40|safe|linebreaks}}
                                     </div>
                                     <hr class="hr" />
-                                    <p class="card-text text-muted">
+                                    <p class="card-text text-muted question-footer">
                                         Posted by
                                         {{ question.created_by }} on
                                         {{ question.created_on|date:"d M Y" }}
                                         {{ question.created_on|time:"H:i" }}
+                                        <br>
+                                        {{ question.answers.count }} Answer/s
                                     </p>
                                 </a>
                             </div>
