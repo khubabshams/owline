@@ -24,6 +24,6 @@ urlpatterns = [
     path('<slug:slug>/up', upvote, name='question_upvote'),
     path('<slug:slug>/down', downvote, name='question_downvote'),
 
-    path('<pk>/up', upvote, name='answer_upvote'),
-    path('<pk>/down', downvote, name='answer_downvote'),
+    path('<slug:slug>/<pk>/up', upvote, name='answer_upvote'),
+    path('<slug:slug>/<pk>/down', downvote, name='answer_downvote'),
 ]
