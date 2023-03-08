@@ -1,4 +1,4 @@
-from .views import question, answer, upvote, downvote
+from .views import question, answer, upvote, downvote, accept
 from django.urls import path
 
 urlpatterns = [
@@ -26,4 +26,5 @@ urlpatterns = [
 
     path('<slug:slug>/<pk>/up', upvote, name='answer_upvote'),
     path('<slug:slug>/<pk>/down', downvote, name='answer_downvote'),
+    path('<slug:slug>/<pk>/accept', accept, name='answer_accept'),
 ]

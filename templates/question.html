@@ -42,17 +42,17 @@
                 </div>
                 <div class="row">
                     <div class="col-1 text-center">
-                        <a role="button" href="{% url 'question_upvote' question.slug %}" 
-                            class="upvote-button btn"
-                            data-bs-toggle="tooltip" data-bs-placement="top"
-                            title="Upvote">
+                        <a role="button"
+                            href="{% url 'question_upvote' question.slug %}"
+                            class="upvote-button btn" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="Upvote">
                             <i class="fa-solid fa-caret-up"></i>
                         </a>
                         <div class="vote">{{ question.votes }}</div>
-                        <a role="button" href="{% url 'question_downvote' question.slug %}" 
-                            class="downvote-button btn"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom"
-                            title="Downvote">
+                        <a role="button"
+                            href="{% url 'question_downvote' question.slug %}"
+                            class="downvote-button btn" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="Downvote">
                             <i class="fa-solid fa-caret-down"></i>
                         </a>
                     </div>
@@ -91,14 +91,30 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-12">
+                        <div class="col-1 accepted-check">
+                            {% if answer.accepted %}
+                                <i class="fa-solid fa-check"></i>
+                            {% endif %}
+                        </div>
+                        <div class="col-11">
                             <div class="card-text answer-text ">
                                 {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks}}
                             </div>
                         </div>
                     </div>
-
                     <div class="row mb-3">
+                        <div class="col-1">
+                            {% if not answer.accepted %}
+                                <a role="button"
+                                    href="{% url 'answer_accept' question.slug answer.id %}"
+                                    class="accept-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="Accept as a Best Answer">
+                                    <i class="fa-solid fa-circle-check"></i>
+                            </a>
+                            {% endif %}
+                        </div>
                         <div class="col-1">
                             <a role="button"
                                 href="{% url 'answer_upvote' question.slug answer.id %}"
@@ -120,7 +136,7 @@
                                 <i class="fa-solid fa-thumbs-down"></i>
                             </a>
                         </div>
-                        <div class="col-7">
+                        <div class="col-6">
                             <div class="row">
                                 <div class="col-6 text-muted">
                                     <p>
