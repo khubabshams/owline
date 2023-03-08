@@ -13,3 +13,4 @@ class BasePost(models.Model):
     body = MarkupField(default_markup_type='markdown')
     archive = models.BooleanField(default=False)
     votes = models.IntegerField(default=0)
+    vote_users = models.ManyToManyField(User, blank=True)
