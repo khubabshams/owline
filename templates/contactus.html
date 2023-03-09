@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+
+            <!-- Contact Us -->
+            <div class="card contactus-card">
+                <div class="card-header">
+                    <h1>Contact Us</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" id="contactus-form">
+                        {% csrf_token %}
+
+                        {{ form|crispy }}
+
+                        <button type="submit"
+                            class="btn btn-success">Send</button>
+                        <small>
+                            <i class="fa-brands fa-markdown"></i>
+                            Markdown Supported
+                        </small>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {%endblock%}
