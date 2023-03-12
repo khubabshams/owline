@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+
+            <!-- Message Content -->
+            <div class="card message-detail-card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="card-title message-header">
+                                {{ message.subject }} from
+                                {{ message.email }}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 card-body">
+                        <div class="card-text message-text mb-3">
+                            <p class="message-body">
+                                {{ message.body|default:"<missing body>"|safe|linebreaks}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}

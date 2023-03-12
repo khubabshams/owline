@@ -37,11 +37,20 @@
                                 href="/">Home</a>
                         </li>
                         {% if user.is_authenticated %}
+
+                        {% if user.is_superuser %}
+                        <li class="nav-item d-md-none">
+                            <a class="nav-link"
+                                href="{% url 'inbox' %}">Inbox</a>
+                        </li>
+                        {% endif %}
+
                         <li class="nav-item d-md-none">
                             <a class="nav-link"
                                 href="{% url 'account_logout' %}">Logout</a>
                         </li>
                         {% else %}
+
                         <li class="nav-item d-md-none">
                             <a class="nav-link"
                                 href="{% url 'account_login' %}">Login</a>
@@ -61,6 +70,15 @@
                             <ul class="dropdown-menu"
                                 aria-labelledby="navbarDropdownMenuLink">
                                 {% if user.is_authenticated %}
+
+                                {% if user.is_superuser %}
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{% url 'inbox' %}">
+                                        Inbox
+                                    </a>
+                                </li>
+                                {% endif %}
 
                                 <li>
                                     <a class="dropdown-item"
@@ -112,7 +130,8 @@
     <footer class="bg-light">
         <ul>
             <li>
-                <a href="{% url 'contactus' %}" rel="noopener noreferrer" aria-label="Contact Us">
+                <a href="{% url 'contactus' %}" rel="noopener noreferrer"
+                    aria-label="Contact Us">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </li>
