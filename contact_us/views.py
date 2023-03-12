@@ -7,6 +7,27 @@ from django.urls import reverse
 from .models import Message
 
 
+class MessageList(generic.ListView):
+    model = Message
+    queryset = Message.objects.filter(archive=False).order_by('-created_on')
+    template_name = 'inbox.html'
+    paginated_by = 10
+
+
+class MessageDetail(View):
+
+    def get(self, request, pk, *args, **kwargs):
+        queryset = Message.objects.filter(archive=False)
+        message = get_object_or_404(queryset, pk=pk)
+        if message.unread:
+            message.unread = False
+            message.save()
+        context = {
+            'message': message,
+        }
+        return render(request, "message.html", context)
+
+
 class MessageCreate(LoginRequiredMixin, CreateView):
     model = Message
     template_name = 'contactus.html'

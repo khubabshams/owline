@@ -8,6 +8,7 @@ class Message(models.Model):
     email = models.EmailField()
     body = models.TextField()
     archive = models.BooleanField(default=False)
+    unread = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['-created_on']
