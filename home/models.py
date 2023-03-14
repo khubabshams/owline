@@ -10,10 +10,7 @@ class Profile(models.Model):
     score = models.IntegerField(default=0)
 
     def __str__(self):
-        stars = self.score <= 0 and '-' or self.score >= 100 and '*****' \
-            or self.score >= 50 and '***' or self.score >= 10 and '**' or \
-            self.score >= 1 and '*'
-        return f"{self.user.username}\n{stars}"
+        return f"{self.user.username}\n [{self.score} Points]"
 
 
 @receiver(post_save, sender=User)

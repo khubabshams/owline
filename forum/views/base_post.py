@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from ..models import Question, Answer
@@ -15,9 +16,11 @@ def get_updated_object(slug, pk):
     return updated_object
 
 
-def action_sign_user_post_vote(user, slug, pk, increase=True):
+def action_sign_user_post_vote(request, slug, pk, increase=True):
+    user = request.user
     updated_object = get_updated_object(slug=slug, pk=pk)
     voters = updated_object.vote_users.all()
+    post_name = pk and 'an answer' or 'a question'
     if user.id not in voters.values_list('id', flat=True):
         vote = 1 if increase else -1
         updated_object.votes += vote
@@ -25,47 +28,53 @@ def action_sign_user_post_vote(user, slug, pk, increase=True):
         updated_object.created_by.profile.score += vote
         updated_object.save()
         updated_object.created_by.profile.save()
-        return True
-    return False
+        messages.success(request,
+                         f"Your vote has been signed successfully.")
+    elif user.id == updated_object.created_by.id:
+        messages.error(request,
+                       f"You cannot sign a vote for {post_name} of your own.")
+    else:
+        messages.error(request,
+                       f"You cannot sign a vote twice for {post_name}.")
+    return redirect(f'/forum/{slug}')
 
 
-def action_accept_answer(user, slug, pk):
+def action_accept_answer(request, slug, pk):
+    user = request.user
     answer = get_updated_object(slug=slug, pk=pk)
-    if not any([answer.accepted, answer.related_question.answered,
-                user == answer.created_by]) and\
+    if not any([answer.accepted, answer.related_question.answered]) and\
             user == answer.related_question.created_by:
-        answer.related_question.answered = True
         answer.accepted = True
-        answer.related_question.save()
+        answer.related_question.answered = True
+        if user.id != answer.created_by.id:
+            answer.votes += 3
+            answer.created_by.profile.score += 3
+            answer.created_by.profile.save()
         answer.save()
-        return True
-    return False
+        answer.related_question.save()
+        messages.success(request, "an Answer has been accepted successfully.")
+    elif answer.accepted:
+        messages.error(request, "Answer is already accepted before.")
+    elif answer.related_question.answered:
+        messages.error(request, "Question is already has an accepted answer.")
+    else:
+        # user.id != answer.related_question.created_by.id
+        messages.error(request,
+                       "You can only accept answers to your own questions.")
+    return redirect(f'/forum/{slug}')
 
 
 @login_required
 def upvote(request, slug=False, pk=False):
-    result = action_sign_user_post_vote(user=request.user, slug=slug, pk=pk)
-    if result:
-        return redirect(f'/forum/{slug}')
-    # todo: handle user in voters & user == created_by
-    return redirect(f'/forum/{slug}')
+    return action_sign_user_post_vote(request=request, slug=slug, pk=pk)
 
 
 @login_required
 def downvote(request, slug=False, pk=False):
-    result = action_sign_user_post_vote(user=request.user, slug=slug, pk=pk,
-                                        increase=False)
-    if result:
-        return redirect(f'/forum/{slug}')
-    # todo: handle user in voters & user == created_by
-    return redirect(f'/forum/{slug}')
+    return action_sign_user_post_vote(request=request, slug=slug, pk=pk,
+                                      increase=False)
 
 
 @login_required
 def accept(request, slug=False, pk=False):
-    result = action_accept_answer(user=request.user, slug=slug, pk=pk)
-    if result:
-        return redirect(f'/forum/{slug}')
-    # todo: handle already accepted & user == created_by &
-    # found other accepted answer & user != question.created_by
-    return redirect(f'/forum/{slug}')
+    return action_accept_answer(request=request, slug=slug, pk=pk)
