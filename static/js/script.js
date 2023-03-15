@@ -1,6 +1,9 @@
 setTimeout(function () {
-    let messages = document.getElementById("message");
-    let alert = new bootstrap.Alert(messages);
+    let messages = document.getElementsByClassName("message");
+    let alert = false;
+    for (let message of messages) {
+        alert = new bootstrap.Alert(message);
+        alert.close();
+    }
 
-    alert.close();
 }, 3000);
