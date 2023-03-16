@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
+
+/* Common Variables */
+:root {
+    --primary-color: #fff7ea;
+    --secondary-color: #c26565;
+
+    --main-font: 'Lato', sans-serif;
+    --sub-font: 'Roboto', sans-serif;
+}
+
+/* Overall */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Header */
+#logo {
+    width: 150px;
+    height: 60px;
+    border-radius:3px;
+}
