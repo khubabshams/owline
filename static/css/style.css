@@ -26,7 +26,14 @@ a:hover {
 
 /* Header */
 #logo {
-    width: 150px;
-    height: 60px;
+    max-width: 150px;
+    max-height: 50px;
     border-radius:3px;
+}
+
+
+/* Rows */
+.vr, hr {
+    color: var(--secondary-color) ;
+    padding: 0;
 }

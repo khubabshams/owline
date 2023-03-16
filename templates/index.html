@@ -11,9 +11,9 @@
             <div class="row">
                 <div class="col-12">
 
-                    <div class="card">
+                    <div class="card mb-3">
                         <div class="row">
-                            <div class="col-1 text-center">
+                            <div class="col-md-1 col-sm-2 text-center">
                                 <a role="button" href="{% url 'question_upvote' question.slug %}" 
                                     class="upvote-button btn"
                                     data-bs-toggle="tooltip" data-bs-placement="top"
@@ -29,7 +29,7 @@
                                 </a>
                             </div>
                             <div class="vr"></div>
-                            <div class="col-10 card-body">
+                            <div class="col-md-10 col-sm-9 card-body">
                                 <a href="{% url 'question_details' question.slug %}"
                                     class="question-link text-decoration-none">
                                     <h5 class="card-title"> {{ question.title }}
