@@ -60,7 +60,13 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-
+                <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
                 <a class="navbar-brand" href="/">
                     <img src="{% static 'images/logo.png' %}"
                         alt="Owline Logo" id="logo">
@@ -136,7 +142,7 @@
                         </li>
                     </ul>
                 </div>
-
+                
                 <a href="{% url 'question_create' %}" role="button"
                     class="btn btn-success me-2">Ask Question</a>
 
@@ -144,13 +150,7 @@
                     <input class="form-control me-2" type="search"
                         placeholder="Search" aria-label="Search">
                 </form>
-                <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
             </div>
         </nav>
     </header>
