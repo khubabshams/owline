@@ -13,23 +13,26 @@
 
                     <div class="card mb-3">
                         <div class="row">
-                            <div class="col-md-1 col-sm-2 text-center">
-                                <a role="button" href="{% url 'question_upvote' question.slug %}" 
+                            <div
+                                class="col-md-1 text-center d-none d-md-block">
+                                <a role="button"
+                                    href="{% url 'question_upvote' question.slug %}"
                                     class="upvote-button btn"
-                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Upvote">
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Upvote">
                                     <i class="fa-solid fa-caret-up"></i>
                                 </a>
                                 <div class="vote">{{ question.votes }}</div>
-                                <a role="button" href="{% url 'question_downvote' question.slug %}" 
+                                <a role="button"
+                                    href="{% url 'question_downvote' question.slug %}"
                                     class="downvote-button btn"
-                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                    title="Downvote">
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
                                 </a>
                             </div>
-                            <div class="vr"></div>
-                            <div class="col-md-10 col-sm-9 card-body">
+                            <div class="vr d-none d-md-block"></div>
+                            <div class="col-md-10 col-sm-12 card-body">
                                 <a href="{% url 'question_details' question.slug %}"
                                     class="question-link text-decoration-none">
                                     <h5 class="card-title"> {{ question.title }}
@@ -38,17 +41,46 @@
                                         {{ question.body.rendered|default:"<missing body>"|truncatewords:40|safe|linebreaks}}
                                     </div>
                                     <hr class="hr" />
-                                    <p class="card-text text-muted question-footer">
-                                        Posted by
-                                        <span class="profile">{{ question.created_by.profile }}</span> 
-                                        on
+                                    <p
+                                        class="card-text text-muted question-footer">
+                                        <span class="profile">
+                                            {{ question.created_by.profile }}
+                                        </span>
+                                        ●
                                         {{ question.created_on|date:"d M Y" }}
                                         {{ question.created_on|time:"H:i" }}
                                         <br>
                                         {{ question.answers.count }} Answer/s
                                     </p>
+
                                 </a>
                             </div>
+                        </div>
+                        <div class="row d-md-none text-center">
+                            <div class="col-1">
+                                <a role="button"
+                                    href="{% url 'question_upvote' question.slug %}"
+                                    class="upvote-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Upvote">
+                                    <i class="fa-solid fa-caret-up"></i>
+                                </a>
+                            </div>
+
+                            <div class="col-1 vote">
+                                {{ question.votes }}
+                            </div>
+
+                            <div class="col-1">
+                                <a role="button"
+                                    href="{% url 'question_downvote' question.slug %}"
+                                    class="downvote-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Downvote">
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
