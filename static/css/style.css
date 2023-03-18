@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+header, footer {
+    font-family: var(--main-font);
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -36,4 +40,10 @@ a:hover {
 .vr, hr {
     color: var(--secondary-color) ;
     padding: 0;
+}
+
+
+/* Cards */
+.card {
+    font-family: var(--sub-font);
 }
