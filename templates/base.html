@@ -61,15 +61,15 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <a class="navbar-brand" href="/">
-                    <img src="{% static 'images/logo.png' %}"
-                        alt="Owline Logo" id="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Owline Logo"
+                        id="logo">
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -142,7 +142,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <a href="{% url 'question_create' %}" role="button"
                     class="btn btn-success me-2">Ask Question</a>
 
@@ -150,7 +150,7 @@
                     <input class="form-control me-2" type="search"
                         placeholder="Search" aria-label="Search">
                 </form>
-                
+
             </div>
         </nav>
     </header>
@@ -175,15 +175,15 @@
 
 
     <!-- Footer -->
-    <footer class="bg-light">
-        <ul>
-            <li>
+    <footer class="mt-3 text-center">
+        <ul class="list-inline">
+            <li class="list-inline-item">
                 <a href="{% url 'contactus' %}" rel="noopener noreferrer"
                     aria-label="Contact Us">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </li>
-            <li>
+            <li class="list-inline-item">
                 <a href="https://www.linkedin.com/in/kshamse/" target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Contact the developer on Linkedin (Opens in a new tab)">
@@ -191,6 +191,11 @@
                 </a>
             </li>
         </ul>
+
+        <div id="copyright" class="pull-left">
+            <i class="fa-regular fa-copyright"></i> {% now "Y" %} Khubab Shams
+        </div>
+
     </footer>
 
 
