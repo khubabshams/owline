@@ -10,41 +10,51 @@
         <div class="col-12">
 
             <!-- Question Content -->
-            <div class="card question-detail-card">
+            <div class="card question-detail-card mb-3 mt-3">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-10">
-                            Posted by
-                            <span class="profile">{{ question.created_by.profile }}</span> 
-                            on
+                            <span class="profile">
+                                {{ question.created_by.profile }}
+                            </span>
+                            posted on
                             {{ question.created_on|date:"d M Y" }}
                             {{ question.created_on|time:"H:i" }}
                         </div>
-                        <div class="col-2">
-                            <ul
-                                class="question-options list-group list-group-horizontal">
-                                <li class="list-group-item">
-                                    <a href="{% url 'question_update' question.slug %}"
-                                        id="edit-question">
-                                        Improve
-                                    </a>
-                                </li>
-                                {% if user.is_superuser %}
-                                <li class="list-group-item">
-                                    <a href="{% url 'question_delete' question.slug %}"
-                                        id="delete-question">
-                                        Remove
-                                    </a>
-                                </li>
-                                {% endif %}
-                            </ul>
+                        <div class="col-2 row">
+                                <a href="{% url 'question_update' question.slug %}"
+                                    id="edit-question" role="button">
+                                    <span
+                                        class="d-none d-md-block option-badge">Improve</span>
+                                    <span class="d-md-none option-badge">
+                                        <i class="fa-solid fa-pencil"
+                                        class="update-button btn"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom"
+                                        title="Improve"></i>
+                                    </span>
+                                </a>
+                            {% if user.is_superuser %}
+                                <a href="{% url 'question_delete' question.slug %}"
+                                    id="delete-question" role="button">
+                                    <span
+                                        class="d-none d-md-block option-badge">Delete</span>
+                                    <span class="d-md-none option-badge">
+                                        <i class="fa-solid fa-trash"
+                                        class="delete-button btn"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom"
+                                        title="Delete"></i>
+                                    </span>
+                                </a>
+                            {% endif %}
+
                         </div>
                     </div>
 
-
                 </div>
                 <div class="row">
-                    <div class="col-1 text-center">
+                    <div class="col-md-1 text-center d-none d-md-block">
                         <a role="button"
                             href="{% url 'question_upvote' question.slug %}"
                             class="upvote-button btn" data-bs-toggle="tooltip"
@@ -59,67 +69,93 @@
                             <i class="fa-solid fa-caret-down"></i>
                         </a>
                     </div>
-                    <div class="vr"></div>
-                    <div class="col-10 card-body">
+                    <div class="vr d-none d-md-block"></div>
+                    <div class="col-md-10 col-sm-12 card-body">
                         <h5 class="card-title">{{ question.title }}</h5>
                         <div class="card-text question-text mb-3">
                             {{ question.body.rendered|default:"<missing body>"|safe|linebreaks}}
                         </div>
                     </div>
                 </div>
+                <div class="row d-md-none text-center">
+                    <div class="col-1">
+                        <a role="button"
+                            href="{% url 'question_upvote' question.slug %}"
+                            class="upvote-button btn" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="Upvote">
+                            <i class="fa-solid fa-caret-up"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-1 vote">
+                        {{ question.votes }}
+                    </div>
+
+                    <div class="col-1">
+                        <a role="button"
+                            href="{% url 'question_downvote' question.slug %}"
+                            class="downvote-button btn" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="Downvote">
+                            <i class="fa-solid fa-caret-down"></i>
+                        </a>
+                    </div>
+
+                </div>
             </div>
 
             <!-- Posted Answers -->
             {% for answer in answers %}
-            <div class="card answer-card">
-                <div class="offset-1 card-body">
-                    <div class="row mb-3">
-                        <div class="offset-10 col-2">
-                            <ul
-                                class="answer-options list-group list-group-horizontal">
-                                <li class="list-group-item">
-                                    <a href="{% url 'answer_update' question.slug answer.id %}"
-                                        id="edit-answer">
-                                        <i class="fa-solid fa-pencil"></i>
-                                    </a>
-                                </li>
-                                {% if user.is_superuser %}
-                                    <li class="list-group-item">
-                                        <a href="{% url 'answer_delete' question.slug answer.id %}"
-                                            id="delete-answer">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            </ul>
+            <div class="card answer-card mb-3">
+                <div class="offset-md-1 card-body">
+                    <div class="row">
+                        <div class="offset-10 col-1">
+                            <a href="{% url 'answer_update' question.slug answer.id %}"
+                                id="edit-answer">
+                                <span class="option-badge">
+                                    <i class="fa-solid fa-pencil"
+                                    class="update-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="Update"></i>
+                                </span>
+                            </a>
                         </div>
+                        {% if user.is_superuser %}
+                        <div class="col-1">
+                            <a href="{% url 'answer_delete' question.slug answer.id %}"
+                                id="delete-answer">
+                                <span class="option-badge">
+                                    <i class="fa-solid fa-trash"
+                                    class="delete-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="Delete"></i>
+                                </span>
+                            </a>
+                        </div>
+                        {% endif %}
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-1 accepted-check">
-                            {% if answer.accepted %}
-                                <i class="fa-solid fa-check"></i>
-                            {% endif %}
-                        </div>
-                        <div class="col-11">
+                        <div class="col-12">
                             <div class="card-text answer-text ">
-                                {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks}}
+                                {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks }}
                             </div>
                         </div>
                     </div>
                     <div class="row mb-3">
+                        {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
                         <div class="col-1">
-                            {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
-                                <a role="button"
-                                    href="{% url 'answer_accept' question.slug answer.id %}"
-                                    class="accept-button btn"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom"
-                                    title="Accept as the Best Answer">
-                                    <i class="fa-solid fa-circle-check"></i>
+                            <a role="button"
+                                href="{% url 'answer_accept' question.slug answer.id %}"
+                                class="accept-button btn"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                title="Accept as the Best Answer">
+                                <i class="fa-solid fa-circle-check"></i>
                             </a>
-                            {% endif %}
                         </div>
+                        {% endif %}
                         <div class="col-1">
                             <a role="button"
                                 href="{% url 'answer_upvote' question.slug answer.id %}"
@@ -141,16 +177,25 @@
                                 <i class="fa-solid fa-thumbs-down"></i>
                             </a>
                         </div>
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="col-6 text-muted">
-                                    <p>
-                                        <span class="profile">{{ answer.created_by.profile }}</span> 
-                                        {{ answer.created_on|date:"d M Y" }}
-                                        {{ answer.created_on|time:"H:i" }}
-                                    </p>
-                                </div>
-                            </div>
+                        {% if answer.accepted %}
+                        <div class="col-1 accepted-check">
+                            <i class="fa-solid fa-check"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                title="Best Answer"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-muted">
+                            <p>
+                                <span class="profile">
+                                    {{ answer.created_by.profile }}
+                                </span>
+                                ●
+                                {{ answer.created_on|date:"d M Y" }}
+                                {{ answer.created_on|time:"H:i" }}
+                            </p>
                         </div>
                     </div>
 
