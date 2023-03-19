@@ -56,31 +56,30 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="row d-md-none text-center">
-                            <div class="col-1">
-                                <a role="button"
-                                    href="{% url 'question_upvote' question.slug %}"
-                                    class="upvote-button btn"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top" title="Upvote">
-                                    <i class="fa-solid fa-caret-up"></i>
-                                </a>
-                            </div>
-
-                            <div class="col-1 vote">
-                                {{ question.votes }}
-                            </div>
-
-                            <div class="col-1">
-                                <a role="button"
-                                    href="{% url 'question_downvote' question.slug %}"
-                                    class="downvote-button btn"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom" title="Downvote">
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-                            </div>
-
+                        <div class="row d-md-none">
+                            <table class="text-center vote-area">
+                                <tr>
+                                    <td>
+                                        <a role="button"
+                                            href="{% url 'question_upvote' question.slug %}"
+                                            class="upvote-button btn" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Upvote">
+                                            <i class="fa-solid fa-caret-up"></i>
+                                        </a>
+                                    </td>
+                                    <td class="vote">
+                                        {{ question.votes }}
+                                    </td>
+                                    <td>
+                                        <a role="button"
+                                            href="{% url 'question_downvote' question.slug %}"
+                                            class="downvote-button btn" data-bs-toggle="tooltip"
+                                            data-bs-placement="bottom" title="Downvote">
+                                            <i class="fa-solid fa-caret-down"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

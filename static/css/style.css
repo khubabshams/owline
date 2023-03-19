@@ -70,3 +70,9 @@ a:hover {
     -moz-user-select: none;
     -ms-user-select: none;
 } 
+
+
+/* Vote Elements */
+.vote-area {
+    width: 20%;
+}

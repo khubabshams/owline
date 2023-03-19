@@ -81,29 +81,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="row d-md-none text-center">
-                    <div class="col-1">
-                        <a role="button"
-                            href="{% url 'question_upvote' question.slug %}"
-                            class="upvote-button btn" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Upvote">
-                            <i class="fa-solid fa-caret-up"></i>
-                        </a>
-                    </div>
-
-                    <div class="col-1 vote">
-                        {{ question.votes }}
-                    </div>
-
-                    <div class="col-1">
-                        <a role="button"
-                            href="{% url 'question_downvote' question.slug %}"
-                            class="downvote-button btn" data-bs-toggle="tooltip"
-                            data-bs-placement="bottom" title="Downvote">
-                            <i class="fa-solid fa-caret-down"></i>
-                        </a>
-                    </div>
-
+                <div class="row d-md-none">
+                    <table class="text-center vote-area">
+                        <tr>
+                            <td>
+                                <a role="button"
+                                    href="{% url 'question_upvote' question.slug %}"
+                                    class="upvote-button btn" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Upvote">
+                                    <i class="fa-solid fa-caret-up"></i>
+                                </a>
+                            </td>
+                            <td class="vote">
+                                {{ question.votes }}
+                            </td>
+                            <td>
+                                <a role="button"
+                                    href="{% url 'question_downvote' question.slug %}"
+                                    class="downvote-button btn" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Downvote">
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -165,39 +166,43 @@
                         </div>
                     </div>
                     <div class="row">
-                        {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
-                        <div class="col-1">
-                            <a role="button"
-                                href="{% url 'answer_accept' question.slug answer.id %}"
-                                class="accept-button btn"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="bottom"
-                                title="Accept as the Best Answer">
-                                <i class="fa-solid fa-circle-check"></i>
-                            </a>
-                        </div>
-                        {% endif %}
-                        <div class="col-1">
-                            <a role="button"
-                                href="{% url 'answer_upvote' question.slug answer.id %}"
-                                class="helpful-button btn"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="bottom" title="Helpful">
-                                <i class="fa-solid fa-thumbs-up"></i>
-                            </a>
-                        </div>
-                        <div class="col-1">
-                            <div class="vote">{{ answer.votes }}</div>
-                        </div>
-                        <div class="col-1">
-                            <a role="button"
-                                href="{% url 'answer_downvote' question.slug answer.id %}"
-                                class="unhelpful-button btn"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="bottom" title="Not Helpful">
-                                <i class="fa-solid fa-thumbs-down"></i>
-                            </a>
-                        </div>
+                        <table class="text-center vote-area">
+                            <tr>
+                                {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
+                                <td>
+                                    <a role="button"
+                                        href="{% url 'answer_accept' question.slug answer.id %}"
+                                        class="accept-button btn"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom"
+                                        title="Accept as the Best Answer">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                    </a>
+                                </td>
+                                {% endif %}
+                                <td>
+                                    <a role="button"
+                                        href="{% url 'answer_upvote' question.slug answer.id %}"
+                                        class="helpful-button btn"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" title="Helpful">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </a>
+                                </td>
+                                <td class="vote">
+                                    {{ answer.votes }}
+                                </td>
+                                <td>
+                                    <a role="button"
+                                        href="{% url 'answer_downvote' question.slug answer.id %}"
+                                        class="unhelpful-button btn"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" title="Not Helpful">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
                         {% if answer.accepted %}
                         <div class="col-1 accepted-check">
                             <i class="fa-solid fa-check"
