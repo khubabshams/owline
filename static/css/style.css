@@ -47,3 +47,26 @@ a:hover {
 .card {
     font-family: var(--sub-font);
 }
+
+.question-card, .answer-card {
+    font-family: var(--sub-font);
+    padding: 10px;
+    border-radius: 5px;
+    word-break: break-all;
+    border-top-left-radius: 0px;
+    box-shadow: 1px 3px 1px 1px #c1cbcd;
+}
+
+.profile {
+    color: var(--secondary-color);
+}
+
+.post-info {
+    font-size: 70%;
+    font-weight: 700;
+    transition: all .2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+} 

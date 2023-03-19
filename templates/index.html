@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12">
 
-                    <div class="card mb-3">
+                    <div class="question-card mb-3">
                         <div class="row">
                             <div
                                 class="col-md-1 text-center d-none d-md-block">
@@ -32,17 +32,17 @@
                                 </a>
                             </div>
                             <div class="vr d-none d-md-block"></div>
-                            <div class="col-md-10 col-sm-12 card-body">
+                            <div class="col-md-10 col-sm-12">
                                 <a href="{% url 'question_details' question.slug %}"
                                     class="question-link text-decoration-none">
-                                    <h5 class="card-title"> {{ question.title }}
+                                    <h5 class="question-title"> {{ question.title }}
                                     </h5>
-                                    <div class="card-text">
+                                    <div class="question-text">
                                         {{ question.body.rendered|default:"<missing body>"|truncatewords:40|safe|linebreaks}}
                                     </div>
-                                    <hr class="hr" />
+                                    <hr />
                                     <p
-                                        class="card-text text-muted question-footer">
+                                        class="post-info text-muted">
                                         <span class="profile">
                                             {{ question.created_by.profile }}
                                         </span>

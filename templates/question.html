@@ -10,49 +10,53 @@
         <div class="col-12">
 
             <!-- Question Content -->
-            <div class="card question-detail-card mb-3 mt-3">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-10">
-                            <span class="profile">
-                                {{ question.created_by.profile }}
-                            </span>
-                            posted on
-                            {{ question.created_on|date:"d M Y" }}
-                            {{ question.created_on|time:"H:i" }}
-                        </div>
-                        <div class="col-2 row">
-                                <a href="{% url 'question_update' question.slug %}"
-                                    id="edit-question" role="button">
-                                    <span
-                                        class="d-none d-md-block option-badge">Improve</span>
-                                    <span class="d-md-none option-badge">
+            <div class="question-card mb-3 mt-3">
+                <div class="row">
+                    <div class="col-10 post-info text-muted">
+                        <span class="profile">
+                            {{ question.created_by.profile }}
+                        </span>
+                        posted on
+                        {{ question.created_on|date:"d M Y" }}
+                        {{ question.created_on|time:"H:i" }}
+                    </div>
+                    <div class="col-2">
+                        <div class="dropdown">
+                            <a role="button"
+                                    id="answerOptions" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-solid fa-ellipsis-vertical"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom"
+                                        title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="questionOptions">
+                                <li>
+                                    <a href="{% url 'question_update' question.slug %}"
+                                        id="edit-question"
+                                        class="dropdown-item">
                                         <i class="fa-solid fa-pencil"
-                                        class="update-button btn"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom"
-                                        title="Improve"></i>
-                                    </span>
-                                </a>
-                            {% if user.is_superuser %}
-                                <a href="{% url 'question_delete' question.slug %}"
-                                    id="delete-question" role="button">
-                                    <span
-                                        class="d-none d-md-block option-badge">Delete</span>
-                                    <span class="d-md-none option-badge">
-                                        <i class="fa-solid fa-trash"
-                                        class="delete-button btn"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom"
-                                        title="Delete"></i>
-                                    </span>
-                                </a>
-                            {% endif %}
-
+                                            class="update-button btn"></i>
+                                        Improve
+                                    </a>
+                                </li>
+                                {% if user.is_superuser %}
+                                <li>
+                                    <a href="{% url 'question_delete' question.slug %}"
+                                        id="edit-question"
+                                        class="dropdown-item">
+                                        <i class="fa-solid fa-pencil"
+                                            class="delete-button btn"></i>
+                                        Remove
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
                         </div>
                     </div>
-
                 </div>
+
                 <div class="row">
                     <div class="col-md-1 text-center d-none d-md-block">
                         <a role="button"
@@ -70,9 +74,9 @@
                         </a>
                     </div>
                     <div class="vr d-none d-md-block"></div>
-                    <div class="col-md-10 col-sm-12 card-body">
-                        <h5 class="card-title">{{ question.title }}</h5>
-                        <div class="card-text question-text mb-3">
+                    <div class="col-md-10 col-sm-12 mb-3">
+                        <h5 class="questionrd-title">{{ question.title }}</h5>
+                        <div class="question-text">
                             {{ question.body.rendered|default:"<missing body>"|safe|linebreaks}}
                         </div>
                     </div>
@@ -105,45 +109,62 @@
 
             <!-- Posted Answers -->
             {% for answer in answers %}
-            <div class="card answer-card mb-3">
-                <div class="offset-md-1 card-body">
+            <div class="answer-card mb-3">
+                <div class="offset-md-1">
                     <div class="row">
-                        <div class="offset-10 col-1">
-                            <a href="{% url 'answer_update' question.slug answer.id %}"
-                                id="edit-answer">
-                                <span class="option-badge">
-                                    <i class="fa-solid fa-pencil"
-                                    class="update-button btn"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom"
-                                    title="Update"></i>
-                                </span>
-                            </a>
+                        <div class="col-10 post-info text-muted">
+                            <span class="profile">
+                                {{ answer.created_by.profile }}
+                            </span>
+                            answered on
+                            {{ answer.created_on|date:"d M Y" }}
+                            {{ answer.created_on|time:"H:i" }}
                         </div>
-                        {% if user.is_superuser %}
-                        <div class="col-1">
-                            <a href="{% url 'answer_delete' question.slug answer.id %}"
-                                id="delete-answer">
-                                <span class="option-badge">
-                                    <i class="fa-solid fa-trash"
-                                    class="delete-button btn"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom"
-                                    title="Delete"></i>
-                                </span>
-                            </a>
+                        <div class="col-2">
+                            <div class="dropdown">
+                                <a role="button"
+                                    id="answerOptions" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-solid fa-ellipsis-vertical"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom"
+                                        title="More Actions"></i>
+                                </a>
+                                <ul class="dropdown-menu"
+                                    aria-labelledby="answerOptions">
+                                    <li>
+                                        <a href="{% url 'answer_update' question.slug answer.id %}"
+                                            id="edit-answer"
+                                            class="dropdown-item">
+                                            <i class="fa-solid fa-pencil"
+                                                class="update-button btn"></i>
+                                            Update
+                                        </a>
+                                    </li>
+                                    {% if user.is_superuser %}
+                                    <li>
+                                        <a href="{% url 'answer_delete' question.slug answer.id %}"
+                                            id="delete-answer"
+                                            class="dropdown-item">
+                                            <i class="fa-solid fa-trash"
+                                                class="delete-button btn"></i>
+                                            Delete
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
                         </div>
-                        {% endif %}
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <div class="card-text answer-text ">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="answer-text">
                                 {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks }}
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row">
                         {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
                         <div class="col-1">
                             <a role="button"
@@ -186,19 +207,6 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="row">
-                        <div class="col-12 text-muted">
-                            <p>
-                                <span class="profile">
-                                    {{ answer.created_by.profile }}
-                                </span>
-                                ●
-                                {{ answer.created_on|date:"d M Y" }}
-                                {{ answer.created_on|time:"H:i" }}
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
