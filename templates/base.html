@@ -178,14 +178,21 @@
     <footer class="mt-3 text-center">
         <ul class="list-inline">
             <li class="list-inline-item">
-                <a href="{% url 'contactus' %}" rel="noopener noreferrer"
-                    aria-label="Contact Us">
+                <a href="/" aria-label="Contact Us" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Home">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="{% url 'contactus' %}" aria-label="Contact Us" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Contact Us">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </li>
             <li class="list-inline-item">
                 <a href="https://www.linkedin.com/in/kshamse/" target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Our Linkedin Page"
                     aria-label="Contact the developer on Linkedin (Opens in a new tab)">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
