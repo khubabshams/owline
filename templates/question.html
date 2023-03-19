@@ -74,7 +74,7 @@
                         </a>
                     </div>
                     <div class="vr d-none d-md-block"></div>
-                    <div class="col-md-10 col-sm-12 mb-3">
+                    <div class="col-md-10 col-sm-12">
                         <h5 class="questionrd-title">{{ question.title }}</h5>
                         <div class="question-text">
                             {{ question.body.rendered|default:"<missing body>"|safe|linebreaks}}
@@ -109,9 +109,9 @@
             </div>
 
             <!-- Posted Answers -->
-            {% for answer in answers %}
             <div class="answer-card mb-3">
-                <div class="offset-md-1">
+                {% for answer in answers %}
+                <div class="answer">
                     <div class="row">
                         <div class="col-10 post-info text-muted">
                             <span class="profile">
@@ -159,7 +159,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-12 mb-3">
+                        <div class="col-12">
                             <div class="answer-text">
                                 {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks }}
                             </div>
@@ -213,10 +213,11 @@
                         {% endif %}
                     </div>
                 </div>
+                {% if not forloop.last %}
+                <hr>
+                {% endif %}
+                {% endfor %}
             </div>
-
-            {% endfor %}
-
             <!-- Answer Question -->
             <div class="col-md-4 card answer-create-card">
                 <div class="card-header">
