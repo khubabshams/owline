@@ -73,6 +73,14 @@ a:hover {
     user-select: none;
 } 
 
+#postOptions {
+    background-color: transparent;
+    border: 0px;
+}
+
+#postOptions:hover{
+    background-color: #c1c1c1;
+}
 
 /* Vote Elements */
 .vote-area {
