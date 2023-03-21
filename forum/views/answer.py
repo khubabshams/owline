@@ -53,3 +53,9 @@ class AnswerDelete(LoginRequiredMixin, DeleteView):
         return reverse('question_details', current_app='forum', kwargs={
             'slug': self.object.related_question.slug,
         })
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        if not self.request.user.is_superuser:
+            raise PermissionDenied()
+        return super().form_valid(form)
