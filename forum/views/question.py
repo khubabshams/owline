@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic import UpdateView, DeleteView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
+from django.core.exceptions import PermissionDenied
 
 from ..models import Question
 from ..forms import AnswerForm, QuestionForm
@@ -49,6 +50,12 @@ class QuestionDelete(LoginRequiredMixin, DeleteView):
     model = Question
     template_name = 'delete.html'
     success_url = '/'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        if not self.request.user.is_superuser:
+            raise PermissionDenied()
+        return super().form_valid(form)
 
 
 class QuestionDetail(View):
