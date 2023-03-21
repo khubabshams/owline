@@ -29,25 +29,61 @@ class TestViews(TestCase):
                    body='BODY', related_question=self.Question1)
 
     # Test Question Create View -----------------------------------------------
-    # Todo: create view test
+    def test_question_create_success(self):
+        question_create_response = self.client.post(
+            reverse('question_create', kwargs={}),
+            {'title': 'NEW TITLE', 'body': 'NEW BODY'})
+        question2 = Question.objects.filter(slug='new-title').first()
+        self.assertEqual(question2.title, 'NEW TITLE')
+        self.assertEqual(question2.body.raw, 'NEW BODY')
+        self.assertTrue(question_create_response.status_code == 302)
+        self.assertEqual(question_create_response.url,
+                         f'/forum/{question2.slug}/')
+
+    def test_question_create_required_fields(self):
+        required_body_response = self.client.post(
+            reverse('question_create', kwargs={}),
+            {'title': 'NEW TITLE'})
+        required_title_response = self.client.post(
+            reverse('question_create', kwargs={}),
+            {'body': 'NEW BODY'})
+
+        question2 = Question.objects.filter(slug='new-title').first()
+        question3 = Question.objects.filter(body='NEW BODY').first()
+        self.assertEqual(question2, None)
+        self.assertEqual(question3, None)
+        self.assertNotEqual(required_title_response.status_code, 302)
+        self.assertNotEqual(required_body_response.status_code, 302)
+
+    def test_question_create_login_required(self):
+        self.client.logout()
+        anonymous_user_create_response = self.client.post(
+            reverse('question_create', kwargs={}),
+            {'title': 'NEW TITLE', 'body': 'NEW BODY'})
+
+        question2 = Question.objects.filter(slug='new-title').first()
+        self.assertEqual(question2, None)
+        self.assertEqual(anonymous_user_create_response.status_code, 302)
+        self.assertEqual(anonymous_user_create_response.url,
+                         f'{LOGIN}?next=/forum/create/')
 
     # Test Question Update View -----------------------------------------------
     def test_question_update_success(self):
-        required_title_response = self.client.post(
+        question_update_response = self.client.post(
             reverse('question_update', kwargs={'slug': self.Question1.slug}),
             {'title': 'UPDATED TITLE', 'body': 'UPDATED BODY'})
         self.Question1.refresh_from_db()
         self.assertEqual(self.Question1.title, 'UPDATED TITLE')
         self.assertEqual(self.Question1.body.raw, 'UPDATED BODY')
-        self.assertTrue(required_title_response.status_code == 302)
-        self.assertEqual(required_title_response.url,
+        self.assertTrue(question_update_response.status_code == 302)
+        self.assertEqual(question_update_response.url,
                          f'/forum/{self.Question1.slug}/')
 
     def test_question_update_required_fields(self):
-        required_title_response = self.client.post(
+        required_body_response = self.client.post(
             reverse('question_update', kwargs={'slug': self.Question1.slug}),
             {'title': 'UPDATED TITLE'})
-        required_body_response = self.client.post(
+        required_title_response = self.client.post(
             reverse('question_update', kwargs={'slug': self.Question1.slug}),
             {'body': 'UPDATED BODY'})
         self.Question1.refresh_from_db()
@@ -69,13 +105,13 @@ class TestViews(TestCase):
 
     # Test Question Delete View -----------------------------------------------
     def test_question_delete_success(self):
-        required_title_response = self.client.post(
+        question_delete_response = self.client.post(
             reverse('question_delete', kwargs={'slug': self.Question1.slug}),
             {})
         question1 = Question.objects.filter(slug=self.Question1.slug).first()
         self.assertEqual(question1, None)
-        self.assertEqual(required_title_response.status_code, 302)
-        self.assertEqual(required_title_response.url, '/')
+        self.assertEqual(question_delete_response.status_code, 302)
+        self.assertEqual(question_delete_response.url, '/')
 
     def test_question_delete_not_admin(self):
         self.client.logout()
