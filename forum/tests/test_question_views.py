@@ -1,32 +1,9 @@
-from django.test import TestCase
-from django.contrib.auth.models import User
 from django.urls import reverse
+from .test_views import TestViews, LOGIN, PASSWORD
+from ..models import Question
 
 
-from ..models import Question, Answer
-from ..views import QuestionCreate, AnswerCreate
-
-USERNAME, USERNAME2, PASSWORD, EMAIL = 'username', 'username2', \
-    'useremail@owline.com', 'PA$$WoRd@23'
-LOGIN = '/accounts/login/'
-
-
-class TestViews(TestCase):
-
-    def setUp(self):
-        # Login
-        self.AdminUser = User.objects.create_superuser(USERNAME, EMAIL,
-                                                       PASSWORD)
-        self.RegularUser = User.objects.create(username=USERNAME2,
-                                               email=EMAIL, password=PASSWORD)
-        self.client.login(username=self.AdminUser.username, password=PASSWORD)
-        # Question and Answer creation
-        self.Question1 = Question.objects.\
-            create(created_by=self.AdminUser, modified_by=self.AdminUser,
-                   title='TITLE', body='BODY')
-        self.Answer1 = Answer.objects.\
-            create(created_by=self.AdminUser, modified_by=self.AdminUser,
-                   body='BODY', related_question=self.Question1)
+class TestQuestionViews(TestViews):
 
     # Test Question Create View -----------------------------------------------
     def test_question_create_success(self):
@@ -47,7 +24,6 @@ class TestViews(TestCase):
         required_title_response = self.client.post(
             reverse('question_create', kwargs={}),
             {'body': 'NEW BODY'})
-
         question2 = Question.objects.filter(slug='new-title').first()
         question3 = Question.objects.filter(body='NEW BODY').first()
         self.assertEqual(question2, None)
@@ -60,7 +36,6 @@ class TestViews(TestCase):
         anonymous_user_create_response = self.client.post(
             reverse('question_create', kwargs={}),
             {'title': 'NEW TITLE', 'body': 'NEW BODY'})
-
         question2 = Question.objects.filter(slug='new-title').first()
         self.assertEqual(question2, None)
         self.assertEqual(anonymous_user_create_response.status_code, 302)
