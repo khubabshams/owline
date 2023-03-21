@@ -100,3 +100,14 @@ class TestViews(TestCase):
         self.assertEqual(anonymous_user_update_response.status_code, 302)
         self.assertEqual(anonymous_user_update_response.url,
                          f'{LOGIN}?next=/forum/{self.Question1.slug}/delete/')
+
+    # Test Question Details View ----------------------------------------------
+    def test_question_details_success(self):
+        question_details_response = self.client.get(
+            reverse('question_details', kwargs={'slug': self.Question1.slug}),
+            {})
+        context = question_details_response.context
+        self.assertEqual(self.Question1, context['question'])
+        self.assertEqual(question_details_response.status_code, 200)
+        self.assertEqual(question_details_response.wsgi_request.path,
+                         f'/forum/{self.Question1.slug}/')
