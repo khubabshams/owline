@@ -108,6 +108,8 @@ class TestViews(TestCase):
             {})
         context = question_details_response.context
         self.assertEqual(self.Question1, context['question'])
+        self.assertEqual(list(self.Question1.answers.all()),
+                         list(context['answers']))
         self.assertEqual(question_details_response.status_code, 200)
         self.assertEqual(question_details_response.wsgi_request.path,
                          f'/forum/{self.Question1.slug}/')
