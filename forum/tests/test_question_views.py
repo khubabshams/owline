@@ -112,6 +112,22 @@ class TestQuestionViews(TestViews):
         self.assertEqual(anonymous_user_update_response.url,
                          f'{LOGIN}?next=/forum/{self.Question1.slug}/delete/')
 
+    # Test Question List View -------------------------------------------------
+    def test_question_list_success(self):
+        home_response = self.client.get(reverse('home', kwargs={}), {})
+        forum_response = self.client.get(reverse('forum', kwargs={}), {})
+        home_context = home_response.context
+        forum_context = forum_response.context
+        questions = Question.objects.filter(slug=self.Question1.slug)
+        self.assertEqual(list(questions),
+                         list(home_context['question_list']))
+        self.assertEqual(list(questions),
+                         list(forum_context['question_list']))
+        self.assertEqual(home_response.status_code, 200)
+        self.assertEqual(forum_response.status_code, 200)
+        self.assertEqual(home_response.wsgi_request.path, f'/')
+        self.assertEqual(forum_response.wsgi_request.path, f'/forum/')
+
     # Test Question Details View ----------------------------------------------
     def test_question_details_success(self):
         question_details_response = self.client.get(
