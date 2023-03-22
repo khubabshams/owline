@@ -17,8 +17,10 @@ class TestViews(TestCase):
         # Login
         self.AdminUser = User.objects.create_superuser(USERNAME, EMAIL,
                                                        PASSWORD)
-        self.RegularUser = User.objects.create(username=USERNAME2,
-                                               email=EMAIL, password=PASSWORD)
+        self.RegularUser = User.objects.create_user(username=USERNAME2,
+                                                    email=EMAIL,
+                                                    password=PASSWORD,
+                                                    is_superuser=False)
         self.client.login(username=self.AdminUser.username, password=PASSWORD)
         # Question and Answer creation
         self.Question1 = Question.objects.\

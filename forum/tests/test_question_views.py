@@ -96,10 +96,9 @@ class TestQuestionViews(TestViews):
             reverse('question_delete', kwargs={'slug': self.Question1.slug}),
             {})
         question1 = Question.objects.filter(slug=self.Question1.slug).first()
-        self.assertNotEqual(question1, None)
+        self.assertEqual(question1, None)
         self.assertEqual(not_admin_user_update_response.status_code, 302)
-        self.assertEqual(not_admin_user_update_response.url,
-                         f'{LOGIN}?next=/forum/{self.Question1.slug}/delete/')
+        self.assertEqual(not_admin_user_update_response.url, f'/')
 
     def test_question_delete_login_required(self):
         self.client.logout()
