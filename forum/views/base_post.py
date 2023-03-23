@@ -21,7 +21,10 @@ def action_sign_user_post_vote(request, slug, pk, increase=True):
     updated_object = get_updated_object(slug=slug, pk=pk)
     voters = updated_object.vote_users.all()
     post_name = pk and 'an answer' or 'a question'
-    if user.id not in voters.values_list('id', flat=True):
+    if user.id == updated_object.created_by.id:
+        messages.error(request,
+                       f"You cannot sign a vote for {post_name} of your own.")
+    elif user.id not in voters.values_list('id', flat=True):
         vote = 1 if increase else -1
         updated_object.votes += vote
         updated_object.vote_users.add(user)
@@ -30,9 +33,6 @@ def action_sign_user_post_vote(request, slug, pk, increase=True):
         updated_object.created_by.profile.save()
         messages.success(request,
                          f"Your vote has been signed successfully.")
-    elif user.id == updated_object.created_by.id:
-        messages.error(request,
-                       f"You cannot sign a vote for {post_name} of your own.")
     else:
         messages.error(request,
                        f"You cannot sign a vote twice for {post_name}.")
