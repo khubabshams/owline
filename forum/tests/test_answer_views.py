@@ -1,9 +1,9 @@
 from django.urls import reverse
-from .test_views import TestViews, LOGIN, PASSWORD
+from .test_case_custom import TestCaseCustom, LOGIN, PASSWORD
 from ..models import Answer
 
 
-class TestAnswerViews(TestViews):
+class TestAnswerViews(TestCaseCustom):
 
     # Test Answer Create View -----------------------------------------------
     def test_answer_create_success(self):

@@ -2,8 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-
-from ..models import Question, Answer
+from ..models import BasePost, Question, Answer
 from ..views import QuestionCreate, AnswerCreate
 
 USERNAME, USERNAME2, PASSWORD, EMAIL = 'username', 'username2', \
@@ -11,7 +10,7 @@ USERNAME, USERNAME2, PASSWORD, EMAIL = 'username', 'username2', \
 LOGIN = '/accounts/login/'
 
 
-class TestViews(TestCase):
+class TestCaseCustom(TestCase):
 
     def setUp(self):
         # Login
@@ -22,7 +21,9 @@ class TestViews(TestCase):
                                                     password=PASSWORD,
                                                     is_superuser=False)
         self.client.login(username=self.AdminUser.username, password=PASSWORD)
-        # Question and Answer creation
+        self.BasePost1 = BasePost.objects.\
+            create(created_by=self.AdminUser, modified_by=self.AdminUser,
+                   body='BODY')
         self.Question1 = Question.objects.\
             create(created_by=self.AdminUser, modified_by=self.AdminUser,
                    title='TITLE', body='BODY')

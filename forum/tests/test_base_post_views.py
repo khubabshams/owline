@@ -1,11 +1,11 @@
 from django.urls import reverse
 from django.contrib.messages import get_messages
 
-from .test_views import TestViews, LOGIN, PASSWORD
+from .test_case_custom import TestCaseCustom, LOGIN, PASSWORD
 from ..models import BasePost, Question, Answer
 
 
-class TestBasePostViews(TestViews):
+class TestBasePostViews(TestCaseCustom):
 
     # Test Question Upvote -----------------------------------------------
     def test_question_upvote_success(self):
