@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.core.exceptions import PermissionDenied
 
 from ..models import Question
-from ..forms import AnswerForm, QuestionForm
+from ..forms import AnswerForm
 
 
 class QuestionList(generic.ListView):
@@ -68,6 +68,5 @@ class QuestionDetail(View):
             'question': question,
             'answers': answers,
             'answer_form': AnswerForm(),
-            'question_form': QuestionForm(),
         }
         return render(request, "question.html", context)
