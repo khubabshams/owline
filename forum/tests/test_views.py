@@ -27,5 +27,5 @@ class TestViews(TestCase):
             create(created_by=self.AdminUser, modified_by=self.AdminUser,
                    title='TITLE', body='BODY')
         self.Answer1 = Answer.objects.\
-            create(created_by=self.AdminUser, modified_by=self.AdminUser,
+            create(created_by=self.RegularUser, modified_by=self.RegularUser,
                    body='BODY', related_question=self.Question1)
