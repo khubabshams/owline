@@ -36,7 +36,7 @@ def action_sign_user_post_vote(request, slug, pk, increase=True):
     else:
         messages.error(request,
                        f"You cannot sign a vote twice for {post_name}.")
-    return redirect(f'/forum/{slug}')
+    return redirect(f'/forum/{slug}/')
 
 
 def action_accept_answer(request, slug, pk):
@@ -61,7 +61,7 @@ def action_accept_answer(request, slug, pk):
         # user.id != answer.related_question.created_by.id
         messages.error(request,
                        "You can only accept answers to your own questions.")
-    return redirect(f'/forum/{slug}')
+    return redirect(f'/forum/{slug}/')
 
 
 @login_required
