@@ -1,0 +1,20 @@
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.db.models import Q
+
+from ..models import Question
+from ..views import QuestionList
+
+
+def search(request):
+    search_text = request.POST.get('search', False)
+    if not search_text or request.method == 'GET':
+        return redirect('/')
+    search_keywords = search_text.split()
+    my_filter_qs = Q()
+    for search_keyword in search_keywords:
+        my_filter_qs = my_filter_qs | Q(body__contains=search_keyword) | \
+            Q(title__contains=search_keyword)
+    question_list = Question.objects.filter(my_filter_qs)
+    context = {'question_list': question_list}
+    return render(request, "index.html", context)

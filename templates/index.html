@@ -7,6 +7,19 @@
 
         <div class="col-12">
 
+            {% if not question_list %}
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="question-card mb-3 text-center">
+                        <h2>There's no question found!</h2>
+                        <a href="{% url 'question_create' %}">
+                            Ask a Question
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
             {% for question in question_list %}
             <div class="row">
                 <div class="col-12">

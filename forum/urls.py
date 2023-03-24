@@ -1,4 +1,4 @@
-from .views import question, answer, upvote, downvote, accept
+from .views import question, answer, upvote, downvote, accept, search
 from django.urls import path
 
 urlpatterns = [
@@ -7,6 +7,7 @@ urlpatterns = [
 
     path('forum/create/', question.QuestionCreate.as_view(),
          name='question_create'),
+    path('forum/search/', search, name='question_search'),
     path('forum/<slug:slug>/', question.QuestionDetail.as_view(),
          name='question_details'),
     path('forum/<slug:slug>/update/', question.QuestionUpdate.as_view(),
