@@ -139,3 +139,39 @@ class TestQuestionViews(TestCaseCustom):
         self.assertEqual(question_details_response.status_code, 200)
         self.assertEqual(question_details_response.wsgi_request.path,
                          f'/forum/{self.Question1.slug}/')
+
+    # Test Question Search View ----------------------------------------------
+    def test_question_search_success(self):
+        question2 = Question.objects.\
+            create(created_by=self.AdminUser, modified_by=self.AdminUser,
+                   title='TITLE TWO', body='ANOTHER BODY!')
+        question3 = Question.objects.\
+            create(created_by=self.AdminUser, modified_by=self.AdminUser,
+                   title='TITLE THREE', body='ANOTHER BODY!')
+
+        question_search_body_response = self.client.post(
+            reverse('question_search', kwargs={}),
+            {'search': 'body'})
+        question_search_another_response = self.client.post(
+            reverse('question_search', kwargs={}),
+            {'search': 'ANOtheR'})
+        question_search_three_response = self.client.post(
+            reverse('question_search', kwargs={}),
+            {'search': 'tHREE'})
+
+        context_body = question_search_body_response.context
+        context_another = question_search_another_response.context
+        context_three = question_search_three_response.context
+
+        self.assertEqual(len(context_body['question_list']), 3,
+                         'Search with the word "body" should bring three'
+                         ' results')
+        self.assertEqual(len(context_another['question_list']), 2,
+                         'Search with the word "ANOtheR" should bring two'
+                         ' results, case ignored.')
+        self.assertEqual(len(context_three['question_list']), 1,
+                         'Search with the word "ANOtheR" should bring only one'
+                         ' result, case ignored.')
+        self.assertEqual(question_search_body_response.status_code, 200)
+        self.assertEqual(question_search_body_response.wsgi_request.path,
+                         f'/forum/search/')
