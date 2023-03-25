@@ -1,11 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from typing import Union
 
 from ..models import Question, Answer
 
 
-def get_updated_object(slug, pk):
+def get_updated_object(slug, pk) -> Union[Answer, Question]:
+    """
+    Get the needed object (answer or question) based on given params
+    """
     queryset = Question.objects.filter(archive=False)
     question = get_object_or_404(queryset, slug=slug)
 
@@ -16,7 +20,11 @@ def get_updated_object(slug, pk):
     return updated_object
 
 
-def action_sign_user_post_vote(request, slug, pk, increase=True):
+def action_sign_user_post_vote(request, slug, pk, increase=True) \
+        -> HttpResponseRedirect:
+    """
+    Sign user vote (upvote, downvote) and give the user feedback
+    """
     user = request.user
     updated_object = get_updated_object(slug=slug, pk=pk)
     voters = updated_object.vote_users.all()
@@ -39,7 +47,10 @@ def action_sign_user_post_vote(request, slug, pk, increase=True):
     return redirect(f'/forum/{slug}/')
 
 
-def action_accept_answer(request, slug, pk):
+def action_accept_answer(request, slug, pk) -> HttpResponseRedirect:
+    """
+    Mark an answer as accepted, question as answered
+    """
     user = request.user
     answer = get_updated_object(slug=slug, pk=pk)
     if not any([answer.accepted, answer.related_question.answered]) and\
@@ -65,16 +76,25 @@ def action_accept_answer(request, slug, pk):
 
 
 @login_required
-def upvote(request, slug=False, pk=False):
+def upvote(request, slug=False, pk=False) -> HttpResponseRedirect:
+    """
+    Sign an upvote of question/ answer
+    """
     return action_sign_user_post_vote(request=request, slug=slug, pk=pk)
 
 
 @login_required
-def downvote(request, slug=False, pk=False):
+def downvote(request, slug=False, pk=False) -> HttpResponseRedirect:
+    """
+    Sign an downvote of question/ answer
+    """
     return action_sign_user_post_vote(request=request, slug=slug, pk=pk,
                                       increase=False)
 
 
 @login_required
-def accept(request, slug=False, pk=False):
+def accept(request, slug=False, pk=False) -> HttpResponseRedirect:
+    """
+    Accept an answer
+    """
     return action_accept_answer(request=request, slug=slug, pk=pk)

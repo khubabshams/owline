@@ -8,7 +8,7 @@ from ..models import BasePost, Question, Answer
 class TestBasePostViews(TestCaseCustom):
 
     # Test Question Upvote -----------------------------------------------
-    def test_question_upvote_success(self):
+    def test_question_upvote_success(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
@@ -32,7 +32,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_question_upvote_twice(self):
+    def test_question_upvote_twice(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
@@ -57,7 +57,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_question_upvote_by_owner(self):
+    def test_question_upvote_by_owner(self) -> None:
         question_upvote_by_owner_response = self.client.post(
             reverse('question_upvote', kwargs={'slug': self.Question1.slug}),
             {})
@@ -78,7 +78,7 @@ class TestBasePostViews(TestCaseCustom):
                          "User must be redirect to related question")
 
     # Test Question Downvote -----------------------------------------------
-    def test_question_downvote_success(self):
+    def test_question_downvote_success(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
@@ -102,7 +102,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_question_downvote_twice(self):
+    def test_question_downvote_twice(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
@@ -127,7 +127,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_question_downvote_by_owner(self):
+    def test_question_downvote_by_owner(self) -> None:
         question_downvote_by_owner_response = self.client.post(
             reverse('question_downvote', kwargs={'slug': self.Question1.slug}),
             {})
@@ -148,7 +148,7 @@ class TestBasePostViews(TestCaseCustom):
                          "User must be redirect to related question")
 
     # Test Answer Upvote -----------------------------------------------
-    def test_answer_upvote_success(self):
+    def test_answer_upvote_success(self) -> None:
         answer_upvote_response = self.client.post(
             reverse('answer_upvote', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}), {})
@@ -169,7 +169,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_answer_upvote_twice(self):
+    def test_answer_upvote_twice(self) -> None:
         answer_first_upvote_response = self.client.post(
             reverse('answer_upvote', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}), {})
@@ -191,7 +191,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_answer_upvote_by_owner(self):
+    def test_answer_upvote_by_owner(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
@@ -215,7 +215,7 @@ class TestBasePostViews(TestCaseCustom):
                          "User must be redirect to related question")
 
     # Test Answer Downvote -----------------------------------------------
-    def test_answer_downvote_success(self):
+    def test_answer_downvote_success(self) -> None:
         answer_downvote_response = self.client.post(
             reverse('answer_downvote', kwargs={'slug': self.Question1.slug,
                                                'pk': self.Answer1.id}), {})
@@ -236,7 +236,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_answer_downvote_twice(self):
+    def test_answer_downvote_twice(self) -> None:
         answer_first_downvote_response = self.client.post(
             reverse('answer_downvote', kwargs={'slug': self.Question1.slug,
                                                'pk': self.Answer1.id}), {})
@@ -258,7 +258,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_answer_downvote_by_owner(self):
+    def test_answer_downvote_by_owner(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
@@ -282,7 +282,7 @@ class TestBasePostViews(TestCaseCustom):
                          "User must be redirect to related question")
 
     # Test Answer Accept -----------------------------------------------
-    def test_answer_accept_success(self):
+    def test_answer_accept_success(self) -> None:
         answer_accept_response = self.client.post(
             reverse('answer_accept', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}), {})
@@ -304,7 +304,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_question_owner_accept_his_own_answer_success(self):
+    def test_question_owner_accept_his_own_answer_success(self) -> None:
         question_owner_answer = Answer.objects.\
             create(created_by=self.AdminUser, modified_by=self.AdminUser,
                    body='BODY', related_question=self.Question1)
@@ -334,7 +334,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_answer_accept_answered_question(self):
+    def test_answer_accept_answered_question(self) -> None:
         to_be_accepted_answer = Answer.objects.\
             create(created_by=self.AdminUser, modified_by=self.AdminUser,
                    body='BODY', related_question=self.Question1)
@@ -365,7 +365,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_answer_accept_twice(self):
+    def test_answer_accept_twice(self) -> None:
         answer_first_accept_response = self.client.post(
             reverse('answer_accept', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}), {})
@@ -388,7 +388,7 @@ class TestBasePostViews(TestCaseCustom):
                          f'/forum/{self.Question1.slug}/',
                          "User must be redirect to related question")
 
-    def test_answer_accept_by_not_question_owner(self):
+    def test_answer_accept_by_not_question_owner(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)

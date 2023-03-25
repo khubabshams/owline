@@ -11,5 +11,8 @@ class Answer(BasePost):
     class Meta:
         ordering = ['-votes']
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """
+        Returned str on the answer record
+        """
         return self.body.raw

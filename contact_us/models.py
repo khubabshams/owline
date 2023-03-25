@@ -13,5 +13,8 @@ class Message(models.Model):
     class Meta:
         ordering = ['-created_on']
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """
+        Returned str on the message record
+        """
         return f"From {self.email}"

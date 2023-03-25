@@ -6,7 +6,10 @@ from ..models import Question
 from ..views import QuestionList
 
 
-def search(request):
+def search(request) -> HttpResponse:
+    """
+    Search questions record for the given keywords
+    """
     search_text = request.POST.get('search', False)
     if not search_text or request.method == 'GET':
         return redirect('/')

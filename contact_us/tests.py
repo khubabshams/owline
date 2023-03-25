@@ -9,7 +9,10 @@ PASSWORD = 'PA$$WoRd@23'
 
 class TestContactUs(TestCase):
 
-    def setUp(self):
+    def setUp(self) -> None:
+        """
+        Create the common basic data needed for tests
+        """
         self.User = User.objects.create_superuser('username',
                                                   'useremail@owline.com',
                                                   PASSWORD)
@@ -21,14 +24,14 @@ class TestContactUs(TestCase):
                           password=PASSWORD)
 
     # Test Message model
-    def test_message_defaults(self):
+    def test_message_defaults(self) -> None:
         self.assertTrue(self.Message1.unread,
                         'Message on creation should be marked as unread')
         self.assertFalse(self.Message1.archive,
                          'Message on creation should be marked as un-archived')
 
     # Test Message CreateView
-    def test_message_create_success(self):
+    def test_message_create_success(self) -> None:
         message_create_response = self.client.post(
             reverse('contactus', kwargs={}),
             {'name': self.User.username, 'email': self.User.email,
@@ -40,7 +43,7 @@ class TestContactUs(TestCase):
         self.assertFalse(message2.archive,
                          'Message on creation should be marked as un-archived')
 
-    def test_message_create_required_field(self):
+    def test_message_create_required_field(self) -> None:
         message_required_email_response = self.client.post(
             reverse('contactus', kwargs={}),
             {'name': self.User.username, 'email': '',

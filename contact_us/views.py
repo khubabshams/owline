@@ -16,7 +16,10 @@ class MessageList(generic.ListView):
 
 class MessageDetail(View):
 
-    def get(self, request, pk, *args, **kwargs):
+    def get(self, request, pk, *args, **kwargs) -> HttpResponse:
+        """
+        Handle get request of the view, if message is unread change it to false
+        """
         queryset = Message.objects.filter(archive=False)
         message = get_object_or_404(queryset, pk=pk)
         if message.unread:

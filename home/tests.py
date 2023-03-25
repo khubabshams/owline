@@ -7,17 +7,20 @@ from .models import Profile
 
 class TestModels(TestCase):
 
-    def setUp(self):
+    def setUp(self) -> None:
+        """
+        Create the common basic data needed for tests
+        """
         self.NewUser = User.objects.create_superuser('username',
                                                      'useremail@owline.com',
                                                      'PA$$WoRd@23')
 
     # Test Profile model
-    def test_user_has_profile(self):
+    def test_user_has_profile(self) -> None:
         self.assertTrue(self.NewUser.profile,
                         "User creation should create a related profile")
 
-    def test_profile_defaults(self):
+    def test_profile_defaults(self) -> None:
         profile = self.NewUser.profile
         self.assertEqual(f'username\n [0 Points]', profile.__str__())
         self.assertEqual(profile.score, 0,

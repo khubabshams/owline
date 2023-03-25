@@ -11,5 +11,8 @@ class Question(BasePost):
     class Meta:
         ordering = ['-created_on']
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """
+        Returned str on the question record
+        """
         return self.title

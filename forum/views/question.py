@@ -21,12 +21,18 @@ class QuestionCreate(LoginRequiredMixin, CreateView):
     template_name = 'create.html'
     fields = ['title', 'body']
 
-    def get_success_url(self):
+    def get_success_url(self) -> str:
+        """
+        Get the url of the question
+        """
         return reverse('question_details', current_app='forum', kwargs={
             'slug': self.object.slug,
         })
 
-    def form_valid(self, form):
+    def form_valid(self, form) -> HttpResponse:
+        """
+        Add current user to created and modified by and to vote users
+        """
         self.object = form.save(commit=False)
         self.object.created_by = self.request.user
         self.object.modified_by = self.request.user
@@ -40,7 +46,10 @@ class QuestionUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'update.html'
     model = Question
 
-    def get_success_url(self):
+    def get_success_url(self) -> str:
+        """
+        Get the url of the question
+        """
         return reverse('question_details', current_app='forum', kwargs={
             'slug': self.object.slug,
         })
@@ -51,7 +60,10 @@ class QuestionDelete(LoginRequiredMixin, DeleteView):
     template_name = 'delete.html'
     success_url = '/'
 
-    def delete(self, request, *args, **kwargs):
+    def delete(self, request, *args, **kwargs) -> HttpResponse:
+        """
+        Prevent non-admin to delete a question
+        """
         if not self.request.user.is_superuser:
             raise PermissionDenied()
         return super().delete(request, *args, **kwargs)
@@ -59,7 +71,10 @@ class QuestionDelete(LoginRequiredMixin, DeleteView):
 
 class QuestionDetail(View):
 
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug, *args, **kwargs) -> HttpResponse:
+        """
+        Handle get request of the detail view, get question and answers
+        """
         queryset = Question.objects.filter(archive=False)
         question = get_object_or_404(queryset, slug=slug)
         answers = question.answers.filter(archive=False).order_by('-votes')

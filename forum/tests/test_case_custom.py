@@ -12,8 +12,10 @@ LOGIN = '/accounts/login/'
 
 class TestCaseCustom(TestCase):
 
-    def setUp(self):
-        # Login
+    def setUp(self) -> None:
+        """
+        Create the common basic data needed for tests
+        """
         self.AdminUser = User.objects.create_superuser(USERNAME, EMAIL,
                                                        PASSWORD)
         self.RegularUser = User.objects.create_user(username=USERNAME2,

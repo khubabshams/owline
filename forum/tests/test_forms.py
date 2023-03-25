@@ -6,7 +6,7 @@ from ..forms import AnswerForm
 class TestForms(TestCase):
 
     # Test Answer form
-    def test_answer_form_required_field(self):
+    def test_answer_form_required_field(self) -> None:
         answer_form = AnswerForm({'body': ''})
         self.assertFalse(answer_form.is_valid(),
                          "Form with no 'body' should be invalid")

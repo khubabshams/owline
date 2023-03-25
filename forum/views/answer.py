@@ -12,12 +12,18 @@ class AnswerCreate(LoginRequiredMixin, CreateView):
     template_name = 'create.html'
     fields = ['body']
 
-    def get_success_url(self):
+    def get_success_url(self) -> str:
+        """
+        Get the url of the related question
+        """
         return reverse('question_details', current_app='forum', kwargs={
             'slug': self.object.related_question.slug,
         })
 
-    def form_valid(self, form):
+    def form_valid(self, form) -> HttpResponse:
+        """
+        Add user to created and modified by, and related question
+        """
         self.object = form.save(commit=False)
         queryset = Question.objects.filter(archive=False)
         question = get_object_or_404(queryset, slug=self.kwargs.get("slug"))
@@ -34,12 +40,18 @@ class AnswerUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'update.html'
     model = Answer
 
-    def get_success_url(self):
+    def get_success_url(self) -> str:
+        """
+        Get the url of the related question
+        """
         return reverse('question_details', current_app='forum', kwargs={
             'slug': self.object.related_question.slug,
         })
 
-    def form_valid(self, form):
+    def form_valid(self, form) -> HttpResponse:
+        """
+        Update modified by with current user
+        """
         self.object = form.save(commit=False)
 
         self.object.modified_by = self.request.user
@@ -50,12 +62,18 @@ class AnswerDelete(LoginRequiredMixin, DeleteView):
     model = Answer
     template_name = 'delete.html'
 
-    def get_success_url(self):
+    def get_success_url(self) -> str:
+        """
+        Get the url of the related question
+        """
         return reverse('question_details', current_app='forum', kwargs={
             'slug': self.object.related_question.slug,
         })
 
-    def delete(self, request, *args, **kwargs):
+    def delete(self, request, *args, **kwargs) -> HttpResponse:
+        """
+        Prevent non-admin to delete an answer
+        """
         if not self.request.user.is_superuser:
             raise PermissionDenied()
         return super().delete(request, *args, **kwargs)
