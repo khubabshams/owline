@@ -8,7 +8,7 @@ from ..models import Answer
 class TestAnswerViews(TestCaseCustom):
 
     # Test Answer Create View -----------------------------------------------
-    def test_answer_create_success(self):
+    def test_answer_create_success(self) -> None:
         answer_create_response = self.client.post(
             reverse('answer_create', kwargs={'slug': self.Question1.slug}),
             {'body': 'NEW ANSWER BODY'})
@@ -21,7 +21,7 @@ class TestAnswerViews(TestCaseCustom):
         self.assertEqual(answer_create_response.url,
                          f'/forum/{self.Question1.slug}/')
 
-    def test_answer_create_required_fields(self):
+    def test_answer_create_required_fields(self) -> None:
         required_body_response = self.client.post(
             reverse('answer_create', kwargs={'slug': self.Question1.slug}),
             {'body': ''})
@@ -31,7 +31,7 @@ class TestAnswerViews(TestCaseCustom):
         self.assertEqual(len(answers), 1)
         self.assertNotEqual(required_body_response.status_code, 302)
 
-    def test_answer_create_login_required(self):
+    def test_answer_create_login_required(self) -> None:
         self.client.logout()
         anonymous_user_create_response = self.client.post(
             reverse('answer_create', kwargs={'slug': self.Question1.slug}),
@@ -45,7 +45,7 @@ class TestAnswerViews(TestCaseCustom):
                          f'{LOGIN}?next=/forum/{self.Question1.slug}/create/')
 
     # Test Answer Update View -----------------------------------------------
-    def test_answer_update_success(self):
+    def test_answer_update_success(self) -> None:
         answer_update_response = self.client.post(
             reverse('answer_update', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}),
@@ -56,7 +56,7 @@ class TestAnswerViews(TestCaseCustom):
         self.assertEqual(answer_update_response.url,
                          f'/forum/{self.Question1.slug}/')
 
-    def test_answer_update_required_fields(self):
+    def test_answer_update_required_fields(self) -> None:
         required_body_response = self.client.post(
             reverse('answer_update', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}),
@@ -65,7 +65,7 @@ class TestAnswerViews(TestCaseCustom):
         self.assertEqual(self.Answer1.body.raw, 'BODY')
         self.assertNotEqual(required_body_response.status_code, 302)
 
-    def test_answer_update_login_required(self):
+    def test_answer_update_login_required(self) -> None:
         self.client.logout()
         anonymous_user_update_response = self.client.post(
             reverse('answer_update', kwargs={'slug': self.Question1.slug,
@@ -79,7 +79,7 @@ class TestAnswerViews(TestCaseCustom):
                          f'{self.Answer1.id}/update/')
 
     # # Test Answer Delete View -----------------------------------------------
-    def test_answer_delete_success(self):
+    def test_answer_delete_success(self) -> None:
         answer_delete_response = self.client.post(
             reverse('answer_delete', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}), {})
@@ -89,7 +89,7 @@ class TestAnswerViews(TestCaseCustom):
         self.assertEqual(answer_delete_response.url,
                          f'/forum/{self.Question1.slug}/')
 
-    def test_answer_delete_not_admin(self):
+    def test_answer_delete_not_admin(self) -> None:
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
@@ -102,7 +102,7 @@ class TestAnswerViews(TestCaseCustom):
                                    HttpResponseForbidden),
                         'User should be redirect to forbidden error page')
 
-    def test_answer_delete_login_required(self):
+    def test_answer_delete_login_required(self) -> None:
         self.client.logout()
         anonymous_user_delete_response = self.client.post(
             reverse('answer_delete', kwargs={'slug': self.Question1.slug,
