@@ -51,11 +51,10 @@ class QuestionDelete(LoginRequiredMixin, DeleteView):
     template_name = 'delete.html'
     success_url = '/'
 
-    def form_valid(self, form):
-        self.object = form.save(commit=False)
+    def delete(self, request, *args, **kwargs):
         if not self.request.user.is_superuser:
             raise PermissionDenied()
-        return super().form_valid(form)
+        return super().delete(request, *args, **kwargs)
 
 
 class QuestionDetail(View):

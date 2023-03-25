@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import UpdateView, DeleteView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
+from django.core.exceptions import PermissionDenied
 
 from ..models import Answer, Question
 
@@ -54,8 +55,7 @@ class AnswerDelete(LoginRequiredMixin, DeleteView):
             'slug': self.object.related_question.slug,
         })
 
-    def form_valid(self, form):
-        self.object = form.save(commit=False)
+    def delete(self, request, *args, **kwargs):
         if not self.request.user.is_superuser:
             raise PermissionDenied()
-        return super().form_valid(form)
+        return super().delete(request, *args, **kwargs)
