@@ -1,4 +1,6 @@
 from django.urls import reverse
+from django.http import HttpResponseForbidden
+
 from .test_case_custom import TestCaseCustom, LOGIN, PASSWORD
 from ..models import Answer
 
@@ -91,23 +93,23 @@ class TestAnswerViews(TestCaseCustom):
         self.client.logout()
         self.client.login(username=self.RegularUser.username,
                           password=PASSWORD)
-        not_admin_user_update_response = self.client.post(
-            reverse('answer_delete', kwargs={'slug': self.Question1.slug,
-                                             'pk': self.Answer1.id}), {})
-        answer1 = Answer.objects.filter(id=self.Answer1.id).first()
-        self.assertEqual(answer1, None)
-        self.assertEqual(not_admin_user_update_response.status_code, 302)
-        self.assertEqual(not_admin_user_update_response.url,
-                         f'/forum/{self.Question1.slug}/')
-
-    def test_answer_delete_login_required(self):
-        self.client.logout()
-        anonymous_user_update_response = self.client.post(
+        not_admin_user_delete_response = self.client.post(
             reverse('answer_delete', kwargs={'slug': self.Question1.slug,
                                              'pk': self.Answer1.id}), {})
         answer1 = Answer.objects.filter(id=self.Answer1.id).first()
         self.assertNotEqual(answer1, None)
-        self.assertEqual(anonymous_user_update_response.status_code, 302)
-        self.assertEqual(anonymous_user_update_response.url,
+        self.assertTrue(isinstance(not_admin_user_delete_response,
+                                   HttpResponseForbidden),
+                        'User should be redirect to forbidden error page')
+
+    def test_answer_delete_login_required(self):
+        self.client.logout()
+        anonymous_user_delete_response = self.client.post(
+            reverse('answer_delete', kwargs={'slug': self.Question1.slug,
+                                             'pk': self.Answer1.id}), {})
+        answer1 = Answer.objects.filter(id=self.Answer1.id).first()
+        self.assertNotEqual(answer1, None)
+        self.assertEqual(anonymous_user_delete_response.status_code, 302)
+        self.assertEqual(anonymous_user_delete_response.url,
                          f'{LOGIN}?next=/forum/{self.Question1.slug}/'
                          f'{self.Answer1.id}/delete/')
