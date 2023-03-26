@@ -10,7 +10,7 @@
         <div class="col-12">
 
             <!-- Question Content -->
-            <div class="question-card mb-3 mt-3">
+            <div class="question-card mt-3">
                 <div class="row">
                     <div class="col12">
                         <h1 class="question-title">{{ question.title }}</h1>
@@ -75,14 +75,14 @@
                     <div class="col-md-1 text-center d-none d-md-block">
                         <a role="button"
                             href="{% url 'question_upvote' question.slug %}"
-                            class="upvote-button btn" data-bs-toggle="tooltip"
+                            class="vote-button btn" data-bs-toggle="tooltip"
                             data-bs-placement="top" title="Upvote">
                             <i class="fa-solid fa-caret-up"></i>
                         </a>
                         <div class="vote">{{ question.votes }}</div>
                         <a role="button"
                             href="{% url 'question_downvote' question.slug %}"
-                            class="downvote-button btn" data-bs-toggle="tooltip"
+                            class="vote-button btn" data-bs-toggle="tooltip"
                             data-bs-placement="bottom" title="Downvote">
                             <i class="fa-solid fa-caret-down"></i>
                         </a>
@@ -100,7 +100,7 @@
                             <td>
                                 <a role="button"
                                     href="{% url 'question_upvote' question.slug %}"
-                                    class="upvote-button btn" data-bs-toggle="tooltip"
+                                    class="vote-button btn" data-bs-toggle="tooltip"
                                     data-bs-placement="top" title="Upvote">
                                     <i class="fa-solid fa-caret-up"></i>
                                 </a>
@@ -111,7 +111,7 @@
                             <td>
                                 <a role="button"
                                     href="{% url 'question_downvote' question.slug %}"
-                                    class="downvote-button btn" data-bs-toggle="tooltip"
+                                    class="vote-button btn" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
                                 </a>
@@ -122,126 +122,121 @@
             </div>
 
             <!-- Posted Answers -->
-            <div class="answer-card mb-3">
-                {% for answer in answers %}
-                <div class="answer">
-                    <div class="row">
-                        <div class="col-10 post-info text-muted">
-                            <span class="profile">
-                                {{ answer.created_by.profile }} 
-                            </span>
-                            ●
-                            {{ answer.created_on|date:"d M Y" }}
-                            {{ answer.created_on|time:"H:i" }}
-                            {% if answer.created_by != answer.modified_by %}
-                           <u>modified by</u>
-                            <span class="profile">
-                                {{ answer.modified_by.profile }} 
-                            </span>
-                            ●
-                            {{ answer.modified_on|date:"d M Y" }}
-                            {{ answer.modified_on|time:"H:i" }}
-                            {% endif %}
-                        </div>
-                        <div class="col-2">
-                            <div class="dropdown">
-                                <button type="button"
-                                    id="postOptions" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <i class="fa-solid fa-ellipsis-vertical"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom"
-                                        title="More Actions"></i>
-                                </button>
-                                <ul class="dropdown-menu"
-                                    aria-labelledby="postOptions">
-                                    <li>
-                                        <a href="{% url 'answer_update' question.slug answer.id %}"
-                                            id="edit-answer"
-                                            class="dropdown-item">
-                                            <i class="fa-solid fa-pencil"
-                                                class="update-button btn"></i>
-                                            Update
-                                        </a>
-                                    </li>
-                                    {% if user.is_superuser %}
-                                    <li>
-                                        <a href="{% url 'answer_delete' question.slug answer.id %}"
-                                            id="delete-answer"
-                                            class="dropdown-item">
-                                            <i class="fa-solid fa-trash"
-                                                class="delete-button btn"></i>
-                                            Delete
-                                        </a>
-                                    </li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="answer-text">
-                                {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <table class="text-center vote-area">
-                            <tr>
-                                {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
-                                <td>
-                                    <a role="button"
-                                        href="{% url 'answer_accept' question.slug answer.id %}"
-                                        class="accept-button btn"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom"
-                                        title="Accept as the Best Answer">
-                                        <i class="fa-solid fa-circle-check"></i>
-                                    </a>
-                                </td>
-                                {% endif %}
-                                <td>
-                                    <a role="button"
-                                        href="{% url 'answer_upvote' question.slug answer.id %}"
-                                        class="helpful-button btn"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="Helpful">
-                                        <i class="fa-solid fa-thumbs-up"></i>
-                                    </a>
-                                </td>
-                                <td class="vote">
-                                    {{ answer.votes }}
-                                </td>
-                                <td>
-                                    <a role="button"
-                                        href="{% url 'answer_downvote' question.slug answer.id %}"
-                                        class="unhelpful-button btn"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="Not Helpful">
-                                        <i class="fa-solid fa-thumbs-down"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </table>
-                        {% if answer.accepted %}
-                        <div class="col-1 accepted-check">
-                            <i class="fa-solid fa-check"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="bottom"
-                                title="Best Answer"></i>
-                        </div>
+            {% for answer in answers %}
+            <div class="answer-card mt-2 position-relative">
+                <div class="row">
+                    <div class="col-10 post-info text-muted">
+                        <span class="profile">
+                            {{ answer.created_by.profile }} 
+                        </span>
+                        ●
+                        {{ answer.created_on|date:"d M Y" }}
+                        {{ answer.created_on|time:"H:i" }}
+                        {% if answer.created_by != answer.modified_by %}
+                        <u>modified by</u>
+                        <span class="profile">
+                            {{ answer.modified_by.profile }} 
+                        </span>
+                        ●
+                        {{ answer.modified_on|date:"d M Y" }}
+                        {{ answer.modified_on|time:"H:i" }}
                         {% endif %}
                     </div>
+                    <div class="col-2">
+                        <div class="dropdown">
+                            <button type="button"
+                                id="postOptions" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis-vertical"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="More Actions"></i>
+                            </button>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="postOptions">
+                                {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
+                                <li>
+                                    <a href="{% url 'answer_accept' question.slug answer.id %}"
+                                        id="accept-answer"
+                                        class="dropdown-item">
+                                        <i class="fa-solid fa-circle-check"
+                                            class="accept-button btn"></i>
+                                        Accept
+                                    </a>
+                                </li>
+                                {% endif %}
+                                <li>
+                                    <a href="{% url 'answer_update' question.slug answer.id %}"
+                                        id="edit-answer"
+                                        class="dropdown-item">
+                                        <i class="fa-solid fa-pencil"
+                                            class="update-button btn"></i>
+                                        Update
+                                    </a>
+                                </li>
+                                {% if user.is_superuser %}
+                                <li>
+                                    <a href="{% url 'answer_delete' question.slug answer.id %}"
+                                        id="delete-answer"
+                                        class="dropdown-item">
+                                        <i class="fa-solid fa-trash"
+                                            class="delete-button btn"></i>
+                                        Delete
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                {% if not forloop.last %}
-                <hr>
-                {% endif %}
-                {% endfor %}
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="answer-text">
+                            {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <table class="text-center vote-area position-absolute bottom-0 start-0">
+                        <tr>
+                            <td>
+                                <a role="button"
+                                    href="{% url 'answer_upvote' question.slug answer.id %}"
+                                    class="vote-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Helpful">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                </a>
+                            </td>
+                            <td class="vote">
+                                {{ answer.votes }}
+                            </td>
+                            <td>
+                                <a role="button"
+                                    href="{% url 'answer_downvote' question.slug answer.id %}"
+                                    class="vote-button btn"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Not Helpful">
+                                    <i class="fa-solid fa-thumbs-down"></i>
+                                </a>
+                            </td>
+                            {% if answer.accepted %}
+                            <td>
+                                <i class="fa-solid fa-check accepted-check"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="Best Answer"></i>
+                            </td>
+                            {% endif %}
+                        </tr>
+                    </table>
+                </div>
             </div>
+            {% endfor %}
+
             <!-- Answer Question -->
-            <div class="col-md-4 card answer-create-card">
+            <div class="col-md-4 card answer-create-card mt-3">
                 <div class="card-header">
                     <p>Your Answer:</p>
                 </div>

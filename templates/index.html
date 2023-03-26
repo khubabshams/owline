@@ -30,7 +30,7 @@
                                 class="col-md-1 text-center d-none d-md-block">
                                 <a role="button"
                                     href="{% url 'question_upvote' question.slug %}"
-                                    class="upvote-button btn"
+                                    class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top" title="Upvote">
                                     <i class="fa-solid fa-caret-up"></i>
@@ -38,7 +38,7 @@
                                 <div class="vote">{{ question.votes }}</div>
                                 <a role="button"
                                     href="{% url 'question_downvote' question.slug %}"
-                                    class="downvote-button btn"
+                                    class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
@@ -54,7 +54,7 @@
                                     <div class="question-text">
                                         {{ question.body.rendered|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
                                     </div>
-                                    <!-- <hr /> -->
+                                    <hr/>
                                     <p
                                         class="post-info text-muted">
                                         <span class="profile">
@@ -75,7 +75,7 @@
                                     <td>
                                         <a role="button"
                                             href="{% url 'question_upvote' question.slug %}"
-                                            class="upvote-button btn" data-bs-toggle="tooltip"
+                                            class="vote-button btn" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Upvote">
                                             <i class="fa-solid fa-caret-up"></i>
                                         </a>
@@ -86,7 +86,7 @@
                                     <td>
                                         <a role="button"
                                             href="{% url 'question_downvote' question.slug %}"
-                                            class="downvote-button btn" data-bs-toggle="tooltip"
+                                            class="vote-button btn" data-bs-toggle="tooltip"
                                             data-bs-placement="bottom" title="Downvote">
                                             <i class="fa-solid fa-caret-down"></i>
                                         </a>
