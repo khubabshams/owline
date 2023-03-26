@@ -4,6 +4,7 @@ from django.views.generic import UpdateView, DeleteView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.core.exceptions import PermissionDenied
+from django.http import HttpResponse
 
 from ..models import Question
 from ..forms import AnswerForm
