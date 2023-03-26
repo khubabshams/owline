@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-12">
+        <div class="col-12 mt-3">
 
             {% if not question_list %}
             <div class="row">
@@ -48,12 +48,13 @@
                             <div class="col-md-10 col-sm-12">
                                 <a href="{% url 'question_details' question.slug %}"
                                     class="question-link text-decoration-none">
-                                    <h5 class="question-title"> {{ question.title }}
-                                    </h5>
+                                    <h1 class="question-title">
+                                        {{ question.title }}
+                                    </h1>
                                     <div class="question-text">
-                                        {{ question.body.rendered|default:"<missing body>"|truncatewords:40|safe|linebreaks}}
+                                        {{ question.body.rendered|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
                                     </div>
-                                    <hr />
+                                    <!-- <hr /> -->
                                     <p
                                         class="post-info text-muted">
                                         <span class="profile">
@@ -62,10 +63,9 @@
                                         ●
                                         {{ question.created_on|date:"d M Y" }}
                                         {{ question.created_on|time:"H:i" }}
-                                        <br>
+                                        <!-- <br> -->
                                         {{ question.answers.count }} Answer/s
                                     </p>
-
                                 </a>
                             </div>
                         </div>
