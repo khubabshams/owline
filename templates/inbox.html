@@ -16,7 +16,7 @@
                             <div class="col-12 card-body message-card">
                                 <a href="{% url 'message_details' message.id %}"
                                     class="message-link text-decoration-none">
-                                    <h5 class="card-title message-header">
+                                    <h1 class="card-title message-header">
                                         {% if message.unread %}
                                         <i class="fa-regular fa-envelope"></i>
                                         {% else %}
@@ -25,7 +25,7 @@
 
                                         {{ message.subject }} from
                                         {{ message.email }}
-                                    </h5>
+                                    </h1>
                                     <small class="text-muted">
                                         {{ message.created_on|date:"d M Y" }}
                                         {{ message.created_on|time:"H:i" }}
