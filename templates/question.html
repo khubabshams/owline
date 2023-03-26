@@ -236,7 +236,7 @@
             {% endfor %}
 
             <!-- Answer Question -->
-            <div class="col-md-4 card answer-create-card mt-3">
+            <div class="card answer-create-card mt-3">
                 <div class="card-header">
                     <p>Your Answer:</p>
                 </div>
@@ -246,7 +246,7 @@
                         id="answer-create-form">
                         {% csrf_token %}
 
-                        {{ answer_form.as_table }}
+                        {{ answer_form|crispy }}
 
                         <button type="submit"
                             class="btn btn-success">Submit</button>
