@@ -1,88 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,400&display=swap');
 
-/* Common Variables */
-:root {
-    --primary-color: #fff7ea;
-    --secondary-color: #c26565;
+  /* Common Variables */
+  :root {
+      --primary-color: #fff7ea;
+      --secondary-color: #c26565;
 
-    --main-font: 'Lato', sans-serif;
-    --sub-font: 'Roboto', sans-serif;
-}
+      --main-font: 'Lato', sans-serif;
+  }
 
-/* Overall */
-* {
-    margin: 0;
-    box-sizing: border-box;
-}
+  /* Overall */
+  * {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: var(--main-font);
+  }
 
-header, footer {
-    font-family: var(--main-font);
-}
+  header,
+  footer {
+      font-weight: 400;
+      letter-spacing: 2px;
+  }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+  a {
+      text-decoration: none;
+      color: inherit;
+  }
 
-a:hover {
-    color: var(--secondary-color);
-}
+  h1 {
+      font-style: italic;
+      font-weight: 300;
+      font-size: 130%;
+      letter-spacing: 2px;
+  }
 
-/* Header */
-#logo {
-    max-width: 150px;
-    max-height: 50px;
-    border-radius:3px;
-}
+  a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
 
+  }
 
-/* Rows */
-.vr, hr {
-    color: var(--secondary-color) ;
-    padding: 0;
-}
+  /* Header */
+  #logo {
+      max-width: 150px;
+      max-height: 50px;
+      border-radius: 3px;
+  }
 
+  /* Container */
+  .main-bg {
+      background-color: #dbdada;
+  }
 
-/* Cards */
-.card {
-    font-family: var(--sub-font);
-}
+  /* Rows */
+  .vr,
+  hr {
+      color: var(--secondary-color);
+      padding: 0;
+  }
 
-.question-card, .answer-card {
-    font-family: var(--sub-font);
-    padding: 10px;
-    border-radius: 5px;
-    word-break: break-all;
-    border: 1px solid #c1c1c1;
-    border-top-left-radius: 0px;
-    box-shadow: 1px 3px 1px 1px #c1cbcd;
-}
+  /* Question & Answer Elements */
+  .question-card,
+  .answer-card {
+      font-weight: 400;
+      letter-spacing: 1px;
+      padding: 10px;
+      border-radius: 5px;
+      word-break: break-all;
+      background-color: white;
+      border: 1px solid #c1c1c1;
+      border-top-left-radius: 0px;
+      box-shadow: 1px 3px 1px 1px #c1cbcd;
+  }
 
-.profile {
-    color: var(--secondary-color);
-}
+  .profile {
+      color: var(--secondary-color);
+  }
 
-.post-info {
-    font-size: 70%;
-    font-weight: 700;
-    transition: all .2s ease;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-} 
+  .post-info {
+      font-size: 70%;
+      transition: all .2s ease;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+  }
 
-#postOptions {
-    background-color: transparent;
-    border: 0px;
-}
+  #postOptions {
+      background-color: transparent;
+      border: 0px;
+  }
 
-#postOptions:hover{
-    background-color: #c1c1c1;
-}
+  #postOptions:hover {
+      background-color: #c1c1c1;
+  }
 
-/* Vote Elements */
-.vote-area {
-    width: 15%;
-}
+  /* Vote Elements */
+  .vote-area {
+      width: 15%;
+  }
