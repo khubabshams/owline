@@ -2,8 +2,7 @@
 
   /* Common Variables */
   :root {
-      --primary-color: #fff7ea;
-      --secondary-color: #c26565;
+      --primary-color: #c26565;
       --background-color: #eeebeb;
       --text-background-color: #ffff;
       --accepted-color: #008000;
@@ -42,7 +41,7 @@
   }
 
   a:hover {
-      color: var(--secondary-color);
+      color: var(--primary-color);
       text-decoration: underline;
 
   }
@@ -62,7 +61,7 @@
   /* Rows */
   .vr,
   hr {
-      color: var(--secondary-color);
+      color: var(--primary-color);
       padding: 0;
   }
 
@@ -95,7 +94,7 @@
   }
 
   .profile {
-      color: var(--secondary-color);
+      color: var(--primary-color);
   }
 
   .post-info {
@@ -128,7 +127,7 @@
 
   .vote-button {
       font-size: 150%;
-      color: var(--secondary-color);
+      color: var(--primary-color);
   }
 
   .accepted-check {
