@@ -135,3 +135,9 @@
       font-size: 150%;
       color: var(--accepted-color);
   }
+
+  /* Error Page */
+  .error-img {
+      max-height: 80%;
+      max-width: 60%;
+  }
