@@ -22,6 +22,6 @@ class TestModels(TestCase):
 
     def test_profile_defaults(self) -> None:
         profile = self.NewUser.profile
-        self.assertEqual(f'username\n [0 Points]', profile.__str__())
+        self.assertEqual(f'username\n 0v🦉', profile.__str__())
         self.assertEqual(profile.score, 0,
                          "Score on user profile upon creation shoul be zero")

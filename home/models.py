@@ -13,7 +13,7 @@ class Profile(models.Model):
         """
         Returned str on the profile record
         """
-        return f"{self.user.username}\n [{self.score} Points]"
+        return f"{self.user.username}\n {self.score}v🦉"
 
 
 @receiver(post_save, sender=User)
