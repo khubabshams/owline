@@ -55,6 +55,14 @@ class QuestionUpdate(LoginRequiredMixin, UpdateView):
             'slug': self.object.slug,
         })
 
+    def form_valid(self, form) -> HttpResponse:
+        """
+        Update modified by user
+        """
+        self.object = form.save(commit=False)
+        self.object.modified_by = self.request.user
+        return super().form_valid(form)
+
 
 class QuestionDelete(LoginRequiredMixin, DeleteView):
     model = Question
