@@ -154,7 +154,7 @@
                             </button>
                             <ul class="dropdown-menu"
                                 aria-labelledby="postOptions">
-                                {% if not answer.accepted and user == question.created_by and user != answer.created_by and not question.answered %}
+                                {% if not answer.accepted and user == question.created_by and not question.answered %}
                                 <li>
                                     <a href="{% url 'answer_accept' question.slug answer.id %}"
                                         id="accept-answer"
