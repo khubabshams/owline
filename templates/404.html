@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-12">
+
+            <!-- Error Content -->
+            <div class="card error-detail-card mt-3">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="card-title error-header">
+                                Feeling lost? Time to go back
+                                <a href="/">HOME</a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="card-text error-text mb-3">
+                                    <h6>
+                                        You can:
+                                    </h6>
+                                    <ul>
+                                        <li>
+                                            Go <a href="/">Home</a>
+                                        </li>
+                                        <li>
+                                            Get help by <a href="{% url 'contactus' %}">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="error-code">404</div>
+                                <div class="error-desc">Page Cannot Be Found</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
