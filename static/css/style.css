@@ -20,6 +20,7 @@
       margin: 0;
       box-sizing: border-box;
       font-family: var(--main-font);
+      word-break: keep-all;
   }
 
   header,
@@ -88,7 +89,6 @@
 
   .question-text,
   .answer-text {
-      word-break: keep-all;
       font-size: 120%;
   }
 
@@ -111,10 +111,10 @@
       border: 0px;
   }
 
-  #postOptions:hover{
-    border: 1px solid var(--shadow-color);
-    color: var(--primary-color);
-    background-color: var(--background-color);
+  #postOptions:hover {
+      border: 1px solid var(--shadow-color);
+      color: var(--primary-color);
+      background-color: var(--background-color);
   }
 
   /* Vote & Accept Elements */
@@ -131,10 +131,10 @@
       color: var(--primary-color);
   }
 
-  .vote-button:hover{
-    border: 1px solid var(--shadow-color);
-    color: var(--primary-color);
-    background-color: var(--background-color);
+  .vote-button:hover {
+      border: 1px solid var(--shadow-color);
+      color: var(--primary-color);
+      background-color: var(--background-color);
   }
 
   .accepted-check {
@@ -145,4 +145,46 @@
   /* Error Page */
   .error-img {
       max-height: 80%;
+  }
+
+  /* Media Queries */
+  /* Mobiles */
+  @media only screen and (max-width: 768px) {
+
+      .search-form {
+          width: 100%;
+      }
+
+      #ask-question,
+      #search {
+          margin-top: 5px;
+          width: 100%;
+      }
+
+      .question-text,
+      .answer-text {
+          font-size: 90%;
+      }
+
+      .post-info {
+          font-size: 60%;
+      }
+  }
+
+  /* Tablets */
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+
+      .search-form,
+      #ask-question {
+          width: 30%;
+      }
+
+      .question-text,
+      .answer-text {
+          font-size: 100%;
+      }
+
+      .post-info {
+          font-size: 80%;
+      }
   }

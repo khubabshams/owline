@@ -144,11 +144,11 @@
                 </div>
 
                 <a href="{% url 'question_create' %}" role="button"
-                    class="btn btn-success me-2">Ask Question</a>
+                    class="btn btn-success me-2" id="ask-question">Ask Question</a>
 
-                <form class="d-flex" method="post" action="{% url 'question_search' %}">
+                <form class="d-flex search-form" method="post" action="{% url 'question_search' %}">
                     {% csrf_token %}
-                    <input class="form-control me-2" type="search" name="search"
+                    <input class="form-control me-2" type="search" id="search" name="search"
                         placeholder="Search" aria-label="Search">
                 </form>
 
