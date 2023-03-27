@@ -110,12 +110,12 @@
       user-select: none;
   }
 
-  #postOptions {
+  .post-option {
       background-color: transparent;
       border: 0px;
   }
 
-  #postOptions:hover {
+  .post-option:hover {
       border: 1px solid var(--shadow-color);
       color: var(--primary-color);
       background-color: var(--background-color);
@@ -123,11 +123,12 @@
 
   /* Vote & Accept Elements */
   .vote-area {
-      width: 10%;
+      width: 30%;
   }
 
-  .vote-area td {
-      max-width: 10%;
+  .vote-area-item {
+    display: inline;
+    max-width: 10%;
   }
 
   .vote-button {
