@@ -111,8 +111,10 @@
       border: 0px;
   }
 
-  #postOptions:hover {
-      background-color: var(--shadow-color);
+  #postOptions:hover{
+    border: 1px solid var(--shadow-color);
+    color: var(--primary-color);
+    background-color: var(--background-color);
   }
 
   /* Vote & Accept Elements */
@@ -127,6 +129,12 @@
   .vote-button {
       font-size: 150%;
       color: var(--primary-color);
+  }
+
+  .vote-button:hover{
+    border: 1px solid var(--shadow-color);
+    color: var(--primary-color);
+    background-color: var(--background-color);
   }
 
   .accepted-check {
