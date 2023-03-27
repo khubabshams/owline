@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['owline.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['owline.herokuapp.com', 'localhost', 'https://ui.dev/amiresponsive?url=https://owline.herokuapp.com/', 'https://ui.dev/amiresponsive']
 
 
 # Application definition
