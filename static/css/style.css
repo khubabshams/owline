@@ -123,12 +123,12 @@
 
   /* Vote & Accept Elements */
   .vote-area {
-      width: 30%;
+      max-width: 50%;
   }
 
   .vote-area-item {
     display: inline;
-    max-width: 10%;
+    max-width: 25%;
   }
 
   .vote-button {

@@ -10,7 +10,7 @@
         <div class="col-12">
 
             <!-- Question Content -->
-            <div class="question-card mt-3">
+            <div class="question-card mt-3 position-relative">
                 <div class="row">
                     <div class="col12">
                         <h1 class="question-title">{{ question.title }}</h1>
@@ -95,29 +95,27 @@
                     </div>
                 </div>
                 <div class="row d-md-none">
-                    <table class="text-center vote-area">
-                        <tr>
-                            <td>
-                                <button role="button"
-                                    href="{% url 'question_upvote' question.slug %}"
-                                    class="vote-button btn" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" title="Upvote">
-                                    <i class="fa-solid fa-caret-up"></i>
-                                </button>
-                            </td>
-                            <td class="vote">
-                                {{ question.votes }}
-                            </td>
-                            <td>
-                                <button
-                                    href="{% url 'question_downvote' question.slug %}"
-                                    class="vote-button btn" data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom" title="Downvote">
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="vote-area position-absolute bottom-0 start-0">
+                        <div class="vote-area-item">
+                            <button role="button"
+                                href="{% url 'question_upvote' question.slug %}"
+                                class="vote-button btn" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Upvote">
+                                <i class="fa-solid fa-caret-up"></i>
+                            </button>
+                        </div>
+                        <div class="vote-area-item vote">
+                            {{ question.votes }}
+                        </div>
+                        <div class="vote-area-item">
+                            <button
+                                href="{% url 'question_downvote' question.slug %}"
+                                class="vote-button btn" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" title="Downvote">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
