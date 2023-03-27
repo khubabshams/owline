@@ -90,7 +90,7 @@
                     <div class="vr d-none d-md-block"></div>
                     <div class="col-md-10 col-sm-12">
                         <div class="question-text">
-                            {{ question.body.rendered|default:"<missing body>"|safe|linebreaks }}
+                            {{ question.body.rendered|default:"<missing body>"|safe }}
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="answer-text">
-                            {{ answer.body.rendered|default:"<missing body>"|safe|linebreaks }}
+                            {{ answer.body.rendered|default:"<missing body>"|safe }}
                         </div>
                     </div>
                 </div>

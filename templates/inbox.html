@@ -30,7 +30,7 @@
                                 {% endif %}
                             </div>
                             <div class="card-text message-text">
-                                {{ message.body|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
+                                {{ message.body|default:"<missing body>"|truncatewords:25|safe}}
                             </div>
                             <hr />
                             <p class="post-info text-muted">
