@@ -2,7 +2,7 @@
 
   /* Common Variables */
   :root {
-      --primary-color: #c26565;
+      --primary-color: #05037a;
       --background-color: #eeebeb;
       --text-background-color: #ffff;
       --accepted-color: #008000;
@@ -37,7 +37,8 @@
 
   h1,
   h2,
-  h3 {
+  h3,
+  .question-title {
       font-style: italic;
       font-weight: 300;
       font-size: 130%;
@@ -50,8 +51,8 @@
 
   /* Header */
   #logo {
-      max-width: 150px;
-      max-height: 50px;
+      width: 100px;
+      height: 50px;
       border-radius: 3px;
   }
 
