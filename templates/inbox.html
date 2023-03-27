@@ -5,37 +5,42 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-12">
+        <div class="col-12 mt-3">
 
             {% for message in message_list %}
-            <div class="row">
-                <div class="col-12">
-
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 card-body message-card">
-                                <a href="{% url 'message_details' message.id %}"
-                                    class="message-link text-decoration-none">
-                                    <h1 class="card-title message-header">
-                                        {% if message.unread %}
-                                        <i class="fa-regular fa-envelope"></i>
-                                        {% else %}
-                                        <i class="fa-regular fa-envelope-open"></i>
-                                        {% endif %}
-
-                                        {{ message.subject }} from
-                                        {{ message.email }}
-                                    </h1>
-                                    <small class="text-muted">
-                                        {{ message.created_on|date:"d M Y" }}
-                                        {{ message.created_on|time:"H:i" }}
-                                    </small>
-                                    <div class="card-text message-text">
-                                        {{ message.body|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
-                                    </div>
-                                </a>
+            <div class="message-card mb-3">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="{% url 'message_details' message.id %}"
+                            class="message-link text-decoration-none">
+                            <div class="row">
+                                <div class="col-2">
+                                    {% if message.unread %}
+                                    <i class="fa-regular fa-envelope"></i>
+                                    {% else %}
+                                    <i class="fa-regular fa-envelope-open"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="col-10">
+                                    <h2 class="message-subject">
+                                        {{ message.subject }}
+                                    </h2>
+                                </div>
                             </div>
-                        </div>
+                            <div class="card-text message-text">
+                                {{ message.body|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
+                            </div>
+                            <hr />
+                            <p class="post-info text-muted">
+                                <span class="profile">
+                                    {{ message.email }}
+                                </span>
+                                {{ message.subject }}
+                                ●
+                                {{ message.created_on|date:"d M Y" }}
+                                {{ message.created_on|time:"H:i" }}
+                            </p>
+                        </a>
                     </div>
                 </div>
             </div>

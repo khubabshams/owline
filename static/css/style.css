@@ -79,7 +79,8 @@
   }
 
   .question-card,
-  .answer-card {
+  .answer-card,
+  .message-card {
       font-weight: 400;
       letter-spacing: var(--sub-spacing);
       padding: 10px;
@@ -187,7 +188,7 @@
           min-height: 30vh;
       }
 
-      .answer-card {
+      .answer-card, .message-card {
           min-height: 15vh;
       }
 
