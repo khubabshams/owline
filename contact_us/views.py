@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic import UpdateView, DeleteView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse
 
 from .models import Message
@@ -10,9 +11,13 @@ from .models import Message
 
 class MessageList(generic.ListView):
     model = Message
-    queryset = Message.objects.filter(archive=False).order_by('-created_on')
     template_name = 'inbox.html'
     paginated_by = 10
+
+    def get_queryset(self):
+        if not self.request.user.is_superuser:
+            raise PermissionDenied()
+        return Message.objects.filter(archive=False).order_by('-created_on')
 
 
 class MessageDetail(View):
