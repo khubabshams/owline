@@ -35,6 +35,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['owline.herokuapp.com', 'localhost']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 
