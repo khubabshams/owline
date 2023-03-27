@@ -97,8 +97,7 @@
                                         {{ question.body.rendered|default:"<missing body>"|truncatewords:25|safe|linebreaks }}
                                     </div>
                                     <hr>
-                                    <p
-                                        class="post-info text-muted">
+                                    <div class="post-info text-muted">
                                         <span class="profile">
                                             {{ question.created_by.profile }}
                                         </span>
@@ -107,7 +106,7 @@
                                         {{ question.created_on|time:"H:i" }}
                                         <!-- <br> -->
                                         {{ question.answers.count }} Answer/s
-                                    </p>
+                                    </div>
                                 </a>
                             </div>
                         </div>
