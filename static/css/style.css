@@ -142,10 +142,6 @@
       color: var(--accepted-color);
   }
 
-  /* Error Page */
-  .error-img {
-      max-height: 80%;
-  }
 
   /* Media Queries */
   /* Mobiles */
