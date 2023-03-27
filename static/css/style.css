@@ -71,11 +71,11 @@
 
   /* Question & Answer Elements */
   .question-card {
-      min-height: 30%;
+      min-height: 40vh;
   }
 
   .answer-card {
-      min-height: 20%;
+      min-height: 30vh;
   }
 
   .question-card,
@@ -127,8 +127,8 @@
   }
 
   .vote-area-item {
-    display: inline;
-    max-width: 25%;
+      display: inline;
+      max-width: 25%;
   }
 
   .vote-button {
@@ -181,6 +181,14 @@
       .search-form,
       #ask-question {
           width: 30%;
+      }
+
+      .question-card {
+          min-height: 30vh;
+      }
+
+      .answer-card {
+          min-height: 15vh;
       }
 
       .question-text,
