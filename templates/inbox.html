@@ -21,11 +21,13 @@
                                     <i class="fa-regular fa-envelope-open"></i>
                                     {% endif %}
                                 </div>
+                                {% if message.subject %}
                                 <div class="col-10">
                                     <h2 class="message-subject">
                                         {{ message.subject }}
                                     </h2>
                                 </div>
+                                {% endif %}
                             </div>
                             <div class="card-text message-text">
                                 {{ message.body|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
@@ -35,7 +37,6 @@
                                 <span class="profile">
                                     {{ message.email }}
                                 </span>
-                                {{ message.subject }}
                                 ●
                                 {{ message.created_on|date:"d M Y" }}
                                 {{ message.created_on|time:"H:i" }}
