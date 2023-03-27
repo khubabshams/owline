@@ -13,7 +13,7 @@
             <div class="question-card mt-3 position-relative">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="question-title">{{ question.title }}</h1>
+                        <h2 class="question-title">{{ question.title }}</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -91,7 +91,7 @@
                     <div class="vr d-none d-md-block"></div>
                     <div class="col-md-10 col-sm-12">
                         <div class="question-text">
-                            {{ question.body.rendered|default:"<missing body>"|safe|linebreaks}}
+                            {{ question.body.rendered|default:"<missing body>"|safe|linebreaks }}
                         </div>
                     </div>
                 </div>
