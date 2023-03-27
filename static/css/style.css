@@ -20,7 +20,7 @@
       margin: 0;
       box-sizing: border-box;
       font-family: var(--main-font);
-      word-break: keep-all;
+      word-break: break-word;
   }
 
   header,
