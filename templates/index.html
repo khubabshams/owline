@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
-                                <img src="https://res.cloudinary.com/duv51g0vq/image/upload/v1679883308/question-not-found_xpqbrz.jpg"
+                                <img src="https://res.cloudinary.com/duv51g0vq/image/upload/v1679887866/result-not-found_gkv8qf.jpg"
                                     alt="search result not found"
                                     style="max-width: 100%;max-height: 80%;">
                             </div>
@@ -72,29 +72,29 @@
                         <div class="row">
                             <div
                                 class="col-md-1 text-center d-none d-md-block">
-                                <a role="button"
+                                <button 
                                     href="{% url 'question_upvote' question.slug %}"
                                     class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top" title="Upvote">
                                     <i class="fa-solid fa-caret-up"></i>
-                                </a>
+                                </button>
                                 <div class="vote">{{ question.votes }}</div>
-                                <a role="button"
+                                <button
                                     href="{% url 'question_downvote' question.slug %}"
                                     class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
-                                </a>
+                                </button>
                             </div>
                             <div class="vr d-none d-md-block"></div>
                             <div class="col-md-10 col-sm-12">
                                 <a href="{% url 'question_details' question.slug %}"
                                     class="question-link text-decoration-none">
-                                    <h1 class="question-title">
+                                    <div class="question-title">
                                         {{ question.title }}
-                                    </h1>
+                                    </div>
                                     <div class="question-text">
                                         {{ question.body.rendered|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
                                     </div>
@@ -117,23 +117,23 @@
                             <table class="text-center vote-area">
                                 <tr>
                                     <td>
-                                        <a role="button"
+                                        <button
                                             href="{% url 'question_upvote' question.slug %}"
                                             class="vote-button btn" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Upvote">
                                             <i class="fa-solid fa-caret-up"></i>
-                                        </a>
+                                        </button>
                                     </td>
                                     <td class="vote">
                                         {{ question.votes }}
                                     </td>
                                     <td>
-                                        <a role="button"
+                                        <button
                                             href="{% url 'question_downvote' question.slug %}"
                                             class="vote-button btn" data-bs-toggle="tooltip"
                                             data-bs-placement="bottom" title="Downvote">
                                             <i class="fa-solid fa-caret-down"></i>
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                             </table>

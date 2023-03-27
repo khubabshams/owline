@@ -73,19 +73,19 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-1 text-center d-none d-md-block">
-                        <a role="button"
+                        <button
                             href="{% url 'question_upvote' question.slug %}"
                             class="vote-button btn" data-bs-toggle="tooltip"
                             data-bs-placement="top" title="Upvote">
                             <i class="fa-solid fa-caret-up"></i>
-                        </a>
+                        </button>
                         <div class="vote">{{ question.votes }}</div>
-                        <a role="button"
+                        <button
                             href="{% url 'question_downvote' question.slug %}"
                             class="vote-button btn" data-bs-toggle="tooltip"
                             data-bs-placement="bottom" title="Downvote">
                             <i class="fa-solid fa-caret-down"></i>
-                        </a>
+                        </button>
                     </div>
                     <div class="vr d-none d-md-block"></div>
                     <div class="col-md-10 col-sm-12">
@@ -98,23 +98,23 @@
                     <table class="text-center vote-area">
                         <tr>
                             <td>
-                                <a role="button"
+                                <button role="button"
                                     href="{% url 'question_upvote' question.slug %}"
                                     class="vote-button btn" data-bs-toggle="tooltip"
                                     data-bs-placement="top" title="Upvote">
                                     <i class="fa-solid fa-caret-up"></i>
-                                </a>
+                                </button>
                             </td>
                             <td class="vote">
                                 {{ question.votes }}
                             </td>
                             <td>
-                                <a role="button"
+                                <button
                                     href="{% url 'question_downvote' question.slug %}"
                                     class="vote-button btn" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
-                                </a>
+                                </button>
                             </td>
                         </tr>
                     </table>
@@ -201,25 +201,25 @@
                     <table class="text-center vote-area position-absolute bottom-0 start-0">
                         <tr>
                             <td>
-                                <a role="button"
+                                <button
                                     href="{% url 'answer_upvote' question.slug answer.id %}"
                                     class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Helpful">
                                     <i class="fa-solid fa-thumbs-up"></i>
-                                </a>
+                                </button>
                             </td>
                             <td class="vote">
                                 {{ answer.votes }}
                             </td>
                             <td>
-                                <a role="button"
+                                <button
                                     href="{% url 'answer_downvote' question.slug answer.id %}"
                                     class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Not Helpful">
                                     <i class="fa-solid fa-thumbs-down"></i>
-                                </a>
+                                </button>
                             </td>
                             {% if answer.accepted %}
                             <td>
