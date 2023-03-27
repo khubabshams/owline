@@ -70,21 +70,21 @@
                         <div class="row">
                             <div
                                 class="col-md-1 text-center d-none d-md-block">
-                                <button 
+                                <a 
                                     href="{% url 'question_upvote' question.slug %}"
                                     class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="top" title="Upvote">
                                     <i class="fa-solid fa-caret-up"></i>
-                                </button>
+                                </a>
                                 <div class="vote">{{ question.votes }}</div>
-                                <button
+                                <a
                                     href="{% url 'question_downvote' question.slug %}"
                                     class="vote-button btn"
                                     data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Downvote">
                                     <i class="fa-solid fa-caret-down"></i>
-                                </button>
+                                </a>
                             </div>
                             <div class="vr d-none d-md-block"></div>
                             <div class="col-md-10 col-sm-12">
@@ -96,7 +96,7 @@
                                     <div class="question-text">
                                         {{ question.body.rendered|default:"<missing body>"|truncatewords:25|safe|linebreaks}}
                                     </div>
-                                    <hr/>
+                                    <hr>
                                     <p
                                         class="post-info text-muted">
                                         <span class="profile">
@@ -114,23 +114,23 @@
                         <div class="row d-md-none mt-3">
                             <div class="vote-area position-absolute bottom-0 start-0">
                                 <div class="vote-area-item">
-                                    <button role="button"
+                                    <a
                                         href="{% url 'question_upvote' question.slug %}"
                                         class="vote-button btn" data-bs-toggle="tooltip"
                                         data-bs-placement="top" title="Upvote">
                                         <i class="fa-solid fa-caret-up"></i>
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="vote-area-item vote">
                                     {{ question.votes }}
                                 </div>
                                 <div class="vote-area-item">
-                                    <button
+                                    <a
                                         href="{% url 'question_downvote' question.slug %}"
                                         class="vote-button btn" data-bs-toggle="tooltip"
                                         data-bs-placement="bottom" title="Downvote">
                                         <i class="fa-solid fa-caret-down"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

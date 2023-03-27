@@ -74,19 +74,19 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-1 text-center d-none d-md-block">
-                        <button
+                        <a
                             href="{% url 'question_upvote' question.slug %}"
                             class="vote-button btn" data-bs-toggle="tooltip"
                             data-bs-placement="top" title="Upvote">
                             <i class="fa-solid fa-caret-up"></i>
-                        </button>
+                        </a>
                         <div class="vote">{{ question.votes }}</div>
-                        <button
+                        <a
                             href="{% url 'question_downvote' question.slug %}"
                             class="vote-button btn" data-bs-toggle="tooltip"
                             data-bs-placement="bottom" title="Downvote">
                             <i class="fa-solid fa-caret-down"></i>
-                        </button>
+                        </a>
                     </div>
                     <div class="vr d-none d-md-block"></div>
                     <div class="col-md-10 col-sm-12">
@@ -98,23 +98,23 @@
                 <div class="row d-md-none mt-3">
                     <div class="vote-area position-absolute bottom-0 start-0">
                         <div class="vote-area-item">
-                            <button role="button"
+                            <a
                                 href="{% url 'question_upvote' question.slug %}"
                                 class="vote-button btn" data-bs-toggle="tooltip"
                                 data-bs-placement="top" title="Upvote">
                                 <i class="fa-solid fa-caret-up"></i>
-                            </button>
+                            </a>
                         </div>
                         <div class="vote-area-item vote">
                             {{ question.votes }}
                         </div>
                         <div class="vote-area-item">
-                            <button
+                            <a
                                 href="{% url 'question_downvote' question.slug %}"
                                 class="vote-button btn" data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Downvote">
                                 <i class="fa-solid fa-caret-down"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -200,25 +200,25 @@
                 <div class="row mt-3">
                     <div class="vote-area position-absolute bottom-0 start-0">
                         <div class="vote-area-item">
-                            <button
+                            <a
                                 href="{% url 'answer_upvote' question.slug answer.id %}"
                                 class="vote-button btn"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Helpful">
                                 <i class="fa-solid fa-thumbs-up"></i>
-                            </button>
+                            </a>
                         </div>
                         <div class="vote-area-item vote">
                             {{ answer.votes }}
                         </div>
                         <div class="vote-area-item">
-                            <button
+                            <a
                                 href="{% url 'answer_downvote' question.slug answer.id %}"
                                 class="vote-button btn"
                                 data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Not Helpful">
                                 <i class="fa-solid fa-thumbs-down"></i>
-                            </button>
+                            </a>
                         </div>
                         {% if answer.accepted %}
                         <div class="vote-area-item">
