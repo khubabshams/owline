@@ -3,23 +3,56 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
-
-        <div class="col-12 mt-3">
-
-            {% if not question_list %}
+    {% if not question_list %}
+    <div class="card error-detail-card mb-3 mt-3">
+        <div class="card-header">
             <div class="row">
                 <div class="col-12">
-
-                    <div class="question-card mb-3 text-center">
-                        <h2>There's no question found!</h2>
-                        <a href="{% url 'question_create' %}">
-                            Ask a Question
-                        </a>
-                    </div>
+                    <h1 class="card-title">
+                        Sorry, There's no question found!
+                    </h1>
                 </div>
             </div>
-            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-12 card-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="card-text mb-3">
+                            <h6>
+                                You can:
+                            </h6>
+                            <ul>
+                                <li>
+                                    <a href="{% url 'question_create' %}">
+                                        Ask a new question
+                                    </a>
+                                </li>
+                                <li>
+                                    Go <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    Get help by <a
+                                        href="{% url 'contactus' %}">
+                                        Contacting Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <img src="https://res.cloudinary.com/duv51g0vq/image/upload/v1679883308/question-not-found_xpqbrz.jpg"
+                            alt="search result not found"
+                            style="max-width: 100%;max-height: 80%;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-12 mt-3">
             {% for question in question_list %}
             <div class="row">
                 <div class="col-12">
@@ -101,7 +134,7 @@
 
         </div>
     </div>
-
+    
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -115,6 +148,7 @@
             {% endif %}
         </ul>
     </nav>
+    {% endif %}
     {% endif %}
 </div>
 
