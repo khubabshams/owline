@@ -1,108 +1,205 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<kbd>[<img src="docs/owline-logo.png" alt="Owline logo" title="Owline Live Site" width="200"/>](https://owline.herokuapp.com)</kbd>
 
-Welcome Khubab,
+[Owline Live Site](https://owline.herokuapp.com)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+# Table of Contents
 
-## Gitpod Reminders
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+- [Goals](#goals)
+  - [User's Goals](#users-goals)
+  - [Site Owner's Goals](#site-owners-goals)
+- [Design](#design)
+  - [Frontend](#frontend)
+    - [Colors](#colors)
+    - [Font](#font)
+  - [Backend](#backend)
+    - [Data Models](#data-models)
+- [Technologies](#technologies)
+  - [Django Framework](#django-framework)
+  - [Python](#python)
+    - [Modules and Packages](#modules-and-packages)
+  - [Other Software and Tools](#other-software-and-tools)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+    - [Navbar](#navbar)
+    - [Login](#login)
+    - [Signup](#signup)
+    - [Ask Questions](#ask-questions)
+    - [Answer Questions](#answer-questions)
+    - [Imporve Question/ Answer](#imporve-question-answer)
+    - [Delete Question/ Answer](#delete-question-answer)
+    - [Register Votes](#register-votes)
+    - [Accept Answers](#accept-answers)
+    - [Search Questions](#search-questions)
+    - [User Votes](#user-votes)
+    - [Contact Us](#contact-us)
+    - [Inbox](#inbox)
+    - [Footer](#footer)
+  - [Features Left to Implement](#features-left-to-implement)
+    - [Tags](#tags)
+    - [Reply to User Messages](#reply-to-user-messages)
+- [Validations](#validations)
+  - [Python](#python-1)
+  - [Javascript](#javascript)
+  - [HTML](#html)
+  - [CSS](#css)
+  - [Accessability](#accessability)
+  - [Lighthouse](#lighthouse)
+- [Testing](#testing)
+  - [Manual Testing](#manual-testing)
+  - [Automated Testing](#automated-testing)
+  - [Bugs](#bugs)
+- [Login Credentials](#login-credentials)
+  - [Superuser](#superuser)
+  - [Regular User](#regular-user)
+- [Configurations](#configurations)
+  - [Fork This Repository](#fork-this-repository)
+  - [Make Local Clone](#make-local-clone)
+  - [Deployment](#deployment)
+- [Credits](#credits)
+  - [Media](#media)
+  - [Docs](#docs)
+  - [Code](#code)
+  - [Acknowledgements](#acknowledgements)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+# Overview
 
-A blue button should appear to click: _Make Public_,
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
-Another blue button should appear to click: _Open Browser_.
+# Goals
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## User's Goals
 
-A blue button should appear to click: _Make Public_,
+## Site Owner's Goals
 
-Another blue button should appear to click: _Open Browser_.
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+# Design
 
-To log into the Heroku toolbelt CLI:
+## Frontend
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Colors
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Font
 
-------
+## Backend
 
-## Release History
+### Data Models
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+# Technologies
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## Django Framework
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Python
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Modules and Packages
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+__Builts-in__ 
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+__Third Party__
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Other Software and Tools
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+# Features
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Existing Features
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Navbar
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Login
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Signup
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Ask Questions
 
-------
+### Answer Questions
 
-## FAQ about the uptime script
+### Imporve Question/ Answer
 
-**Why have you added this script?**
+### Delete Question/ Answer
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Register Votes
 
-**How will this affect me?**
+### Accept Answers
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### Search Questions
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### User Votes
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Contact Us
 
-**So….?**
+### Inbox
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Footer
 
-**Can I opt out?**
+## Features Left to Implement
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Tags
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Reply to User Messages
 
-**Anything more?**
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+# Validations
 
----
+## Python
 
-Happy coding!
+## Javascript
+
+## HTML
+
+## CSS
+
+## Accessability
+
+## Lighthouse
+
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+
+# Testing
+
+## Manual Testing
+
+## Automated Testing
+
+## Bugs
+
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+
+# Login Credentials
+
+## Superuser
+
+## Regular User
+
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+
+# Configurations
+
+## Fork This Repository
+
+## Make Local Clone
+
+## Deployment
+
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+
+# Credits
+
+## Media
+
+## Docs
+
+## Code
+
+## Acknowledgements
+
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+
