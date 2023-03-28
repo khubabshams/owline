@@ -12,7 +12,7 @@ from .models import Message
 class MessageList(generic.ListView):
     model = Message
     template_name = 'inbox.html'
-    paginated_by = 10
+    paginate_by = 10
 
     def get_queryset(self):
         if not self.request.user.is_superuser:
