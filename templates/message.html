@@ -4,34 +4,38 @@
 
 
 <div class="container-fluid">
-
-    <!-- Message Content -->
-    <div class="message-card mt-3">
-        <small>
-            <a class="nav-link" href="{% url 'inbox' %}"><i class="fa-solid fa-arrow-left"></i>Inbox</a>
-        </small>
-        {% if message.name %}
-        <div class="row">
-            <div class="col-12">
-                <h2 class="message-name">{{ message.name }}</h2>
-            </div>
-        </div>
-        {% endif %}
-        <div class="row">
-            <div class="col-10 post-info text-muted">
-                <span class="profile">
-                    {{ message.email }}
-                </span>
-                ●
-                {{ message.created_on|date:"d M Y" }}
-                {{ message.created_on|time:"H:i" }}
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-12">
-                <div class="message-text">
-                    {{ message.body|default:"<missing body>"|safe}}
+    <div class="row">
+        <div class="col-12 mt-3">
+            <!-- Message Content -->
+            <div class="message-card mb-3">
+                <small>
+                    <a class="nav-link" href="{% url 'inbox' %}"><i
+                            class="fa-solid fa-arrow-left"></i>Inbox</a>
+                </small>
+                {% if message.name %}
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="message-name">{{ message.name }}</h2>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col-10 post-info text-muted">
+                        <span class="profile">
+                            {{ message.email }}
+                        </span>
+                        ●
+                        {{ message.created_on|date:"d M Y" }}
+                        {{ message.created_on|time:"H:i" }}
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="message-text">
+                            {{ message.body|default:"<missing body>"|safe}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
