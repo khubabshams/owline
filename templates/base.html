@@ -69,8 +69,8 @@
                 </button>
                 <a class="navbar-brand" href="/">
                     <h1>
-                        <img src="{% static 'images/logo.png' %}" alt="Owline Logo"
-                        id="logo">
+                        <img src="{% static 'images/logo.png' %}"
+                            alt="Owline Logo" id="logo">
                     </h1>
                 </a>
 
@@ -108,8 +108,8 @@
                         <li class="nav-item dropdown d-none d-md-block">
                             <a class="nav-link dropdown-toggle" href="#"
                                 id="navbarDropdownMenuLink" role="button"
-                                aria-label="Account"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                aria-label="Account" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <i class="fa-regular fa-user"></i>
                             </a>
                             <ul class="dropdown-menu"
@@ -147,31 +147,35 @@
                 </div>
 
                 <a href="{% url 'question_create' %}" role="button"
-                    class="btn btn-success me-2" id="ask-question">Ask Question</a>
+                    class="btn btn-success me-2" id="ask-question">
+                    Ask Question
+                </a>
 
-                <form class="d-flex search-form" method="post" action="{% url 'question_search' %}">
+                <form class="d-flex search-form" method="post"
+                    action="{% url 'question_search' %}">
                     {% csrf_token %}
-                    <input class="form-control me-2" type="search" id="search" name="search"
-                        placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="search" id="search"
+                        name="search" placeholder="Search" aria-label="Search">
                 </form>
 
             </div>
         </nav>
     </header>
 
-    <!-- Messages -->
-    <div class="col-md-8 offset-md-2">
-        {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible fade show message"
-            role="alert">
-            {{ message|safe }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                aria-label="Close"></button>
-        </div>
-        {% endfor %}
 
-    </div>
     <main class="flex-shrink-0 main-bg">
+        <!-- Messages -->
+        <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show message"
+                role="alert">
+                {{ message|safe }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+
         {% block content %}
         <!-- Page Content -->
         {% endblock content %}
@@ -182,14 +186,16 @@
     <footer class="mt-3 text-center">
         <ul class="list-inline">
             <li class="list-inline-item">
-                <a href="{% url 'forum' %}" aria-label="Contact Us" data-bs-toggle="tooltip"
-                data-bs-placement="bottom" title="Forum">
+                <a href="{% url 'forum' %}" aria-label="Contact Us"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    title="Forum">
                     <i class="fa-solid fa-house"></i>
                 </a>
             </li>
             <li class="list-inline-item">
-                <a href="{% url 'contactus' %}" aria-label="Contact Us" data-bs-toggle="tooltip"
-                data-bs-placement="bottom" title="Contact Us">
+                <a href="{% url 'contactus' %}" aria-label="Contact Us"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    title="Contact Us">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
             </li>
