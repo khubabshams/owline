@@ -24,7 +24,6 @@
 - [Technologies](#technologies)
   - [Django Framework](#django-framework)
   - [Python](#python)
-    - [Modules and Packages](#modules-and-packages)
   - [Other Software and Tools](#other-software-and-tools)
 - [Features](#features)
   - [Existing Features](#existing-features)
@@ -189,15 +188,42 @@ Models have been developed following OOP concepts, trying to secure better maint
 
 ## Django Framework
 
+- Django Python Web Framework has been used to develop this site.
+- Version: 3.2.18
+
 ## Python
 
-### Modules and Packages
-
-__Builts-in__ 
-
-__Third Party__
+- is the programming language used to develop the models and views of this site.
+- Version: 3.8.11
 
 ## Other Software and Tools
+
+- [Django Markup](https://pypi.org/project/django-markupfield/): used to create markdown-supported text fields.
+- [Coverage](https://pypi.org/project/coverage/): used to check the coverage of the automation testing of the Python classes.
+- [Pycodestyle](https://pypi.org/project/pycodestyle/): is used to hint syntax errors and warnings in Python code.
+- [Bootstrap](https://getbootstrap.com): is used for styling and providing an appealing site.
+- [Badge Generator](https://badgesgenerator.com/): is used to generate markdown badges for Readme's user stories.
+- [Markdown All in One Extension](https://open-vsx.org/vscode/item?itemName=yzhang.markdown-all-in-one): used to help in writing the readme.
+- [Github](https://github.com/): used as a version control management tool.
+- [Gitpod](https://www.gitpod.io): used as a development environment.
+- [Heroku](https://www.heroku.com/): is used to deploy this site.
+- [ElephantSQL](https://www.elephantsql.com/): used to provide PostgreSQL databases as a service.
+- [Cloudinary](https://cloudinary.com/): is used to provide storage for the static files.
+- [Dia](http://dia-installer.de/): used to design models' class diagrams.
+- [Canva](https://www.canva.com/): used to design the logo and the colour scheme.
+- [Font Awesome](https://fontawesome.com/): icons provided by Font Awesome were used in this site.
+- [Freepik](https://www.freepik.com/): is used to get illustration images.
+- [Cool Symbol](https://coolsymbol.com/): used to copy text symbols.
+- [Google Fonts](fonts.google.com): the used font is imported from the Google Fonts library.
+- [Quillbot](https://quillbot.com/grammar-check) and [Grammarly](https://app.grammarly.com/): used to fix spelling and grammar mistakes.
+- [Am I Responsive](https://ui.dev/amiresponsive): used to generate multi-screen site previews.
+- [Favicon Generator](https://www.favicon-generator.org/): used to create favicons suitable for different device dimensions.
+- [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/): used to discover errors in CSS stylesheets.
+- [Nu Html Checker](https://validator.w3.org/nu/): used to discover errors in HTML syntax.
+- [WAVE](https://wave.webaim.org/): has been used as an accessibility evaluation tool.
+- [Google Chrome Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/): is used to generate reports for performance, accessibility, best practises, and SEO.
+- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/): used to test website responsiveness and debug styling issues.
+- [JSHint](https://jshint.com/): used to find Javascript code errors.
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
