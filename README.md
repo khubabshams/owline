@@ -541,13 +541,40 @@ Models have been developed following OOP concepts, trying to secure better maint
 
 # Validations
 
+The site has been checked against a variety of validators, and it passed all of them after discovered errors were fixed.
+
 ## Python
+
+Pycodestyle is used to discover and solve all Python errors and warnings.
+<details>
+<summary>Pycodestyle Result</summary>
+
+![pycodestyle result](docs/Validators/pycodestyle-result.PNG)
+</details>
 
 ## Javascript
 
+<details>
+<summary>JShint Result</summary>
+
+![jshint result](docs/Validators/jshint-check.PNG)
+</details>
+
 ## HTML
 
+<details>
+<summary>Pycodestyle Result</summary>
+
+![pycodestyle result](docs/Validators/pycodestyle-result.PNG)
+</details>
+
 ## CSS
+
+<details>
+<summary>Pycodestyle Result</summary>
+
+![pycodestyle result](docs/Validators/pycodestyle-result.PNG)
+</details>
 
 ## Accessability
 
