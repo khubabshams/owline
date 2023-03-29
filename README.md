@@ -145,7 +145,7 @@ The colour scheme created for the site is contrasted, which provides better acce
 
 ### Font
 
-The font used in this site is 'Lato', which is a sans-serif, clean font that's commonly used in blogs and writing.
+The font used in this site is "Lato," which is a sans-serif, clean font that's commonly used in blogs and writing.
 Different styles of the Lato font have been used:
 
 <details>
@@ -164,16 +164,16 @@ Different styles of the Lato font have been used:
 
 ### Data Models
 
-Models has been developed following OOP concepts trying to secure better maintenability and reduce redundancy.
+Models have been developed following OOP concepts, trying to secure better maintenance and reduce redundancy.
 
 <details>
   <summary>Models' Details</summary>
  
-  - Classes `BasePost`, `Question` and `Answer` developed in `forum` app, `Message` in `contact_us` and `Profile` in `home` app. 
-  - `BasePost` is the parent class of `Answer`  and `Question`, it contains their main attributes.
-  - `Profile` is created to extend built-in `User` class features, a `Profile` record is created and linked with `User` each time the later is created.
-  - Each model, except `Profile` and `BasePost`, has different type of generic views developed.
-  - Unit tests for `forum` app created by inheriting a main test class, which contain test setup and inherits built-in `TestCase`.   
+  - Classes `BasePost`, `Question` and `Answer` developed in `forum` app, `Message` in `contact_us` and `Profile` in `home` app.
+  - `BasePost` is the parent class of `Answer`  and `Question`, it contains their main attributes.
+  - `Profile` is created to extend built-in `User` class features; a `Profile` record is created and linked with `User` each time the latter is created.
+  - Each model, except `Profile` and `BasePost`, has different types of generic views developed.
+  - Unit tests for `forum` app are created by inheriting the main test class, which contains test setup and inherits built-in `TestCase`.  
 </details>
 
 <details>
