@@ -28,16 +28,16 @@
 - [Features](#features)
   - [Existing Features](#existing-features)
     - [Navbar](#navbar)
-    - [Login](#login)
     - [Signup](#signup)
+    - [Login](#login)
+    - [Notifications](#notifications)
+    - [Search Questions](#search-questions)
     - [Ask Questions](#ask-questions)
     - [Answer Questions](#answer-questions)
     - [Imporve Question/ Answer](#imporve-question-answer)
     - [Delete Question/ Answer](#delete-question-answer)
     - [Register Votes](#register-votes)
     - [Accept Answers](#accept-answers)
-    - [Search Questions](#search-questions)
-    - [User Votes](#user-votes)
     - [Contact Us](#contact-us)
     - [Inbox](#inbox)
     - [Footer](#footer)
@@ -74,6 +74,7 @@
 Owline is an online forum for all internet users. People can find answers to their questions or help others by answering their inquiries. Users can also improve posted content and promote a question or an answer positively or negatively. Admin users can organise and control content by removing irrelevant, out-of-point, and disturbing posts.
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Goals
 
@@ -90,7 +91,7 @@ Owline is an online forum for all internet users. People can find answers to the
 3. Create a direct channel of messaging with the users.
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
-
+<hr>
 
 # User Stories
 
@@ -107,7 +108,7 @@ Owline is an online forum for all internet users. People can find answers to the
 6. I can ask a question so that I can get an answer. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
 7. I can edit a question so that it is more clearly answered. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
 8. I can answer a question so that my answer could help someone. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
-9. I can edit my answers so that they are more clarified and updated. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
+9. I can edit an answer so that they are more clarified and updated. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
 10. I can accept one of my questions' answers so that other users know it helped me. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
 11. I can upvote or downvote a question or answer to show how much this question or answer is helpful. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
 12. I can see the vote score of my questions and answers on my profile, so I'll be encouraged to create more helpful questions and answers. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
@@ -115,7 +116,7 @@ Owline is an online forum for all internet users. People can find answers to the
 
 ## Admin User
 
-14. I can delete irrelevant questions so that users focus on answering valuable ones. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
+14. I can delete duplicated or irrelevant questions so that users focus on answering valuable ones. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
 15. I can delete the irrelevant answers so that they won't distract users. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
 16. I can reply to users' messages so that I provide them with the required feedback and support. ![won't have](https://img.shields.io/badge/won't%20have-red?style=flat)
 
@@ -124,10 +125,10 @@ Owline is an online forum for all internet users. People can find answers to the
 17. I want users to be able to open the site on their mobile phone or tablet so that they'll have the same experience as on a desktop. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
 18. I want users to be able to open any page wherever they are so that navigating through the site will be easy. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
 19. I want users to be able to get feedback on their actions so that they'll know if their action was successfully completed or failed. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
-20. I can see the site's text fonts and colours clearly so that I can focus on the content with no distraction. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+20. I want users to see the site's text fonts and colours clearly so that they can focus on the content without distraction. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
     
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
-
+<hr>
 
 # Design
 
@@ -181,8 +182,8 @@ Models have been developed following OOP concepts, trying to secure better maint
 ![models' class diagram](docs/class-diagram.PNG)
 </details>
 
-
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Technologies
 
@@ -207,7 +208,7 @@ Models have been developed following OOP concepts, trying to secure better maint
 - [Github](https://github.com/): used as a version control management tool.
 - [Gitpod](https://www.gitpod.io): used as a development environment.
 - [Heroku](https://www.heroku.com/): is used to deploy this site.
-- [ElephantSQL](https://www.elephantsql.com/): used to provide PostgreSQL databases as a service.
+- [ElephantSQL](https://www.elephantsql.com/): used as a PostgreSQL database service.
 - [Cloudinary](https://cloudinary.com/): is used to provide storage for the static files.
 - [Dia](http://dia-installer.de/): used to design models' class diagrams.
 - [Canva](https://www.canva.com/): used to design the logo and the colour scheme.
@@ -226,6 +227,7 @@ Models have been developed following OOP concepts, trying to secure better maint
 - [JSHint](https://jshint.com/): used to find Javascript code errors.
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Features
 
@@ -233,39 +235,311 @@ Models have been developed following OOP concepts, trying to secure better maint
 
 ### Navbar
 
-### Login
+- The navbar contains links to all site features such as the home page, account options, search and create questions, and admins' message inbox.It was developed to be responsive and simple.
+- _user stories covered: 17,18_
+
+<details>
+<summary>Navbar on Desktop</summary>
+
+![navbar desktop](docs/Screenshots/nav-desktop.PNG)
+</details>
+<details>
+<summary>Navbar on Mobile</summary>
+
+![navbar mobile](docs/Screenshots/nav-mobile.PNG)
+</details>
 
 ### Signup
 
-### Ask Questions
+- Users with no accounts can sign up with a single form and a straightforward process. They'll need only to enter the username, email, password and a passowrd confirmation.
+- _user story covered: 3_
 
-### Answer Questions
+<details>
+<summary>Singup on Desktop</summary>
 
-### Imporve Question/ Answer
+![signup desktop](docs/Screenshots/signup-desktop.PNG)
+</details>
+<details>
+<summary>Singup on Mobile</summary>
 
-### Delete Question/ Answer
+![signup mobile](docs/Screenshots/signup-mobile.PNG)
+</details>
 
-### Register Votes
+### Login
 
-### Accept Answers
+- To be able to use most sites' features, users have to be logged in. The process requires only entering a username and password and whether they want to keep their accounts logged in by clicking on the 'Remember Me' option.
+- _user stories covered: 4_
+
+<details>
+<summary>Login on Desktop</summary>
+
+![login desktop](docs/Screenshots/login-desktop.PNG)
+</details>
+<details>
+<summary>Login on Mobile</summary>
+
+![login mobile](docs/Screenshots/login-mobile.PNG)
+</details>
+
+### Notifications
+
+- Messages are shown on each user action to let them know whether their action succeeded or failed and what happened when it didn't work.
+- _user stories covered: 19_
+
+<details>
+<summary>Notifications on Desktop</summary>
+
+![notification success desktop](docs/Screenshots/notification-success-desktop.PNG)
+![notification failed desktop](docs/Screenshots/notification-failed-desktop.PNG)
+</details>
+<details>
+<summary>Notifications on Mobile</summary>
+
+![notification success mobile](docs/Screenshots/notification-success-mobile.PNG)
+![notification failed mobile](docs/Screenshots/notification-failed-mobile.PNG)
+</details>
 
 ### Search Questions
 
-### User Votes
+- Users can search for specific questions by entering some keywords. This will help users by saving time to get answers, and admins by avoiding the need to duplicate questions.
+- _user stories covered: 1,2,5_
+
+<details>
+<summary>Search on Desktop</summary>
+
+![search desktop](docs/Screenshots/search-desktop.PNG)
+</details>
+<details>
+<summary>Search on Mobile</summary>
+
+![search mobile](docs/Screenshots/search-mobile.PNG)
+</details>
+
+### Ask Questions
+
+- Logged-in Users who cannot find an available answer to their question by searching can create a new question and wait for other users replies.
+- They need to enter the title of the question, which is a brief description of what they are asking, and the body, which is an explanation in details of their issue or problem.
+- _user stories covered: 6_
+
+<details>
+<summary>Question on Desktop</summary>
+
+![question desktop](docs/Screenshots/question-create-desktop.PNG)
+</details>
+<details>
+<summary>Question on Mobile</summary>
+
+![question mobile](docs/Screenshots/question-create-mobile.PNG)
+</details>
+
+### Answer Questions
+
+- Logged-in Users who are knowledgeable about the topic of the question can respond to it to assist the asker and other readers who are experiencing similar problems. 
+- _user stories covered: 8_
+
+<details>
+<summary>Answer on Desktop</summary>
+
+![answer desktop](docs/Screenshots/answer-create-desktop.PNG)
+</details>
+<details>
+<summary>Answer on Mobile</summary>
+
+![answer mobile](docs/Screenshots/answer-create-mobile.PNG)
+</details>
+
+### Imporve Question/ Answer
+
+- Unclear questions are more likely to be answered correctly, and unclear answers won't provide the asker with the information needed. Logged-in users can update each other's questions or answers to simplify them and provide more clarity.
+- _user stories covered: 7,9_
+
+<details>
+<summary>Question Update on Desktop</summary>
+
+![question options desktop](docs/Screenshots/question-desktop.PNG)
+
+![question update desktop](docs/Screenshots/question-update-desktop.PNG)
+</details>
+<details>
+<summary>Question Update on Mobile</summary>
+
+![question options mobile](docs/Screenshots/question-mobile.PNG)
+![question update mobile](docs/Screenshots/question-update-mobile.PNG)
+</details>
+
+<details>
+<summary>Answer Update on Desktop</summary>
+
+![answer options desktop](docs/Screenshots/answer-desktop.PNG)
+
+![answer update desktop](docs/Screenshots/answer-update-desktop.PNG)
+</details>
+<details>
+<summary>Answer Update on Mobile</summary>
+
+![answer options mobile](docs/Screenshots/answer-mobile.PNG)
+
+![answer update mobile](docs/Screenshots/answer-update-mobile.PNG)
+</details>
+
+### Delete Question/ Answer
+
+- Deleting out of topic or duplicated questions or answers will help organising the content on site and control the language used on it.
+- _user stories covered: 14,15_
+
+<details>
+<summary>Question Delete on Desktop</summary>
+
+![question options desktop](docs/Screenshots/question-desktop.PNG)
+
+![question delete desktop](docs/Screenshots/question-delete-desktop.PNG)
+</details>
+<details>
+<summary>Question Delete on Mobile</summary>
+
+![question options mobile](docs/Screenshots/question-mobile.PNG)
+
+![question delete mobile](docs/Screenshots/question-delete-mobile.PNG)
+</details>
+
+<details>
+<summary>Answer Delete on Desktop</summary>
+
+![answer options desktop](docs/Screenshots/answer-desktop.PNG)
+
+![answer delete desktop](docs/Screenshots/answer-delete-desktop.PNG)
+</details>
+<details>
+<summary>Answer Delete on Mobile</summary>
+
+![answer options mobile](docs/Screenshots/answer-mobile.PNG)
+
+![answer delete mobile](docs/Screenshots/answer-delete-mobile.PNG)
+</details>
+
+### Register Votes
+
+- Voting are used in this site to provide a feedback on question or answer. Logged-in users can upvote or downvote depends on their experience with the answer or the way a question is presented.
+- Users can see the vote score of their questions and answers attached to their usernames.
+- _user stories covered: 11,12_
+
+<details>
+<summary>Question Upvote on Desktop</summary>
+
+![question upvote desktop](docs/Screenshots/upvote-question-desktop.PNG)
+</details>
+<details>
+<summary>Question Upvote on Mobile</summary>
+
+![question upvote mobile](docs/Screenshots/upvote-question-mobile.PNG)
+</details>
+<details>
+<summary>Question Downvote on Desktop</summary>
+
+![question downvote desktop](docs/Screenshots/downvote-question-desktop.PNG)
+</details>
+<details>
+<summary>Question Downvote on Mobile</summary>
+
+![question downvote mobile](docs/Screenshots/downvote-question-mobile.PNG)
+</details>
+
+<details>
+<summary>Answer Upvote on Desktop</summary>
+
+![answer upvote desktop](docs/Screenshots/upvote-answer-desktop.PNG)
+</details>
+<details>
+<summary>Answer Upvote on Mobile</summary>
+
+![answer upvote mobile](docs/Screenshots/upvote-answer-mobile.PNG)
+</details>
+<details>
+<summary>Answer Downvote on Desktop</summary>
+
+![answer downvote desktop](docs/Screenshots/downvote-answer-desktop.PNG)
+</details>
+<details>
+<summary>Answer Downvote on Mobile</summary>
+
+![answer downvote mobile](docs/Screenshots/downvote-answer-mobile.PNG)
+</details>
+
+### Accept Answers
+
+- Answers can be accepted by questions' owners, which make it easier for other users to distinguish the best answer, which has helped the asker more.
+- _user stories covered: 10_
+
+<details>
+<summary>Answer Accept on Desktop</summary>
+
+![answer accept desktop](docs/Screenshots/answer-desktop.PNG)
+</details>
+<details>
+<summary>Answer Accept on Mobile</summary>
+
+![answer accept mobile](docs/Screenshots/answer-mobile.PNG)
+</details>
 
 ### Contact Us
 
+- Logged-in users can send messages directly to the sites' administrators, providing feedback or reporting an issue on the site.
+- _user stories covered: 13_
+
+<details>
+<summary>Message on Desktop</summary>
+
+![message desktop](docs/Screenshots/message-desktop.PNG)
+</details>
+<details>
+<summary>Message on Mobile</summary>
+
+![message mobile](docs/Screenshots/message-mobile.PNG)
+</details>
+
 ### Inbox
+- Admin users can find users' messages in the inbox and therefore investigate users' issues and reply to their inquiries.
+- _user stories covered: 13,16_
+
+<details>
+<summary>Inbox on Desktop</summary>
+
+![inbox desktop](docs/Screenshots/inbox-desktop.PNG)
+</details>
+<details>
+<summary>Inbox on Mobile</summary>
+
+![inbox mobile](docs/Screenshots/inbox-mobile.PNG)
+</details>
 
 ### Footer
+
+- Positioned at the bottom of the sites' pages, the footer contains links to Home, Contact Us, and the developer's LinkedIn profile, in addition to the copyright statement.
+- _user stories covered: 17,18_
+
+<details>
+<summary>Footer on Desktop</summary>
+
+![footer desktop](docs/Screenshots/footer-desktop.PNG)
+</details>
+<details>
+<summary>Footer on Mobile</summary>
+
+![footer mobile](docs/Screenshots/footer-mobile.PNG)
+</details>
 
 ## Features Left to Implement
 
 ### Tags
 
+- Tags could be developed later, so that user could use them on question creation, which may help other users filter questions and find questions related easier.
+
 ### Reply to User Messages
 
+- The ability to reply to users' messages through the site itself will make things easier for admins, so they won't need to use an external mail service.
+  
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Validations
 
@@ -282,6 +556,7 @@ Models have been developed following OOP concepts, trying to secure better maint
 ## Lighthouse
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Testing
 
@@ -292,6 +567,7 @@ Models have been developed following OOP concepts, trying to secure better maint
 ## Bugs
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Login Credentials
 
@@ -300,6 +576,7 @@ Models have been developed following OOP concepts, trying to secure better maint
 ## Regular User
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Configurations
 
@@ -310,6 +587,7 @@ Models have been developed following OOP concepts, trying to secure better maint
 ## Deployment
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+<hr>
 
 # Credits
 
@@ -322,4 +600,3 @@ Models have been developed following OOP concepts, trying to secure better maint
 ## Acknowledgements
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
-
