@@ -56,8 +56,6 @@
   - [Automated Testing](#automated-testing)
   - [Bugs](#bugs)
 - [Login Credentials](#login-credentials)
-  - [Superuser](#superuser)
-  - [Regular User](#regular-user)
 - [Configurations](#configurations)
   - [Fork This Repository](#fork-this-repository)
   - [Make Local Clone](#make-local-clone)
@@ -571,9 +569,10 @@ Models have been developed following OOP concepts, trying to secure better maint
 
 # Login Credentials
 
-## Superuser
-
-## Regular User
+| Username |  Password  | Admin? |
+| :------- | :--------: | -----: |
+| admin    | @dminPa$46 |      ✓ |
+| ahmed    |  @hmed$90  |      X |
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 <hr>
