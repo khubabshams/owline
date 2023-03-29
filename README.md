@@ -10,6 +10,11 @@
 - [Goals](#goals)
   - [User's Goals](#users-goals)
   - [Site Owner's Goals](#site-owners-goals)
+- [User Stories](#user-stories)
+  - [Anonymous User](#anonymous-user)
+  - [Logged-in User](#logged-in-user)
+  - [Admin User](#admin-user)
+  - [Site Owner](#site-owner)
 - [Design](#design)
   - [Frontend](#frontend)
     - [Colors](#colors)
@@ -67,15 +72,63 @@
 
 # Overview
 
+Owline is an online forum for all internet users. People can find answers to their questions or help others by answering their inquiries. Users can also improve posted content and promote a question or an answer positively or negatively. Admin users can organise and control content by removing irrelevant, out-of-point, and disturbing posts.
+
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
 # Goals
 
 ## User's Goals
 
+1. Read questions and explore answers.
+2. Search and ask questions.
+3. Answer others' questions and discuss topics.
+
 ## Site Owner's Goals
 
+1. Provide an online discussion platform.
+2. Build a direct simple website that fulfill the users' needs.
+3. Create a direct channel of messaging with the users.
+
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+
+
+# User Stories
+
+## Anonymous User
+
+1. I can view and filter the listed questions so that I will be able to read them. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+2. I can be able to open a question's details so that I can read the answers. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+3. I can sign up so that I can access more of the site's features. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+4. I can be logged in so that I can ask or answer questions. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+5. I can search for specific questions so that I will avoid question duplication. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
+
+## Logged-in User
+
+6. I can ask a question so that I can get an answer. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+7. I can edit a question so that it is more clearly answered. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+8. I can answer a question so that my answer could help someone. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+9. I can edit my answers so that they are more clarified and updated. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
+10. I can accept one of my questions' answers so that other users know it helped me. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
+11. I can upvote or downvote a question or answer to show how much this question or answer is helpful. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+12. I can see the vote score of my questions and answers on my profile, so I'll be encouraged to create more helpful questions and answers. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
+13. I can contact the site's admin so that I can report an issue with the website or its content. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+
+## Admin User
+
+14. I can delete irrelevant questions so that users focus on answering valuable ones. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
+15. I can delete the irrelevant answers so that they won't distract users. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
+16. I can reply to users' messages so that I provide them with the required feedback and support. ![won't have](https://img.shields.io/badge/won't%20have-red?style=flat)
+
+## Site Owner
+
+17. I want users to be able to open the site on their mobile phone or tablet so that they'll have the same experience as on a desktop. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+18. I want users to be able to open any page wherever they are so that navigating through the site will be easy. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
+19. I want users to be able to get feedback on their actions so that they'll know if their action was successfully completed or failed. ![should have](https://img.shields.io/badge/should%20have-aqua?style=flat)
+20. I can see the site's text fonts and colours clearly so that I can focus on the content with no distraction. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+    
+[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
+
 
 # Design
 
