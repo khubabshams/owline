@@ -554,6 +554,7 @@ Pycodestyle is used to discover and solve all Python errors and warnings.
 
 ## Javascript
 
+Jshint is used to validate the Javascript code, and it passed successfully.
 <details>
 <summary>JShint Result</summary>
 
@@ -562,24 +563,56 @@ Pycodestyle is used to discover and solve all Python errors and warnings.
 
 ## HTML
 
+Nu HTML Checker is used to validate the HTML syntax, and all related errors have been resolved.
 <details>
-<summary>Pycodestyle Result</summary>
+<summary>Nu HTML Checker Results</summary>
 
-![pycodestyle result](docs/Validators/pycodestyle-result.PNG)
+![nu html checker index result](docs/Validators/html-checker-forum-index.PNG)
+![nu html checker question result](docs/Validators/html-checker-question.PNG)
 </details>
 
 ## CSS
 
+Jigsaw W3C CSS Checker is used to check the CSS stylesheets, and they passed the check without errors.
 <details>
-<summary>Pycodestyle Result</summary>
+<summary>Jigsaw W3C CSS Results</summary>
 
-![pycodestyle result](docs/Validators/pycodestyle-result.PNG)
+![jigsaw w3c css index result](docs/Validators/jigsaw-w3c-css-checker-forum-index.PNG)
+![jigsaw w3c css question result](docs/Validators/jigsaw-w3c-css-checker-question.PNG)
 </details>
 
 ## Accessability
 
+WAVE Web Accessibility Evaluation tool has been used to discover and fix contrast errors and follow web best practises.
+<details>
+<summary>WAVE Tools Results</summary>
+
+![wave index result](docs/Validators/wave-accessability-forum.PNG)
+![wave question result](docs/Validators/wave-accessability-question.PNG)
+![wave inbox result](docs/Validators/wave-accessability-inbox.PNG)
+![wave message result](docs/Validators/wave-accessability-message.PNG)
+</details>
+
 ## Lighthouse
 
+The Google Chrome Lighthouse tool used to generate reports for the sites' pages regards their performance, accessibility, best practises, and SEO on the desktop and mobile.
+<details>
+<summary>Lighthouse Results</summary>
+
+__Desktop__
+![lighthouse desktop index result](docs/Validators/lighthouse-desktop-index.PNG)
+![lighthouse desktop question result](docs/Validators/lighthouse-desktop-question.PNG)
+![lighthouse desktop question create result](docs/Validators/lighthouse-desktop-question-create.PNG)
+![lighthouse desktop inbox result](docs/Validators/lighthouse-desktop-inbox.PNG)
+![lighthouse desktop message result](docs/Validators/lighthouse-desktop-message.PNG)
+
+__Mobile__
+![lighthouse mobile index result](docs/Validators/lighthouse-mobile-index.PNG)
+![lighthouse mobile question result](docs/Validators/lighthouse-mobile-question.PNG)
+![lighthouse mobile question create result](docs/Validators/lighthouse-mobile-question-create.PNG)
+![lighthouse mobile inbox result](docs/Validators/lighthouse-mobile-inbox.PNG)
+![lighthouse mobile message result](docs/Validators/lighthouse-mobile-message.PNG)
+</details>
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 <hr>
 
