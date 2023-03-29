@@ -17,7 +17,7 @@
   - [Site Owner](#site-owner)
 - [Design](#design)
   - [Frontend](#frontend)
-    - [Colors](#colors)
+    - [Colours](#colours)
     - [Font](#font)
   - [Backend](#backend)
     - [Data Models](#data-models)
@@ -134,13 +134,54 @@ Owline is an online forum for all internet users. People can find answers to the
 
 ## Frontend
 
-### Colors
+### Colours
+
+The colour scheme created for the site is contrasted, which provides better accessibility and helps the user have a comfortable experience.
+<details>
+  <summary>The Colour Scheme</summary>
+
+![colour scheme](docs/colour-scheme.PNG)
+</details>
 
 ### Font
+
+The font used in this site is 'Lato', which is a sans-serif, clean font that's commonly used in blogs and writing.
+Different styles of the Lato font have been used:
+
+<details>
+  <summary>Headers and Titles</summary>
+
+![header and footer](docs/font-lato-300-light.PNG)
+</details>
+
+<details>
+  <summary>Navbar, Footer, Questions and Answers</summary>
+
+![navbar and footer](docs/font-lato-400.PNG)
+</details>
 
 ## Backend
 
 ### Data Models
+
+Models has been developed following OOP concepts trying to secure better maintenability and reduce redundancy.
+
+<details>
+  <summary>Models' Details</summary>
+ 
+  - Classes `BasePost`, `Question` and `Answer` developed in `forum` app, `Message` in `contact_us` and `Profile` in `home` app. 
+  - `BasePost` is the parent class of `Answer`  and `Question`, it contains their main attributes.
+  - `Profile` is created to extend built-in `User` class features, a `Profile` record is created and linked with `User` each time the later is created.
+  - Each model, except `Profile` and `BasePost`, has different type of generic views developed.
+  - Unit tests for `forum` app created by inheriting a main test class, which contain test setup and inherits built-in `TestCase`.   
+</details>
+
+<details>
+  <summary>Class Diagram For Models</summary>
+
+![models' class diagram](docs/class-diagram.PNG)
+</details>
+
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 
