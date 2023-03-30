@@ -98,7 +98,7 @@ Owline is an online forum for all internet users. People can find answers to the
 1. I can view and filter the listed questions so that I will be able to read them. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
 2. I can be able to open a question's details so that I can read the answers. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
 3. I can sign up so that I can access more of the site's features. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
-4. I can be logged in so that I can ask or answer questions. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
+4. I can logged in so that I can ask or answer questions. ![must have](https://img.shields.io/badge/must%20have-green?style=flat)
 5. I can search for specific questions so that I will avoid question duplication. ![could have](https://img.shields.io/badge/could%20have-grey?style=flat)
 
 ## Logged-in User
@@ -636,8 +636,8 @@ __Mobile__
     __Navbar -> Home__
       ![navbar home](docs/Screenshots/nav-desktop.PNG)
 
-    __Question List__
-      ![question list](docs/Screenshots/question-list-desktop.PNG)
+    __Questions List__
+      ![questions list](docs/Screenshots/question-list-desktop.PNG)
 
     __Search__
       ![search](docs/Screenshots/search-desktop.PNG)
@@ -651,86 +651,139 @@ __Mobile__
 <hr>
 
 2. I can be able to open a question's details so that I can read the answers:
+  
+    | Step                                          | Expected Result                                                   | Actual Result     |
+    | --------------------------------------------- | ----------------------------------------------------------------- | ----------------- |
+    | Open `Home` and click on one of the questions | The question page loads with its full content and related answers | Works as expected |
 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    <details>
+      <summary>Screenshots</summary>
+      
+    __Navbar -> Home__
+      ![navbar home](docs/Screenshots/nav-desktop.PNG)
 
-      <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
-      </details>
+    __Questions List__
+      ![questions list](docs/Screenshots/question-list-desktop.PNG)
+
+    __Question Details__
+      ![question details](docs/Screenshots/question-details.PNG)
+    </details>
 <hr>
 
 3. I can sign up so that I can access more of the site's features:
 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                                                                  | Expected Result                                      | Actual Result     |
+    | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------- |
+    | From navbar click on user icon, `Account` on mobile and choose `Signup`                               | Signup form loads                                    | Works as expected |
+    | Enter the `username`, `email`, `password`, and `password confirmation` then click on `Sign Up` button | Signup succeeded and the user notified and logged in | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      __Navbar -> Signup__
+        ![navbar signup](docs/Screenshots/nav-desktop.PNG)
+      
+      __Signup__
+        ![signup](docs/Screenshots/signup-desktop.PNG)
+
+      __Signup Succeded__
+        ![signup success](docs/Screenshots/signup-success.PNG)
       </details>
 <hr>
 
-4. I can be logged in so that I can ask or answer questions:
+4. I can logged in so that I can ask or answer questions:
 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                                   | Expected Result                       | Actual Result     |
+    | ---------------------------------------------------------------------- | ------------------------------------- | ----------------- |
+    | From navbar click on user icon, `Account` on mobile and choose `Login` | Login form loads                      | Works as expected |
+    | Enter the `username` and the `password` then click on `Sign In` button | Login succeeded and the user notified | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      __Navbar -> Login__
+        ![navbar login](docs/Screenshots/nav-desktop.PNG)
+      
+      __Login__
+        ![login](docs/Screenshots/login-desktop.PNG)
+
+      __Login Succeded__
+        ![login success](docs/Screenshots/login-success.PNG)
       </details>
 <hr>
 
 5. I can search for specific questions so that I will avoid question duplication:
  
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                                                 | Expected Result                                                                                                                | Actual Result     |
+    | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+    | Open `Home` and Enter keywords in the search input to filter questions and hit enter | URL will change to https://owline.herokuapp.com/forum/search/ and only questions with at least one keyword will be on the list | Works as expected |
+    | When a keyword is not found in all questions                                         | URL will change to https://owline.herokuapp.com/forum/search/ and a message of "Sorry, There's no question found!" shows       | Works as expected |
 
-      <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
-      </details>
+    <details>
+      <summary>Screenshots</summary>
+      
+    __Navbar -> Home__
+      ![navbar home](docs/Screenshots/nav-desktop.PNG)
+
+    __Questions List__
+      ![questions list](docs/Screenshots/question-list-desktop.PNG)
+
+    __Search__
+      ![search](docs/Screenshots/search-desktop.PNG)
+
+    __Search Succeeded__
+      ![search success](docs/Screenshots/search-success.PNG)
+
+    __Question Not Found__
+      ![search not found](docs/Screenshots/search-not-found.PNG)
+    </details>
 <hr>
 
 6. I can ask a question so that I can get an answer:
  
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                            | Expected Result                     | Actual Result     |
+    | --------------------------------------------------------------- | ----------------------------------- | ----------------- |
+    | Open `Home` and click `Ask Question` button                     | Question create form loads          | Works as expected |
+    | Enter question `Title` and `Body` then click on `Submit` button | Question created and its page loads | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      __Navbar -> Ask Question__
+        ![navbar ask question](docs/Screenshots/nav-desktop.PNG)
+      
+      __Question Create Form__
+        ![question create form](docs/Screenshots/question-create-desktop.PNG)
+      
+      __Question__
+        ![question](docs/Screenshots/question-desktop.PNG)
       </details>
 <hr>
 
 7. I can edit a question so that it is more clearly answered:
   
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                                                                                                         | Expected Result                                                           | Actual Result     |
+    | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------- |
+    | Open `Home` click on the question, which need to update then on question page click on the `More Actions` menu on right and choose `Improve` | Question update form loads                                                | Works as expected |
+    | Modify question `Title` or `Body` or both of them, then click on `Submit` button                                                             | Question updated and its page loads with `modified by [username]` comment | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
+      __Navbar -> Home__
         ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      
+      __Questions List__
+        ![questions list](docs/Screenshots/question-list-desktop.PNG)
+      
+      __Question__
+        ![question](docs/Screenshots/question-desktop.PNG)
+      
+      __Question Update Form__
+        ![question update form](docs/Screenshots/question-update-desktop.PNG)
+      
+      __Question Updated__
+        ![question updated](docs/Screenshots/question-updated-desktop.PNG)
       </details>
 <hr>
 
@@ -748,7 +801,7 @@ __Mobile__
       </details>
 <hr>
 
-9.  I can edit an answer so that they are more clarified and updated:
+1.  I can edit an answer so that they are more clarified and updated:
   
     | Step                               | Expected Result                     | Actual Result     |
     | ---------------------------------- | ----------------------------------- | ----------------- |
@@ -762,7 +815,7 @@ __Mobile__
       </details>
 <hr>
 
-10. I can accept one of my questions' answers so that other users know it helped me:
+1.  I can accept one of my questions' answers so that other users know it helped me:
   
     | Step                               | Expected Result                     | Actual Result     |
     | ---------------------------------- | ----------------------------------- | ----------------- |
@@ -776,7 +829,7 @@ __Mobile__
       </details>
 <hr>
 
-11. I can upvote or downvote a question or answer to show how much this question or answer is helpful:
+1.  I can upvote or downvote a question or answer to show how much this question or answer is helpful:
 
     | Step                               | Expected Result                     | Actual Result     |
     | ---------------------------------- | ----------------------------------- | ----------------- |
@@ -790,7 +843,7 @@ __Mobile__
       </details>
 <hr>
 
-12.  I can see the vote score of my questions and answers on my profile, so I'll be encouraged to create more helpful questions and answers:
+1.   I can see the vote score of my questions and answers on my profile, so I'll be encouraged to create more helpful questions and answers:
  
     | Step                               | Expected Result                     | Actual Result     |
     | ---------------------------------- | ----------------------------------- | ----------------- |
@@ -804,7 +857,7 @@ __Mobile__
       </details>
 <hr>
 
-13. I can contact the site's admin so that I can report an issue with the website or its content:
+1.  I can contact the site's admin so that I can report an issue with the website or its content:
     
 | Step                               | Expected Result                     | Actual Result     |
 | ---------------------------------- | ----------------------------------- | ----------------- |
