@@ -672,10 +672,10 @@ __Mobile__
 
 3. I can sign up so that I can access more of the site's features:
 
-    | Step                                                                                                  | Expected Result                                      | Actual Result     |
-    | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------- |
-    | From navbar click on user icon, `Account` on mobile and choose `Signup`                               | Signup form loads                                    | Works as expected |
-    | Enter the `username`, `email`, `password`, and `password confirmation` then click on `Sign Up` button | Signup succeeded and the user notified and logged in | Works as expected |
+    | Step                                                                                                      | Expected Result                                      | Actual Result     |
+    | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------- |
+    | From the navbar click on the user icon, `Account` on mobile and choose `Signup`                           | Signup form loads                                    | Works as expected |
+    | Enter the `username`, `email`, `password`, and `password confirmation` then click on the `Sign Up` button | Signup succeeded and the user notified and logged in | Works as expected |
 
       <details>
       <summary>Screenshots</summary>
@@ -691,12 +691,12 @@ __Mobile__
       </details>
 <hr>
 
-4. I can logged in so that I can ask or answer questions:
+4. I can log in so that I can ask or answer questions:
 
-    | Step                                                                   | Expected Result                       | Actual Result     |
-    | ---------------------------------------------------------------------- | ------------------------------------- | ----------------- |
-    | From navbar click on user icon, `Account` on mobile and choose `Login` | Login form loads                      | Works as expected |
-    | Enter the `username` and the `password` then click on `Sign In` button | Login succeeded and the user notified | Works as expected |
+    | Step                                                                           | Expected Result                       | Actual Result     |
+    | ------------------------------------------------------------------------------ | ------------------------------------- | ----------------- |
+    | From the navbar click on the user icon, `Account` on mobile and choose `Login` | Login form loads                      | Works as expected |
+    | Enter the `username` and the `password` then click on `Sign In` button         | Login succeeded and the user notified | Works as expected |
 
       <details>
       <summary>Screenshots</summary>
@@ -741,10 +741,10 @@ __Mobile__
 
 6. I can ask a question so that I can get an answer:
  
-    | Step                                                            | Expected Result                     | Actual Result     |
-    | --------------------------------------------------------------- | ----------------------------------- | ----------------- |
-    | Open `Home` and click `Ask Question` button                     | Question create form loads          | Works as expected |
-    | Enter question `Title` and `Body` then click on `Submit` button | Question created and its page loads | Works as expected |
+    | Step                                                                | Expected Result                     | Actual Result     |
+    | ------------------------------------------------------------------- | ----------------------------------- | ----------------- |
+    | Open `Home` and click the `Ask Question` button                     | Question create form loads          | Works as expected |
+    | Enter question `Title` and `Body` then click on the `Submit` button | Question created and its page loads | Works as expected |
 
       <details>
       <summary>Screenshots</summary>
@@ -762,10 +762,10 @@ __Mobile__
 
 7. I can edit a question so that it is more clearly answered:
   
-    | Step                                                                                                                                         | Expected Result                                                           | Actual Result     |
-    | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------- |
-    | Open `Home` click on the question, which need to update then on question page click on the `More Actions` menu on right and choose `Improve` | Question update form loads                                                | Works as expected |
-    | Modify question `Title` or `Body` or both of them, then click on `Submit` button                                                             | Question updated and its page loads with `modified by [username]` comment | Works as expected |
+    | Step                                                                                                                                                  | Expected Result                                                           | Actual Result     |
+    | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------- |
+    | Open `Home` and click on the question, which needs to update then on the question page click on the `More Actions` menu on right and choose `Improve` | Question update form loads                                                | Works as expected |
+    | Modify question `Title` or `Body` or both of them, then click on the `Submit` button                                                                  | Question updated and its page loads with `modified by [username]` comment | Works as expected |
 
       <details>
       <summary>Screenshots</summary>
@@ -789,182 +789,283 @@ __Mobile__
 
 8. I can answer a question so that my answer could help someone:
   
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                                                                                       | Expected Result                                 | Actual Result     |
+    | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------------- |
+    | Click on the question, which needs to answer then on the bottom of the page fill in the `Answer's Body` and click `Submit` | Question page reloads with a new answer created | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      <summary>Screenshots</summary>
+      
+      __Questions List__
+        ![questions list](docs/Screenshots/question-list-desktop.PNG)
+
+      __Question__
+        ![question](docs/Screenshots/question-desktop.PNG)
+      
+      __Answer Create Form__
+        ![answer create form](docs/Screenshots/answer-create-desktop.PNG)
       </details>
 <hr>
 
-1.  I can edit an answer so that they are more clarified and updated:
+9.  I can edit an answer so that they are more clarified and updated:
   
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                                                                 | Expected Result                                                                             | Actual Result     |
+    | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------- |
+    | On the answer that needs to be updated click on the `More Actions` menu on right and choose `Update` | Answer update form loads                                                                    | Works as expected |
+    | Modify the answer `Body`, then click on the `Submit` button                                          | Question page reloads and the answer is updated and commented with `modified by [username]` | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      __Question__
+        ![question](docs/Screenshots/question-details.PNG)
+      
+      __Answer Update Form__
+        ![answer update form](docs/Screenshots/answer-update-desktop.PNG)
+      
+      __Answer Updated__
+        ![answer updated](docs/Screenshots/answer-updated-desktop.PNG)
       </details>
 <hr>
 
-1.  I can accept one of my questions' answers so that other users know it helped me:
-  
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+10.  I can accept one of my questions' answers so that other users know it helped me:
 
-      <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
-      </details>
-<hr>
+    | Step                                                                                                                                       | Expected Result                                | Actual Result     |
+    | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ----------------- |
+    | Open the question page and go down for answers, on the answer need to accept click on the `More Actions` menu on right and choose `Accept` | Question page reloads with the answer accepted | Works as expected |
 
-1.  I can upvote or downvote a question or answer to show how much this question or answer is helpful:
-
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
-
-      <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
-      </details>
-<hr>
-
-1.   I can see the vote score of my questions and answers on my profile, so I'll be encouraged to create more helpful questions and answers:
- 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
-
-      <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
-      </details>
-<hr>
-
-1.  I can contact the site's admin so that I can report an issue with the website or its content:
+  <details>
+  <summary>Screenshots</summary>
     
-| Step                               | Expected Result                     | Actual Result     |
-| ---------------------------------- | ----------------------------------- | ----------------- |
-| Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+  __Question__
+    ![question](docs/Screenshots/question-details.PNG)
+    
+  __Answer__
+    ![answer](docs/Screenshots/answer-desktop.PNG)
+  
+  __Answer Accepted__
+    ![answer accepted](docs/Screenshots/answer-accepted.PNG)
+    
+  </details>
+<hr>
+
+11.  I can upvote or downvote a question or answer to show how much this question or answer is helpful:
+    
+    | Step                                                                                  | Expected Result                                                               | Actual Result     |
+    | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------- |
+    | Open the question page and click on the `Arrows` on the left, left-down on mobile     | Question page reloads with vote increased/ decreased and user notified        | Works as expected |
+    | Open the question page and go down for answers click on the `Thumbs` on the left-down | Question page reloads with an answer upvoted/ downvoted and the user notified | Works as expected |
+      
+      <details>
+        <summary>Screenshots</summary>
+        
+      __Question__
+        ![question](docs/Screenshots/question-details.PNG)
+      
+      __Question Vote__
+        ![question vote](docs/Screenshots/upvote-question-desktop.PNG)
+          
+      __Answer Vote__
+        ![answer vote](docs/Screenshots/upvote-answer-desktop.PNG)
+      
+      __Vote Signed__
+        ![vote signed](docs/Screenshots/notification-success-desktop.PNG.PNG)
+    
+      </details>
+<hr>
+
+12.   I can see the vote score of my questions and answers on my profile, so I'll be encouraged to create more helpful questions and answers:
+ 
+    | Step                           | Expected Result                                                                       | Actual Result     |
+    | ------------------------------ | ------------------------------------------------------------------------------------- | ----------------- |
+    | Open a question or answer post | Beside the username, the total number of votes he got appears as `Username [number]v` | Works as expected |
+
+      <details>
+      <summary>Screenshots</summary>
+        
+      __Question__
+        ![question](docs/Screenshots/question-details.PNG)
+      
+      __Profile Votes__
+        ![profile votes](docs/Screenshots/profile-votes.PNG)
+      </details>
+<hr>
+
+13.  I can contact the site's admin so that I can report an issue with the website or its content:
+    
+    | Step                                                                                | Expected Result            | Actual Result     |
+    | ----------------------------------------------------------------------------------- | -------------------------- | ----------------- |
+    | Click on `Contact Us`                                                               | Contact Us form page loads | Works as expected |
+    | Enter `email`, `body`, and `name`, which is an optional input, then click on `Send` | Home page loads            | Works as expected |
 
   <details>
     <summary>Screenshots</summary>
     
-    __Navber -> Home__
-    ![navbar home](docs/Screenshots/nav-desktop.PNG)
+  __Contact Us__
+    ![contact us](docs/Screenshots/contactus-navbar.PNG)
+  
+  __Message Create Form__
+    ![message create](docs/Screenshots/message-create-desktop.PNG)
+
+  __Message Created__
+    ![message created](docs/Screenshots/message-desktop.PNG)
   </details>
 
-14. I can delete duplicated or irrelevant questions so that users focus on answering valuable ones:
+14.  I can delete duplicated or irrelevant questions so that users focus on answering valuable ones:
 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                                                                                                                                 | Expected Result                         | Actual Result     |
+    | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ----------------- |
+    | Open `Home` and click on the question, which needs to delete then on the question page click on the `More Actions` menu on right and choose `Remove` | Question delete confirmation form loads | Works as expected |
+    | Click on `Confirm` button                                                                                                                            | Question deleted and `Home` page load   | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
+      __Navbar -> Home__
         ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      
+      __Questions List__
+        ![questions list](docs/Screenshots/question-list-desktop.PNG)
+      
+      __Question__
+        ![question](docs/Screenshots/question-desktop.PNG)
+      
+      __Question Delete Confirmation Form__
+        ![question delete form](docs/Screenshots/question-delete-desktop.PNG)
       </details>
 <hr>
 
-15. I can delete the irrelevant answers so that they won't distract users:
 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+15.  I can delete the irrelevant answers so that they won't distract users:
 
-      <details>
-        <summary>Screenshots</summary>
+    | Step                                                                                                                                       | Expected Result                          | Actual Result     |
+    | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- | ----------------- |
+    | Open the question page and go down for answers, on the answer need to delete click on the `More Actions` menu on right and choose `Delete` | Answer delete confirmation form loads    | Works as expected |
+    | Click on `Confirm` button                                                                                                                  | Question page reloads and answer deleted | Works as expected |
+  
+  <details>
+  <summary>Screenshots</summary>
+    
+  __Question__
+    ![question](docs/Screenshots/question-details.PNG)
+    
+  __Answer__
+    ![answer](docs/Screenshots/answer-desktop.PNG)
+  
+  __Answer Delete Confirmation Form__
+    ![answer delete form](docs/Screenshots/answer-delete-desktop.PNG)
+    
+  </details>
+<hr>
+
+16.  I can reply to users' messages so that I provide them with the required feedback and support:
+
+_The use of an external mail service needed as a feature not fully implemented_ 
+
+| Step                                                                                                       | Expected Result                          | Actual Result     |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ----------------- |
+| Click on `Inbox` and click on the message need to reply and copy the `email` to send a message to the user | Message page loads with the user's email | Works as expected |
+  
+  <details>
+      <summary>Screenshots</summary>
+      
+  __Navbar -> Inbox__
+        ![navbar inbox](docs/Screenshots/inbox-nav-desktop.PNG)
+
+  __Message__
+        ![message](docs/Screenshots/message-desktop.PNG)
+  </details>
+<hr>
+
+17.  I want users to be able to open the site on their mobile phone or tablet so that they'll have the same experience as on a desktop:
+
+| Step                                                   | Expected Result                                               | Actual Result     |
+| ------------------------------------------------------ | ------------------------------------------------------------- | ----------------- |
+| Open https://owline.herokuapp.com/ on mobile or tablet | Navbar and other elements fully responsive on smaller screens | Works as expected |
+| Navigate to question page                              | Vote control will move to left-down the question              | Works as expected |
+
+  <details>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+  __Navbar Mobile__
+        ![navbar mobile](docs/Screenshots/nav-mobile.PNG)
+
+  __Question Mobile__
+        ![question mobile](docs/Screenshots/question-mobile.PNG)
+  
+  __Answer Mobile__
+        ![answer mobile](docs/Screenshots/answer-mobile.PNG)
+
+  __Inbox Mobile__
+        ![inbox mobile](docs/Screenshots/inbox-mobile.PNG)
+
+  __Message Mobile__
+        ![message mobile](docs/Screenshots/message-mobile.PNG)
       </details>
 <hr>
 
-16. I can reply to users' messages so that I provide them with the required feedback and support:
+18.  I want users to be able to open any page wherever they are so that navigating through the site will be easy:
 
     | Step                               | Expected Result                     | Actual Result     |
     | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | From Navbar click on  `Home`       | Home page loads with questions list | Works as expected |
+    | From Footer click on home icon     | Home page loads with questions list | Works as expected |
+    | From Navbar click on  `Contact Us` | Message create form loads           | Works as expected |
+    | From Footer click on envelope icon | Message create form loads           | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      __Navbar__
+        ![navbar](docs/Screenshots/contactus-navbar.PNG)
+
+      __Footer__
+        ![footer](docs/Screenshots/footer-desktop.PNG)
       </details>
 <hr>
 
-17. I want users to be able to open the site on their mobile phone or tablet so that they'll have the same experience as on a desktop:
+19.  I want users to be able to get feedback on their actions so that they'll know if their action was completed or failed:
 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                        | Expected Result   | Actual Result     |
+    | ------------------------------------------- | ----------------- | ----------------- |
+    | `Upvote` or `Downvote` a question or answer | Feedback provided | Works as expected |
+    | Try to `Accept` an answer                   | Feedback provided | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+       __Upvote__
+        ![upvote](docs/Screenshots/upvote-answer-desktop.PNG)
+      
+       __Downvote__
+        ![downvote](docs/Screenshots/downvote-answer-desktop.PNG)
+       
+       __Vote Success__
+        ![vote success](docs/Screenshots/notification-success-desktop.PNG)
+      
+       __Vote Failed__
+        ![vote failed](docs/Screenshots/notification-failed-desktop.PNG)
+        
+       __Answer Accept Success Mobile__
+        ![accept success](docs/Screenshots/notification-success-mobile.PNG)
+      
       </details>
 <hr>
 
-18. I want users to be able to open any page wherever they are so that navigating through the site will be easy:
+20.   I want users to see the site's text fonts and colours clearly so that they can focus on the content without distraction:
 
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
-
-      <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
-      </details>
-<hr>
-
-19. I want users to be able to get feedback on their actions so that they'll know if their action was successfully completed or failed:
-
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+    | Step                                          | Expected Result                                                                                                                              | Actual Result     |
+    | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+    | Open `Home` and click on one of the questions | Home and question pages load with clear font of `Lato` and comfortable `black` colour font and `dark blue` vote buttons on a `white` surface | Works as expected |
 
       <details>
-        <summary>Screenshots</summary>
+      <summary>Screenshots</summary>
         
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
-      </details>
-<hr>
-
-20. I want users to see the site's text fonts and colours clearly so that they can focus on the content without distraction:
-
-    | Step                               | Expected Result                     | Actual Result     |
-    | ---------------------------------- | ----------------------------------- | ----------------- |
-    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
-
-      <details>
-        <summary>Screenshots</summary>
-        
-        __Navbar -> Home__
-        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      __Questions List__
+        ![questions list](docs/Screenshots/question-list-desktop.PNG)
+      
+      __Question__
+        ![question](docs/Screenshots/question-details.PNG)
       </details>
 <hr>
 
