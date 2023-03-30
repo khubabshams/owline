@@ -613,6 +613,7 @@ __Mobile__
 ![lighthouse mobile inbox result](docs/Validators/lighthouse-mobile-inbox.PNG)
 ![lighthouse mobile message result](docs/Validators/lighthouse-mobile-message.PNG)
 </details>
+
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 <hr>
 
@@ -621,6 +622,56 @@ __Mobile__
 ## Manual Testing
 
 ## Automated Testing
+
+- All unit tests written for this site have been passed successfully.
+  <details>
+  <summary>How to Run Automated Testing </summary>
+
+  - the testing command:
+
+    `python3 manage.py test [app_name]`
+
+  - Or generate test coverage reports using the coverage command:
+
+    `coverage run --source=[app_name] --omit='*/migrations/*.py' manage.py test`
+
+  - To get the coverage report results:
+
+    `coverage html`
+    `python3 -m http.server`
+
+  - Open the browser and click on `htmlcov/` to see the report.
+  </details>
+
+  <details>
+  <summary>Unit Test Result</summary>
+
+  ![unit test result](docs/Validators/unit-test-result.PNG)
+  </details>
+
+  <details>
+  <summary>Forum App Coverage Report</summary>
+
+  ![forum coverage report](docs/Validators/forum-test-coverage.PNG)
+  </details>
+
+  <details>
+  <summary>Contact Us App Coverage Report</summary>
+
+  ![contact us coverage report](docs/Validators/contactus-test-coverage.PNG)
+  </details>
+
+  <details>
+  <summary>Home App Coverage Report</summary>
+
+  ![home coverage report](docs/Validators/home-test-coverage.PNG)
+  </details>
+
+  <details>
+  <summary>Overall Coverage Report</summary>
+
+  ![overall coverage report](docs/Validators/overall-test-coverage.png)
+  </details>
 
 ## Bugs
 
