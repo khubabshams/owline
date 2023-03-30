@@ -1,7 +1,11 @@
+**Live Site:** https://owline.herokuapp.com
+
+**Developed by:** [Khubab Shamsuddin](https://www.linkedin.com/in/kshamse/)
+
 <kbd>[<img src="docs/owline-logo.png" alt="Owline logo" title="Owline Live Site" width="200"/>](https://owline.herokuapp.com)</kbd>
 
-[Owline Live Site](https://owline.herokuapp.com)
 
+![Ownline multi-screens](docs/amiresponsive.PNG)
 
 # Table of Contents
 
@@ -54,17 +58,15 @@
 - [Testing](#testing)
   - [Manual Testing of User Stories](#manual-testing-of-user-stories)
   - [Automated Testing](#automated-testing)
-  - [Bugs](#bugs)
-- [Login Credentials](#login-credentials)
 - [Configurations](#configurations)
+  - [Login Credentials](#login-credentials)
   - [Fork This Repository](#fork-this-repository)
   - [Make Local Clone](#make-local-clone)
-  - [Deployment](#deployment)
 - [Credits](#credits)
   - [Media](#media)
-  - [Docs](#docs)
+  - [Documentations](#documentations)
   - [Code](#code)
-  - [Acknowledgements](#acknowledgements)
+  - [Errors Solving](#errors-solving)
 
 
 # Overview
@@ -868,7 +870,7 @@ __Answer Vote__
 ![answer vote](docs/Screenshots/upvote-answer-desktop.PNG)
 
 __Vote Signed__
-![vote signed](docs/Screenshots/notification-success-desktop.PNG.PNG)
+![vote signed](docs/Screenshots/notification-success-desktop.PNG)
 
 </details>
 <hr>
@@ -985,21 +987,14 @@ __17.  I want users to be able to open the site on their mobile phone or tablet 
 
 <details>
   <summary>Screenshots</summary>
-    
-__Navbar Mobile__
-    ![navbar mobile](docs/Screenshots/nav-mobile.PNG)
 
-__Question Mobile__
-    ![question mobile](docs/Screenshots/question-mobile.PNG)
+__Site on Mobile Screen__
 
-__Answer Mobile__
-    ![answer mobile](docs/Screenshots/answer-mobile.PNG)
-
-__Inbox Mobile__
-    ![inbox mobile](docs/Screenshots/inbox-mobile.PNG)
-
-__Message Mobile__
-    ![message mobile](docs/Screenshots/message-mobile.PNG)
+  ![inbox mobile](docs/Screenshots/inbox-mobile.PNG)
+  ![answer mobile](docs/Screenshots/answer-mobile.PNG)  
+  ![question mobile](docs/Screenshots/question-mobile.PNG)
+  ![message mobile](docs/Screenshots/message-mobile.PNG)
+  ![navbar mobile](docs/Screenshots/nav-mobile.PNG)
   </details>
 <hr>
 
@@ -1046,6 +1041,7 @@ __Vote Failed__
 ![vote failed](docs/Screenshots/notification-failed-desktop.PNG)
 
 __Answer Accept Success Mobile__
+
 ![accept success](docs/Screenshots/notification-success-mobile.PNG)
 
 </details>
@@ -1121,28 +1117,40 @@ __Question__
   ![overall coverage report](docs/Validators/overall-test-coverage.png)
   </details>
 
-## Bugs
-
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 <hr>
 
-# Login Credentials
+# Configurations
+
+## Login Credentials
 
 | Username |  Password  | Admin? |
 | :------- | :--------: | -----: |
 | admin    | @dminPa$46 |      ✓ |
 | ahmed    |  @hmed$90  |      X |
 
-[<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
-<hr>
-
-# Configurations
-
 ## Fork This Repository
+
+<details>
+<summary>How to fork this repository</summary>
+
+1. On the top right of this page, click on the `Fork` button.
+2. On `Create a new fork` update the repository's `name` and `description` if needed.
+3. Then click on `Create fork`.
+
+</details>
 
 ## Make Local Clone
 
-## Deployment
+<summary>How to make a local clone from this repository</summary>
+
+1. On top of this page, click on the `<> Code` button.
+2. Select "HTTPS" from the drop-down menu.
+3. Click on the `clipboard` icon to copy the URL.
+4. On your computer, open the terminal where you want to clone the repository.
+5. Enter the command: `git clone [copied URL]` and press `Enter`.
+
+</details>
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
 <hr>
@@ -1151,10 +1159,55 @@ __Question__
 
 ## Media
 
-## Docs
+- Question not found: image is an <a href="https://www.freepik.com/free-vector/mistery-box-concept-illustration_24487830.htm#query=question%20not%20found&position=11&from_view=search&track=ais">image by storyset</a> on Freepik
+- Error page 400: image is an <a href="https://www.freepik.com/free-vector/400-error-bad-request-concept-illustration_8030432.htm#query=400&position=1&from_view=search&track=sph">image by storyset</a> on Freepik
+- Error page 403: image is an <a href="https://www.freepik.com/free-vector/403-error-forbidden-with-police-concept-illustration_8030434.htm#query=403&position=1&from_view=search&track=sph">image by storyset</a> on Freepik
+- Error page 404: image is an <a href="https://www.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_8030430.htm#query=404&position=2&from_view=search&track=sph">image by storyset</a> on Freepik
+- Error page 500: image is an <a href="https://www.freepik.com/free-vector/500-internal-server-error-concept-illustration_8030427.htm#query=500&position=14&from_view=search&track=sph">image by storyset</a> on Freepik
 
+## Documentations
+
+- [Organizing models in a package](https://docs.djangoproject.com/en/1.11/topics/db/models/#organizing-models-in-a-package).
+- [Bootstrap navbars](https://getbootstrap.com/docs/5.0/components/navbar/).
+- [Built-in filter (safe)](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#safe)
+- [Built-in filter (truncatewords)](https://docs.djangoproject.com/en/dev/ref/templates/builtins/#truncatewords).
+- [Django auto slug library](https://pypi.org/project/django-autoslug/).
+- [Django testing overview](https://docs.djangoproject.com/en/4.1/topics/testing/overview/).
+- [Django testing example](https://docs.djangoproject.com/en/1.11/topics/testing/tools/#overview-and-a-quick-example).
+- [Pagination](https://docs.djangoproject.com/en/4.1/topics/pagination/).
+  
 ## Code
 
-## Acknowledgements
+- Extending built-in user model is taken from [Vitor Freitas](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#proxy).
+- Some of the index HTML page and pagination code in the base file are taken from [Code Institute's blog starter](https://github.com/Code-Institute-Solutions/django-blog-starter-files/blob/master/templates/index.html).
+- Generic views were developed based on [GeeksforGeeks](https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/) and [onespacemedia.com](https://www.onespacemedia.com/news/getting-started-generic-class-based-views-django/) posts.
+- Getting to know about Django filters after [David](https://stackoverflow.com/questions/20095936/add-rich-text-format-functionality-to-django-textfield) and [heckj](https://stackoverflow.com/questions/3484149/limit-number-of-characters-with-django-template-filter) answers.
+- Specifying login required for function-based views is from this [Stackoverflow thread](https://stackoverflow.com/questions/3578882/how-to-specify-the-login-required-redirect-url-in-django).
+- Adding value to many to many fields is an idea of [Daniel Roseman](https://stackoverflow.com/questions/1182380/how-to-add-data-into-manytomany-field).
+- Code of getting the list of `ids` from many to many fields is taken from [Luan Fonseca](https://stackoverflow.com/questions/17388254/django-retrieving-ids-of-manytomany-fields-quickly).
+- Counting the number of answers in a question is based on the [poke](https://stackoverflow.com/questions/65524039/django-template-exceptions-templatesyntaxerror-could-not-parse-some-characters) answer.
+- style of the question and answer cards is taken from [CSSCodeLab](https://www.csscodelab.com/html-css-chat-bubble-design-example/).
+- a user record in testing is taken from [Sam Dolan](https://stackoverflow.com/questions/3495114/how-to-create-admin-user-in-django-tests-py) answer.
+- Testing the generic update view is based on [Kurt Peek answer](https://stackoverflow.com/questions/48814830/how-to-test-djangos-updateview)
+- Dealing with the HTTP response context is based on [daveoncode answer](https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages).
+- Checking whether query sets are equal or not is done with the help of [Alasdair](https://stackoverflow.com/questions/45217691/django-check-if-querysets-are-equals
+).
+- The code of the filtering question in the search function is taken from [Bryce Siedschlaw](https://stackoverflow.com/questions/5956391/django-objects-filter-with-list).
+- Ignoring letter cases when filtering is an idea from [Ron](https://stackoverflow.com/questions/11743207/how-to-query-case-insensitive-data-in-django-orm).
+- Overriding the delete generic view function is inspired by [Django forum post](https://forum.djangoproject.com/t/overriding-delete-method-in-generic-delete-view-not-working-and-getting-warning/12089) and [Stackoverflow answer](https://stackoverflow.com/questions/57661025/how-to-prevent-deletion-of-django-model-from-django-admin-unless-part-of-a-casc).
+- Using object database `id` to give a unique HTML `id` is based on [Aman Garg answer](https://stackoverflow.com/questions/64906475/how-to-set-the-id-of-an-html-element-with-django-variable).
+- Error page messages taken from [Canva](https://www.canva.com/templates/EAFM6KBWneA-light-pink-light-blue-pastel-green-gradients-error-page-website-error-page/), [UXDesign](https://uxdesign.cc/designing-error-pages-that-actually-work-a8724f51a141), and [GeeksforGeeks](https://www.geeksforgeeks.org/http-status-codes-client-error-responses/?ref=rp).
+- Media query code taken from [W3Schools](https://www.w3schools.com/css/css_rwd_mediaqueries.asp).
+- Ignoring migrations' files on the coverage test command is taken from [Torsten Engelbrecht](https://stackoverflow.com/questions/4500785/how-can-i-exclude-south-migrations-from-coverage-reports-using-coverage-py).
+
+## Errors Solving
+
+- The template does not exist issue for delete views was resolved with the help of [Alasdair's answer](https://stackoverflow.com/questions/47894779/django-templatedoesnotexist-auth-user-confirm-delete-html).
+- Fixing the error of `Error: Got an error creating the test database: permission denied to create database` while testing was done with the help of [kawadhiya21 answer](https://stackoverflow.com/questions/47466185/got-an-error-creating-the-test-database-django-unittest).
+- Fixing word breaks in posts is taken from [Gready](https://stackoverflow.com/questions/29650189/how-to-disable-word-breaking-in-css) and [Peyman Mohamadpour](https://stackoverflow.com/questions/1165497/how-to-prevent-text-from-overflowing-in-css).
+- Solving the `too long string` issue is done with the help of [FogleBird](https://stackoverflow.com/questions/8577027/how-to-declare-a-long-string-in-python).
+- Fixing Heroku `pull rejected` crash because of static files was done with the help of [Aokiji answer](https://stackoverflow.com/questions/49266021/django-app-only-works-on-debug-true-heroku).
+- Solving the `Heroku refused to connect` in WAVE tool and Am I Responsive Sites issue is done by installing the `Ignore X-Frame headers` Google Chrome extension, which is recommended by [Techsini post](https://techsini.com/unable-to-generate-mockup-of-your-website-here-is-the-quick-fix/)
+
 
 [<img src="docs/top-arrow.png" alt="Top arrow" title="Go Top" width="50"/>](#table-of-contents)
