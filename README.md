@@ -52,7 +52,7 @@
   - [Accessability](#accessability)
   - [Lighthouse](#lighthouse)
 - [Testing](#testing)
-  - [Manual Testing](#manual-testing)
+  - [Manual Testing of User Stories](#manual-testing-of-user-stories)
   - [Automated Testing](#automated-testing)
   - [Bugs](#bugs)
 - [Login Credentials](#login-credentials)
@@ -619,7 +619,302 @@ __Mobile__
 
 # Testing
 
-## Manual Testing
+## Manual Testing of User Stories
+
+1. I can view and filter the listed questions so that I will be able to read them:
+
+
+    | Step                                                                 | Expected Result                                                                                                                | Actual Result     |
+    | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+    | Open https://owline.herokuapp.com/                                   | Home page loads with questions list                                                                                            | Works as expected |
+    | Enter keywords in the search input to filter questions and hit enter | URL will change to https://owline.herokuapp.com/forum/search/ and only questions with at least one keyword will be on the list | Works as expected |
+    | When a keyword is not found in all questions                         | URL will change to https://owline.herokuapp.com/forum/search/ and a message of "Sorry, There's no question found!" shows       | Works as expected |
+
+    <details>
+      <summary>Screenshots</summary>
+      
+    __Navbar -> Home__
+      ![navbar home](docs/Screenshots/nav-desktop.PNG)
+
+    __Question List__
+      ![question list](docs/Screenshots/question-list-desktop.PNG)
+
+    __Search__
+      ![search](docs/Screenshots/search-desktop.PNG)
+
+    __Search Succeeded__
+      ![search success](docs/Screenshots/search-success.PNG)
+
+    __Question Not Found__
+      ![search not found](docs/Screenshots/search-not-found.PNG)
+    </details>
+<hr>
+
+2. I can be able to open a question's details so that I can read the answers:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+3. I can sign up so that I can access more of the site's features:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+4. I can be logged in so that I can ask or answer questions:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+5. I can search for specific questions so that I will avoid question duplication:
+ 
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+6. I can ask a question so that I can get an answer:
+ 
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+7. I can edit a question so that it is more clearly answered:
+  
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+8. I can answer a question so that my answer could help someone:
+  
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+9.  I can edit an answer so that they are more clarified and updated:
+  
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+10. I can accept one of my questions' answers so that other users know it helped me:
+  
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+11. I can upvote or downvote a question or answer to show how much this question or answer is helpful:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+12.  I can see the vote score of my questions and answers on my profile, so I'll be encouraged to create more helpful questions and answers:
+ 
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+13. I can contact the site's admin so that I can report an issue with the website or its content:
+    
+| Step                               | Expected Result                     | Actual Result     |
+| ---------------------------------- | ----------------------------------- | ----------------- |
+| Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+  <details>
+    <summary>Screenshots</summary>
+    
+    __Navber -> Home__
+    ![navbar home](docs/Screenshots/nav-desktop.PNG)
+  </details>
+
+14. I can delete duplicated or irrelevant questions so that users focus on answering valuable ones:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+15. I can delete the irrelevant answers so that they won't distract users:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+16. I can reply to users' messages so that I provide them with the required feedback and support:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+17. I want users to be able to open the site on their mobile phone or tablet so that they'll have the same experience as on a desktop:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+18. I want users to be able to open any page wherever they are so that navigating through the site will be easy:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+19. I want users to be able to get feedback on their actions so that they'll know if their action was successfully completed or failed:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
+20. I want users to see the site's text fonts and colours clearly so that they can focus on the content without distraction:
+
+    | Step                               | Expected Result                     | Actual Result     |
+    | ---------------------------------- | ----------------------------------- | ----------------- |
+    | Open https://owline.herokuapp.com/ | Home page loads with questions list | Works as expected |
+
+      <details>
+        <summary>Screenshots</summary>
+        
+        __Navbar -> Home__
+        ![navbar home](docs/Screenshots/nav-desktop.PNG)
+      </details>
+<hr>
+
 
 ## Automated Testing
 
